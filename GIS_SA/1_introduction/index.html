@@ -75,7 +75,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1316,14 +1325,14 @@
 <p>这章内容主要是对空间分析的历史、发展、概念、方法、目的等内容的概述，简单介绍了空间分析中PPDAC的流程。</p>
 <p>这章内容以了解为主，主要掌握空间分析的概念，基本知道PPDAC模型的分析流程即可。</p>
 </details>
-<h2 id="1">1. 空间分析概述</h2>
-<h3 id="11">1.1 著名的空间分析案例</h3>
+<h2 id="1">1. 空间分析概述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 著名的空间分析案例<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>1854年伦敦爆发严重霍乱，当时流行的观点是霍乱是通过空气传播的，而John Snow医生研究发现，霍乱是通过饮用水传播的。原来是由于掏粪工人员不足，粪水流进了泰晤士河，很快泰晤士河就变得污秽不堪。研究过程中，John Snow医生统计分析发现，大多数病例的住所都围绕在Broad Street水泵附近，结合其他证据得出饮用水传播的结论，于是移掉了Broad Street水泵的把手，霍乱最终得到控制。</p>
 <details class="quote" open="open">
 <summary>Reference</summary>
 <p><a href="http://k.sina.com.cn/article_6217635532_1729996cc001006caf.html?from=history">抽水马桶意外引发的血案，3万百姓惨死自己大便之下</a></p>
 </details>
-<h3 id="12-gis">1.2 GIS的早期历史与一些发展</h3>
+<h3 id="12-gis">1.2 GIS的早期历史与一些发展<a class="headerlink" href="#12-gis" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>20世纪60年代，随着计算机和计算地理学的出现，地理信息系统(GIS)萌芽。</p>
@@ -1352,7 +1361,7 @@
 <summary>Reference</summary>
 <p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线 </a></p>
 </details>
-<h3 id="13-gis">1.3 GIS的现在</h3>
+<h3 id="13-gis">1.3 GIS的现在<a class="headerlink" href="#13-gis" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>GIS 使人们能够创建自己的数字地图图层，从而帮助解决实际问题。</p>
@@ -1369,7 +1378,7 @@
 <summary>Reference</summary>
 <p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线 </a></p>
 </details>
-<h3 id="14-gis">1.4 GIS的未来</h3>
+<h3 id="14-gis">1.4 GIS的未来<a class="headerlink" href="#14-gis" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>随着向 Web 和云计算的转移，以及通过物联网与实时信息的集成，GIS 已成为与几乎所有人类的努力息息相关的平台，成为地球的神经系统。</p>
@@ -1382,8 +1391,8 @@
 <summary>Reference</summary>
 <p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线</a></p>
 </details>
-<h2 id="2">2. 空间分析概念与方法</h2>
-<h4 id="21">2.1 什么是空间分析</h4>
+<h2 id="2">2. 空间分析概念与方法<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h4 id="21">2.1 什么是空间分析<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
 <ul>
 <li>空间分析是对数据的空间信息、属性性息或者二者共同信息的统计描述或说明。</li>
 </ul>
@@ -1412,7 +1421,7 @@
 <p class="admonition-title">Cite</p>
 <p>Spatial analysis is the essence/core of geography，it aims to spatial data analysis and data mining to solve problems.</p>
 </div>
-<h4 id="22">2.2 空间分析方法与应用</h4>
+<h4 id="22">2.2 空间分析方法与应用<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1527,7 +1536,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="23">2.3 空间分析的研究内容</h4>
+<h4 id="23">2.3 空间分析的研究内容<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>空间分析理论</p>
@@ -1542,7 +1551,7 @@
 <p>主要研究如何应用空间分析的理论和方法解决实际问题，重点是如何将复杂具体的现实问题抽象为空间问题，搭建模型、方法与应用之间的桥梁。</p>
 </li>
 </ul>
-<h4 id="24">2.4 空间分析的目的</h4>
+<h4 id="24">2.4 空间分析的目的<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
 <ul>
 <li>
 <p>认知(Cognition)</p>
@@ -1562,7 +1571,7 @@
 <p>根据空间分析的结果进行决策，如<a href="https://www.esri.com/zh-cn/industries/transit/business-areas/route-planning-optimization">规划和优化交通路线</a>。 </p>
 </li>
 </ul>
-<h4 id="25-dikw">2.5  DIKW模型</h4>
+<h4 id="25-dikw">2.5  DIKW模型<a class="headerlink" href="#25-dikw" title="Permanent link">&para;</a></h4>
 <p>DIKW金字塔很好地描述了人类认识世界的规律和层次结构，分别是：</p>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
@@ -1587,15 +1596,15 @@
 </li>
 </ul>
 <p>DIKW金字塔模型表达了数据通过分析、理解逐步升华为信息、知识乃至智慧的过程。</p>
-<p><img alt="" src="../img/DIKW.png" /></p>
+<p><a class="glightbox" href="../img/DIKW.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../img/DIKW.png" /></a></p>
 <p>在DIKW模型中，通过数据分析，即在一定思想指导下形成各种数据分析方法与模型，进行“理解”，实现数据-信息-知识-智慧的升华。</p>
 <p>GIS空间分析 重点聚焦在学习<code>数据→信息</code>与<code>信息→知识</code>的一些方法。</p>
-<p><img alt="img DIKW_Understand" src="../img/DIKW_UDS.png" /></p>
+<p><a class="glightbox" href="../img/DIKW_UDS.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="img DIKW_Understand" src="../img/DIKW_UDS.png" /></a></p>
 <details class="quote" open="open">
 <summary>Reference</summary>
 <p><a href="https://www.jianshu.com/p/933d930f4482">DIKW：数据、信息、知识、智慧的金字塔层次体系</a></p>
 </details>
-<h2 id="3-ppdac">3. PPDAC模型</h2>
+<h2 id="3-ppdac">3. PPDAC模型<a class="headerlink" href="#3-ppdac" title="Permanent link">&para;</a></h2>
 <p>由于空间分析具有区别于其他普通分析的特殊性，在空间分析过程中运用PPDAC模型时，更关注的是具有明确空间背景的问题，即关注空间关系和空间依赖性、时空关系、空间分析中不满足经典统计准则的现象、空间过程与格局之间的关系、空间数据源及其质量等相关的问题。</p>
 <div class="admonition tip">
 <p class="admonition-title">空间分析的特殊性</p>
@@ -1612,7 +1621,7 @@
 </li>
 </ul>
 </div>
-<h4 id="31-problem-framing-the-question">3.1 Problem: 提出问题（Framing the question）</h4>
+<h4 id="31-problem-framing-the-question">3.1 Problem: 提出问题（Framing the question）<a class="headerlink" href="#31-problem-framing-the-question" title="Permanent link">&para;</a></h4>
 <p>确定要研究的问题往往是整个过程的重要组成部分。将问题分解为关键组成部分（components），并将问题简化为关注其基本的、最重要的和相关的子部分，常常是很有效的第一步。</p>
 <div class="admonition question">
 <p class="admonition-title">Problem 阶段可能需要考虑的问题</p>
@@ -1625,7 +1634,7 @@
 <li>是否根据采样个体的测量特征寻求有关空间分组数据的结论？如果是这样的话，样本必须完全或高度代表群体，以避免所谓的原子论谬误（atomistic fallacy）——基于潜在的不具代表性的成员样本将特征归因于群体的成员。</li>
 </ul>
 </div>
-<h4 id="32-plan-formulating-the-approach">3.2 Plan: 制定方法（Formulating the approach）</h4>
+<h4 id="32-plan-formulating-the-approach">3.2 Plan: 制定方法（Formulating the approach）<a class="headerlink" href="#32-plan-formulating-the-approach" title="Permanent link">&para;</a></h4>
 <p>在就问题定义达成一致后，下一阶段是制定一种方法，尽最大可能解决问题并获得符合预期的答案（结果）。</p>
 <div class="admonition question">
 <p class="admonition-title">Plan 阶段可能需要考虑的因素</p>
@@ -1646,23 +1655,23 @@
 </ul>
 </div>
 <p>地理空间分析中，罕见事件、空间异常值、极值、异常群集等异常现象对研究的影响是极其重要的。探索性方法，比如绘制和检查病例以及绘制方框图，有助于确定这些观察结果是否有效和重要，或是否需要从研究集中删除。</p>
-<h4 id="33-data-data-acquisition">3.3 Data: 数据采集（Data acquisition）</h4>
+<h4 id="33-data-data-acquisition">3.3 Data: 数据采集（Data acquisition）<a class="headerlink" href="#33-data-data-acquisition" title="Permanent link">&para;</a></h4>
 <p>在实际中，并非所有所需数据集都具有相同的质量、成本、许可安排、可用性、完整性、格式、及时性和细节。在大多数情况下我们都必须做出妥协，因为最重要的准则是满足我们的目的。</p>
 <p>从定义上讲，几乎没有一个数据集是完美的。所有数据集都可能包含误差、缺失值、具有有限分辨率、包括以离散数学形式建模真实世界所导致的失真、包含测量误差和不确定性，并且可能表现出对位置和/或属性数据的有意或设计的调整（例如，出于隐私原因，作为聚合过程的一部分）。空间分析工具可能包含也可能不包含明确处理这些因素中一些更明显因素的设施。</p>
-<h4 id="34-analysis-analytical-methods-and-tools">3.4 Analysis: 分析方法和工具（Analytical methods and tools）</h4>
+<h4 id="34-analysis-analytical-methods-and-tools">3.4 Analysis: 分析方法和工具（Analytical methods and tools）<a class="headerlink" href="#34-analysis-analytical-methods-and-tools" title="Permanent link">&para;</a></h4>
 <details class="note inline end" open="open">
 <summary>Note</summary>
 <p>空间分析中一个反复出现的主题是<strong>模式（pattern）</strong>的概念。分析的目的通常被描述为<strong>识别和描述空间模式，从而试图理解和建模产生观察到的模式的过程</strong>。</p>
 </details>
 <p>在分析阶段之前就应对方法和工具进行初步选择。简单（Simplicity）和节俭（parsimony），使用最简单、最清晰的工具、模型和可视化形式，以及适合问题和目标应该是关键标准。其他因素包括：适当工具的可用性；时间和成本限制；需要提供有效性和稳健性检查，可以通过对一致性、敏感性和质量进行内部和/或外部检查；符合相关标准；多种技术的使用；以及使用独立的和/或附加的数据集或采样。</p>
-<h4 id="35-conclusions-delivering-the-results">3.5 Conclusions: 公布结果（Delivering the results）</h4>
+<h4 id="35-conclusions-delivering-the-results">3.5 Conclusions: 公布结果（Delivering the results）<a class="headerlink" href="#35-conclusions-delivering-the-results" title="Permanent link">&para;</a></h4>
 <p>PPDAC过程的最后阶段是根据所进行的分析得出结论，并将这些结论传达给其他人。  <br></p>
 <details class="quote" open="open">
 <summary>Reference</summary>
 <p><a href="https://spatialanalysisonline.com/HTML/index.html?analytical_methodologies.htm">Geospatial Analysis 6th Edition, 2021 update - de Smith, Goodchild, etc</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/625077998">PPDAC模型 - 知乎 </a></p>
 </details>
-<h2 id="4">4. 学习参考资料</h2>
+<h2 id="4">4. 学习参考资料<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>GIS空间分析(科学出版社)， 刘湘南等</p>
@@ -1829,5 +1838,5 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

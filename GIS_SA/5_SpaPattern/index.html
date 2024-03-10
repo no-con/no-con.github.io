@@ -75,7 +75,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1160,11 +1169,11 @@
 <p>介绍了空间模式分析的概念，空间分布类型，详细介绍了几个点模式分析方法。</p>
 <p>空间模式和空间模式分析的概念，空间分布类型，点模式分析方法。</p>
 </details>
-<h2 id="1">1 空间模式分析介绍</h2>
-<h3 id="11">1.1 空间模式</h3>
+<h2 id="1">1 空间模式分析介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 空间模式<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p><strong>空间模式</strong>（或空间分布模式）一般指人或物在现实世界中的组织或位置。</p>
 <p>它可以表示人、物之间距离的远近，或者它们之间呈现的绝对或相对位置规律。</p>
-<h3 id="12">1.2 空间模式分析</h3>
+<h3 id="12">1.2 空间模式分析<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p><strong>空间模式分析</strong>提供了关于事物发生的地点、事件的分布或数据的排列如何与场景中其他特征对齐，以及这些模式可能揭示的潜在联系和相关性的见解。</p>
 <p>空间模式分析包括识别、描述和测量地理数据中的形状、排列、位置、配置、趋势或关系。</p>
 <p>空间模式分析通常考虑两个概念: 空间对象和分布区域。分布区域指空间对象所占据的空间域。  </p>
@@ -1173,7 +1182,7 @@
 <li>分布区域有线型和面型  </li>
 <li>空间分布有离散型和连续型  </li>
 </ul>
-<h2 id="2">2 空间分布/模式</h2>
+<h2 id="2">2 空间分布/模式<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
 <p>这里的<code>面</code>、 <code>多边形</code>具有相同的含义，都是指<code>polygon</code>。</p>
@@ -1195,8 +1204,8 @@
 <li>随机分布(均匀分布)  </li>
 <li>聚集型  </li>
 </ul>
-<h2 id="3">3 点模式分析</h2>
-<h3 id="31">3.1 样方分析</h3>
+<h2 id="3">3 点模式分析<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 样方分析<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <p>比较空间采样区域（样方）内的对象的统计预期和实际计数，以测试诸如随机性和聚类等分布模式。</p>
 <div class="admonition example">
 <p class="admonition-title">样方分析的例子</p>
@@ -1272,7 +1281,7 @@
 </div>
 </li>
 </ul>
-<h3 id="32">3.2 点密度</h3>
+<h3 id="32">3.2 点密度<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <details class="note inline end" open="open">
 <summary>ArcGIS Pro中的填充字段</summary>
 <p>ArcGIS Pro的点密度分析工具中有一个填充字段(Population Field)参数，默认情况下为<code>None</code>，可以看成每个点的值都为1。</p>
@@ -1306,7 +1315,7 @@
 </ul>
 </div>
 <p>缺点：密度值从一个值到另外一个值存在突然变化的可能，即结果不够平滑。 </p>
-<h3 id="33">3.3 核密度</h3>
+<h3 id="33">3.3 核密度<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
 <p><strong>基本思想</strong>: 核密度分析使用核函数计算点、线要素测量值在指定邻域范围内的单位密度。 </p>
 <ul>
 <li>简单来说，它能直观的反映出离散测量值在连续区域内的分布情况。  </li>
@@ -1340,10 +1349,10 @@ f(s) = \frac{1}{n} \sum_{i=1}^{n} K_\tau (s-s_i) = \frac{1}{n\tau} \sum_{i=1}^{n
 $$
 其中$K(x)$就是核函数，$\tau$表示带宽(band width), $s-s_i$ 可理解为中心点到每个点距离。</p>
 <p><strong>常用的核函数</strong> (图源 <a href="https://en.wikipedia.org/wiki/Kernel_(statistics)">维基百科-Kernel</a>):
-<img alt="kernel_fun" src="../img/Kernel_funs.png" />
-<img alt="kernels" src="../img/kernels.png" />
+<a class="glightbox" href="../img/Kernel_funs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kernel_fun" src="../img/Kernel_funs.png" /></a>
+<a class="glightbox" href="../img/kernels.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="kernels" src="../img/kernels.png" /></a>
 从这些核函数可以看到，当函数输入的绝对值比较小(表示某个点到邻域中心点的距离小)时，会输出更大的值，也即<code>随着与中心点的距离的增大表面值逐渐减小</code>。</p>
-<h3 id="34">3.4 平均最近邻分析</h3>
+<h3 id="34">3.4 平均最近邻分析<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
 <p><strong>平均最近邻分析</strong>是比较<code>样本</code>中每个点与最近邻要素之间的<strong>观测平均距离</strong>和<code>随机分布</code>中每个点与的最近邻要素之间的<strong>预期平均距离</strong>(零假设)的方法。</p>
 <p>计算公式:<br />
 $$ 
@@ -1360,7 +1369,7 @@ $$
 </ul>
 </div>
 <p>需要注意的是，观测尺度(即所选研究区域的大小)对平均最近邻分析法的结果影响很大。</p>
-<h3 id="35-ripleys-k">3.5 多距离空间聚类分析(Ripley's K函数)</h3>
+<h3 id="35-ripleys-k">3.5 多距离空间聚类分析(Ripley's K函数)<a class="headerlink" href="#35-ripleys-k" title="Permanent link">&para;</a></h3>
 <p>计算步骤： </p>
 <ol>
 <li>对研究区域内的每个点构建一个半径为r的圆；</li>
@@ -1541,5 +1550,5 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

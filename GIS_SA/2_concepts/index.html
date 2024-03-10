@@ -75,7 +75,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1436,14 +1445,14 @@
 <p>介绍了空间分析中的基本概念、地理学定律、空间关系、空间推理等内容。</p>
 <p>地理学第一定律，地理学第二定律，空间异质性，9-IM和DE-9IM, 空间推理方法。</p>
 </details>
-<h2 id="1">1. 基本概念</h2>
+<h2 id="1">1. 基本概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
 <p>1884年的<a href="https://baike.baidu.com/item/%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%BA%BF/248147#5:~:text=1884%E5%B9%B4%E5%9C%A8%E5%8D%8E%E7%9B%9B%E9%A1%BF%E4%B8%BE%E8%A1%8C%E7%9A%84%E5%9B%BD%E9%99%85%E5%AD%90%E5%8D%88%E7%BA%BF%E4%BC%9A%E8%AE%AE%E5%86%B3%E5%AE%9A%EF%BC%8C%E9%87%87%E7%94%A8%E9%80%9A%E8%BF%87%E8%8B%B1%E5%9B%BD%E4%BC%A6%E6%95%A6%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%EF%BC%88%E6%A0%BC%E6%9E%97%E5%A8%81%E6%B2%BB%EF%BC%89%E7%9A%87%E5%AE%B6%E5%A4%A9%E6%96%87%E5%8F%B0%EF%BC%88%E6%97%A7%E5%9D%80%EF%BC%89%E5%9F%83%E9%87%8C%E4%B8%AD%E6%98%9F%E4%BB%AA%E7%9A%84%E5%AD%90%E5%8D%88%E7%BA%BF%E4%BD%9C%E4%B8%BA%E6%97%B6%E9%97%B4%E5%92%8C%E7%BB%8F%E5%BA%A6%E8%AE%A1%E9%87%8F%E7%9A%84%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E5%AD%90%E5%8D%88%E7%BA%BF%EF%BC%8C%E7%A7%B0%E4%B8%BA%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%BA%BF%E3%80%82">国际子午线会议</a>确定了本初子午线(格林威治天文台)。</p>
 <p>现在的<a href="https://baike.baidu.com/item/WGS-84%E5%9D%90%E6%A0%87%E7%B3%BB/730443">WGS84坐标系统</a>提供了地表的高精度坐标。</p>
 <p>中国目前最新的国家大地坐标系是<a href="https://baike.baidu.com/item/2000%E5%9B%BD%E5%AE%B6%E5%A4%A7%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB/7262512">CGCS2000</a>。</p>
 </div>
-<h3 id="11-places">1.1 Places (地点)</h3>
+<h3 id="11-places">1.1 Places (地点)<a class="headerlink" href="#11-places" title="Permanent link">&para;</a></h3>
 <p>一切空间分析的中心落脚于<code>地点(place)</code>的概念；</p>
 <ul>
 <li>
@@ -1453,7 +1462,7 @@
 <p><code>地点</code>有坐标；</p>
 </li>
 </ul>
-<h3 id="12-attributes">1.2 Attributes (属性)</h3>
+<h3 id="12-attributes">1.2 Attributes (属性)<a class="headerlink" href="#12-attributes" title="Permanent link">&para;</a></h3>
 <p>一个地点的特征或性质可以称为<code>属性(attribute)</code>。</p>
 <ul>
 <li>在GIS中，属性通常指<code>矢量数据中的单个要素</code>或<code>栅格数据的单个网格</code>在数据表中的记录(Record)。</li>
@@ -1482,14 +1491,14 @@
 </blockquote>
 <p>参考：<a href="https://www.psy.gla.ac.uk/~steve/best/ordinal.html">Nominal, ordinal, interval, &amp; ratio data</a></p>
 </div>
-<h3 id="13-objects">1.3 Objects (对象)</h3>
+<h3 id="13-objects">1.3 Objects (对象)<a class="headerlink" href="#13-objects" title="Permanent link">&para;</a></h3>
 <p>点(Point), 线(Line), 面(Areas), 体(Volumes)是<code>属性</code>的什么支持，也是GIS研究对象(的抽象)。</p>
-<h3 id="14-maps">1.4 Maps (地图)</h3>
+<h3 id="14-maps">1.4 Maps (地图)<a class="headerlink" href="#14-maps" title="Permanent link">&para;</a></h3>
 <p><code>地图(map)</code>是存储和交流空间数据的主要手段。</p>
 <p>地图可分为<code>真实地图</code>和<code>虚拟/数字地图</code>。</p>
-<h3 id="15-multiple-properties-of-places">1.5 Multiple properties of places (地点的多重属性)</h3>
+<h3 id="15-multiple-properties-of-places">1.5 Multiple properties of places (地点的多重属性)<a class="headerlink" href="#15-multiple-properties-of-places" title="Permanent link">&para;</a></h3>
 <p>一个地点可能不止一个对象，即对象可能重叠。比如一条河流可以穿过森林，一条道路可以穿过河流。</p>
-<h3 id="16-fields">1.6 Fields(场)</h3>
+<h3 id="16-fields">1.6 Fields(场)<a class="headerlink" href="#16-fields" title="Permanent link">&para;</a></h3>
 <div class="admonition tip inline end">
 <p class="admonition-title">空间数据模型的概念及类型</p>
 <p>在GIS中与空间信息有关的信息模型有三个，即基于对象（Object）的模型、场（Field）模型以及网络（Network）模型。</p>
@@ -1510,15 +1519,15 @@
 <p>对于模拟具有一定空间内连续分布特点的现象来说，基于场的观点是合适的。例如，空气中污染物的集中程度、地表的温度、土壤的湿度水平以及空气与水的流动速度和方向。根据应用的不同，场可以表现为二维或三维。一些现象，诸如空气污染物在空间中本质上讲是三维的，但是许多情况下可以由一个二维场来表示。</p>
 </li>
 </ul>
-<h3 id="17-networks">1.7 Networks (网络)</h3>
+<h3 id="17-networks">1.7 Networks (网络)<a class="headerlink" href="#17-networks" title="Permanent link">&para;</a></h3>
 <p>线(lines)经常组成空间数据的对象，包括街道、道路、铁路、高速公路；河流、管道；社会学家所研究的更加抽象的人际关系。</p>
 <blockquote>
 <p><strong>网络(networks)</strong> 是嵌入在二维或三维结构中的一维结构。</p>
 </blockquote>
-<h3 id="18-density">1.8 Density (密度)</h3>
+<h3 id="18-density">1.8 Density (密度)<a class="headerlink" href="#18-density" title="Permanent link">&para;</a></h3>
 <p><code>密度(density)</code>提供了离散对象和连续场概念之间的有效联系，因为密度表示每单位面积上离散对象的数量，并且本身是一个连续场。  </p>
 <p>数学上，某种物体的密度是通过计算一个区域内这种物体的数量，然后除以该区域的面积大小来计算的。</p>
-<h3 id="19-detail-resolution-and-scale">1.9 Detail, resolution, and scale (细节、分辨率和比例尺)</h3>
+<h3 id="19-detail-resolution-and-scale">1.9 Detail, resolution, and scale (细节、分辨率和比例尺)<a class="headerlink" href="#19-detail-resolution-and-scale" title="Permanent link">&para;</a></h3>
 <p>行星表面几乎是无限复杂的，不可能建立一个包含所有<code>细节(detail)</code>的模型，因此需要决定哪些细节可以被包含进来。</p>
 <p>空间<code>分辨率(resolution)</code>是可详细区分最小单元的大小或尺寸。低于该尺寸的细节被认为是研究不需要的或者研究不相关的。</p>
 <p>地图<code>比例尺(scale)</code>表示了地图上的距离与真实世界中对应距离的比值。</p>
@@ -1539,7 +1548,7 @@
 </ol>
 <p>参考: <a href="https://www.osgeo.cn/tutorial/k2045">制图综合</a>, <a href="https://downloads.esri.com/SUPPORT/WHITEPAPERS/AO_/MAPGEN.PDF">Automation of Map Generalization</a></p>
 </div>
-<h3 id="110-topology">1.10 Topology (拓扑)</h3>
+<h3 id="110-topology">1.10 Topology (拓扑)<a class="headerlink" href="#110-topology" title="Permanent link">&para;</a></h3>
 <p>在数学上，经过空间的拉伸、缩放、扭曲后保持不变的性质称为<code>拓扑(Topology)</code>。</p>
 <p>在地理上，拓扑指根据拓扑几何性质组织向量空间数据的方式，包括点、线、面三种要素的空间关系。</p>
 <ul>
@@ -1560,12 +1569,12 @@
 <summary>Reference</summary>
 <p><a href="https://www.spatialanalysisonline.com/HTML/place.htm">Conceptual Frameworks for Spatial Analysis-Basic Primitives</a></p>
 </details>
-<h2 id="2">2. 地理学定律</h2>
+<h2 id="2">2. 地理学定律<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <div class="admonition note inline end">
 <p class="admonition-title">Note</p>
 <p>地理学第一定律非常重要! 后面学习到的许多方法都体现出这一思想。</p>
 </div>
-<h3 id="21">2.1 地理学第一定律 (空间相关性定律)</h3>
+<h3 id="21">2.1 地理学第一定律 (空间相关性定律)<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p>任何事物都是空间相关的，距离近的事物比距离远的事物的空间相关性更大。简单点说，就是“<strong>越近越相关</strong>”。</p>
 <div class="admonition info">
 <p class="admonition-title">Cite</p>
@@ -1573,15 +1582,15 @@
 由WaldoTobler提出，又称为Tobler's First Law of Geography(TFL)。</p>
 </div>
 <p>李小文院士针对TFL的局限性，提出了<code>时空邻近度</code>的概念，即“<strong>时空上越近的越相关</strong>”。</p>
-<h3 id="22">2.2 地理学第二定律 (空间异质性定律)</h3>
+<h3 id="22">2.2 地理学第二定律 (空间异质性定律)<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <p><strong>空间的隔离，造成了地物之间的差异</strong>，即异质性(Spatial Heterogeneity)。  </p>
 <blockquote>
 <p>空间异质性分为空间局域异质性和空间分层异质性，前者是指该点属性值与周围不同，例如热点或冷点；后者是指多个区域之间互相不同，例如分类和生态分区。</p>
 </blockquote>
-<h3 id="23">2.3 地理学第三定律</h3>
+<h3 id="23">2.3 地理学第三定律<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <p>地理环境越相似，地理特征越相近。</p>
-<h2 id="3">3. 空间关系</h2>
-<h3 id="31">3.1 空间关系的内容</h3>
+<h2 id="3">3. 空间关系<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 空间关系的内容<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <p>空间关系的基础是空间对象的位置和属性的表达以及空间对象复杂空间关系的表达。</p>
 <ul>
 <li>
@@ -1591,7 +1600,7 @@
 <p>空间关系也可以由地理对象的几何特征和非几何特征造成，如空间分布现象的相关性、空间自相关、空间依赖性等。</p>
 </li>
 </ul>
-<h3 id="32">3.2 距离关系</h3>
+<h3 id="32">3.2 距离关系<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>定量的：欧氏距离、曼哈顿距离、闵可夫斯基距离…… </p>
@@ -1601,10 +1610,10 @@
 <p>定性的：近、远、较近、较远……</p>
 </li>
 </ul>
-<h3 id="33">3.3 方向关系</h3>
+<h3 id="33">3.3 方向关系<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
 <p>方向: 东、东南、西……</p>
 <p>度量方法: 四方向模型、八方向模型、最小包围盒模型……</p>
-<h3 id="34">3.4 拓扑关系</h3>
+<h3 id="34">3.4 拓扑关系<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>四交模型</p>
@@ -1622,10 +1631,10 @@
 <p>……</p>
 </li>
 </ul>
-<h2 id="4">4. 空间推理</h2>
-<h3 id="41">4.1 概念</h3>
+<h2 id="4">4. 空间推理<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 概念<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
 <p><strong>空间推理</strong>是指利用空间理论和人工智能技术对地理对象进行建模、描述和表征，并据此对这些对象之间的空间关系进行定性或定量的分析和处理。</p>
-<h3 id="42">4.2 空间推理方法</h3>
+<h3 id="42">4.2 空间推理方法<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>空间关系推理</p>
@@ -1658,7 +1667,7 @@
 <p>……</p>
 </li>
 </ul>
-<h2 id="5">5. 空间基础设施</h2>
+<h2 id="5">5. 空间基础设施<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><a href="https://www.arcgis.com">ArcGIS Online</a></p>
@@ -1828,5 +1837,5 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

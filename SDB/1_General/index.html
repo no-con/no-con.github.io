@@ -75,7 +75,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -1197,8 +1206,8 @@
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2947 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 10 分钟</p>
 </div>
-<h2 id="1">1 关系数据库基本概念</h2>
-<h3 id="11">1.1 数据模型</h3>
+<h2 id="1">1 关系数据库基本概念<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 数据模型<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p><strong>数据模型</strong>是用来描述数据、组织数据和对数据进行操作的模型。</p>
 <ul>
 <li>
@@ -1233,7 +1242,7 @@
 <li>数据操纵 <code>动态特效</code></li>
 <li>
 <p>完整性约束 <code>完整性约束条件</code></p>
-<div class="admonition example">
+<div class="admonition tip">
 <p class="admonition-title">层次模型分析</p>
 <ul>
 <li><strong>数据结构–树</strong><br />
@@ -1258,7 +1267,7 @@
   层次命令趋于程序化</li>
 </ul>
 </div>
-<div class="admonition example">
+<div class="admonition tip">
 <p class="admonition-title">网状模型分析</p>
 <ul>
 <li><strong>数据结构–图</strong><br />
@@ -1279,7 +1288,7 @@
   DDL (Data Definition Language)、DML (Data Manipulation Language)语言复杂，用户不容易使用;  </li>
 </ul>
 </div>
-<div class="admonition example">
+<div class="admonition tip">
 <p class="admonition-title">关系模型的主要优点</p>
 <ul>
 <li><strong>简单</strong>，一个数据库由多个关系组成，每一个关系就是一个规范化了的二维表，关系模型中的许多概念与二维表是一一对应的，普通用户容易理解。  </li>
@@ -1293,7 +1302,7 @@
 <p>模式相对稳定, 反映数据结构及联系;<br />
 实例相对变动, 反映数据库某一时刻的状态。</p>
 </div>
-<h3 id="12">1.2 三级模式</h3>
+<h3 id="12">1.2 三级模式<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p><strong>模式(schema)</strong>定义或描述一个数据集合。</p>
 <p><strong>三级模式</strong>:</p>
 <ul>
@@ -1339,8 +1348,8 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="2">2 空间数据库基本概念</h2>
-<h3 id="21">2.1 空间数据</h3>
+<h2 id="2">2 空间数据库基本概念<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 空间数据<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
 <p><strong>空间数据</strong>是以地球表面空间位置为参照的自然、社会和人文经济景观数据。广义上包括文字、数字、图形、影像、声音、图像等多种表现形式。分为<strong>矢量数据</strong>和<strong>栅格数据</strong>。</p>
 <p><strong>矢量数据</strong>：一种用点、线、面等基本空间要素来表示人们赖以生存的自然世界的数据。<br />
 <strong>空间实体</strong>：不可再分的最小单元现象；是对存在于这个自然世界中地理实体的抽象；包括包括点、线、多边形等基本类型。</p>
@@ -1371,7 +1380,7 @@
 <blockquote>
 <p>将地面划分为均匀的网格，每个网格作为一个像元，像元的位置由所在列和行号确定，像元所含有的代码表示其属性类型或仅是与其属性记录相联系的指针。</p>
 </blockquote>
-<h3 id="22">2.2 空间数据的特征</h3>
+<h3 id="22">2.2 空间数据的特征<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>空间特征</strong><br />
   空间对象都有空间坐标,即空间对象隐含了<code>空间分布特征</code>;<br />
@@ -1390,7 +1399,7 @@
 <code>空间多尺度</code>指根据地学过程或地理地球系统中规模的大小,可分为不同的层次; <br />
 <code>时间多尺度</code>指地学过程或地理特征具有一定的自然节律性,其时间周期长短不一。</li>
 </ul>
-<h3 id="23">2.3 空间数据库</h3>
+<h3 id="23">2.3 空间数据库<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <p><strong>空间数据库</strong>：在地球表面某一范围内与空间地理相关、反映某一主题信息的数据集合。</p>
 <blockquote>
 <p>空间数据库是以<strong>空间目标</strong>作为存储对象的专业数据库</p>
@@ -1404,7 +1413,7 @@
 <li>空间数据与属性数据的集合  </li>
 <li>应用广泛  </li>
 </ul>
-<h3 id="24">2.4 空间数据库系统</h3>
+<h3 id="24">2.4 空间数据库系统<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <p>空间数据库管理系统(Spatial Database Management System,SDBMS): 由空间数据库及其管理软件、应用软件组成, 是存储介质、处理对象和管理系统的集合体。现有的SDBMS有: </p>
 <ul>
 <li><a href="https://www.oracle.com/database/spatial/">Oracle Spatial</a></li>
@@ -1425,24 +1434,24 @@
 <li>数据库管理员  </li>
 <li>用户和应用程序 </li>
 </ul>
-<h2 id="3">3 空间数据管理技术的产生与发展</h2>
-<p><img alt="sdb_his" src="../img/SDB_His.png" /></p>
-<h3 id="31">3.1 文件系统</h3>
+<h2 id="3">3 空间数据管理技术的产生与发展<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a class="glightbox" href="../img/SDB_His.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="sdb_his" src="../img/SDB_His.png" /></a></p>
+<h3 id="31">3.1 文件系统<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
 <p>加拿大政府从20世纪60年代中期开始，历经10年时间，研发了世界上第一个地理信息系统——加拿大地理信息系统(CGIS)，这是第一代空间应用系统。</p>
-<h3 id="32">3.2 文件与关系数据库混合系统</h3>
+<h3 id="32">3.2 文件与关系数据库混合系统<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <p>第二代空间应用系统——混合管理系统。</p>
 <ul>
 <li>文件系统管理几何图形数据   </li>
 <li>关系数据库管理属性数据  </li>
 <li>联系通过目标标识或内部连接码进行(对象唯一标识符OID)  </li>
 </ul>
-<h3 id="33">3.3 空间数据引擎</h3>
+<h3 id="33">3.3 空间数据引擎<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
 <p>第三代空间应用系统——空间数据引擎</p>
 <ul>
 <li>图形坐标数据作为一个二进制数据类型，由数据库管理系统进行存储;</li>
 <li>SDE提供一组空间数据的操作函数，完成空间数据的转换，以及数据的索引调度和空间数据的存储管理</li>
 </ul>
-<h3 id="34">3.4 对象关系型数据库管理系统</h3>
+<h3 id="34">3.4 对象关系型数据库管理系统<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
 <p>第四代空间应用系统——对象关系型数据库管理系统 (Object-relational database management system, ORDBMS)</p>
 <ul>
 <li>支持SQL，具有良好的通用性;  </li>
@@ -1450,7 +1459,7 @@
 <li>能够直接存储和管理非结构化的空间数据;   </li>
 <li>对各种空间对象, 操作函数及其索引预先定义, 形成不同空间数据类型, 支持空间数据存储管理分析</li>
 </ul>
-<h2 id="4">4 空间数据库标准</h2>
+<h2 id="4">4 空间数据库标准<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
 <li>开放地理空间信息协会(Open Geospatial Consortium, OGC)的<strong>Simple Feature Access SQL (SFA SQL)</strong><br />
   第一部分(<a href="https://www.ogc.org/standard/sfa/">Part1 Common Architecture</a>)定义几何对象的通用架构，描述了通用的简单要素地理集合对象模型，及集合对象的不同表达方式和空间参考系统的表达方式，具有平台独立性。<br />
@@ -1478,7 +1487,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
     最后更新:
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 16:11:48</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 23:02:34</span>
     
         <br />
         创建日期:
@@ -1615,5 +1624,5 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

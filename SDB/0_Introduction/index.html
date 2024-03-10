@@ -75,7 +75,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -999,7 +1008,7 @@
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
 <p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 424 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 1 分钟</p>
 </div>
-<h2 id="1">1 大数据</h2>
+<h2 id="1">1 大数据<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>大数据既是一类<code>数据</code>, 也是一项<code>技术</code>, 还是一种<code>理念</code>。</p>
 <p>从数据中提取知识需要：存储、管理、分析、可视化等操作。</p>
 <p>大数据的特点:</p>
@@ -1021,10 +1030,10 @@
 <p>电子表格、网页、XML、关系型数据库、几何等数据格式。</p>
 </li>
 </ul>
-<h2 id="2">2 空间数据</h2>
+<h2 id="2">2 空间数据<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>从空间数据到文件结构逐层抽象。</p>
-<p><img alt="spatial-data" src="../img/SpatialData.png" /></p>
-<h2 id="3">3 空间分析</h2>
+<p><a class="glightbox" href="../img/SpatialData.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="spatial-data" src="../img/SpatialData.png" /></a></p>
+<h2 id="3">3 空间分析<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>度量(Measurements): 物理距离、长度、面积等</p>
@@ -1039,14 +1048,14 @@
 <p>方向(Directional): 东、南、西、北、左、右</p>
 </li>
 </ul>
-<h2 id="4-spatial-computing">4 空间计算(Spatial Computing)</h2>
+<h2 id="4-spatial-computing">4 空间计算(Spatial Computing)<a class="headerlink" href="#4-spatial-computing" title="Permanent link">&para;</a></h2>
 <details class="note inline end" open="open">
 <summary>Note</summary>
 <p>这门课程的核心就是<strong>空间计算</strong>。<br />
 空间计算思想: 空间关联、时空查询</p>
 </details>
 <p><strong>空间计算</strong>是一系列通过<code>理解(understanding)</code>物质世界、<code>了解(knowing)</code>和<code>交流(communicating)</code>我们与工作场所的关系并在这些场所中<code>导航(navigating)</code>，来改变我们的生活的想法和技术。</p>
-<h2 id="5">5 参考学习资料</h2>
+<h2 id="5">5 参考学习资料<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>Database System Concepts, Abraham Silberschatz, Henry F.Korth, and S.Sudarshan, 7th edition.</p>
@@ -1213,5 +1222,5 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
