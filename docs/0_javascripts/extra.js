@@ -5,17 +5,3 @@ window.onload = function () {
         }
     }
 }
-
-// function clickAction(img) {
-//     let medusa = document.createElement('div');
-//     medusa.setAttribute('id', 'imgBaseDiv');
-//     medusa.setAttribute('onclick', 'closeImg()');
-//     let image = document.createElement('img');
-//     image.setAttribute('src', img.src);
-//     medusa.appendChild(image);
-//     document.body.appendChild(medusa);
-// }
-
-// function closeImg() {
-//     document.getElementById('imgBaseDiv').remove();
-// }

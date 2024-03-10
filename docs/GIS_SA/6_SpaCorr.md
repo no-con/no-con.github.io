@@ -254,6 +254,7 @@ $$
         [空间自相关 (Global Moran's I) 的工作原理-ArcGIS Pro](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/spatial-statistics/h-how-spatial-autocorrelation-moran-s-i-spatial-st.htm)  
         [莫兰指数之计算详解-虾神说D](https://mp.weixin.qq.com/s?__biz=MzA4ODk4NzgyNA==&mid=2649736471&idx=1&sn=a215a5d480080fb4c44dfd80ba5dcb17&    chksm=883aa4c8bf4d2ddea5128b5289ded18eb7d895f591ec80e94b6312a5d20509230cbdf453363c&cur_album_id=1349424235982290944&scene=189#wechat_redirect)  
         [全局莫兰指数的理解与计算](https://blog.csdn.net/shine4869/article/details/106149299)
+        
 * General G
 
     莫兰指数只关心是不是聚集，而不关系到底是什么聚类，如果想知道到底是哪一类数据发生了聚集，需要进行“高/低值聚类”分析。General G算法关注的是高低值之间的聚集关系，它的公式很简单：

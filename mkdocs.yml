@@ -140,7 +140,7 @@ plugins:
   # - social # 还没配置好
   # - blog
   - tags
-  # - glightbox
+  - glightbox
   - statistics:
       pages_placeholder: '\{\{\s*pages\s*\}\}'
       words_placeholder: '\{\{\s*words\s*\}\}' 
@@ -176,8 +176,6 @@ extra:
       link: mailto:noconf@outlook.com
       name: nocon
 
-
-# 图片点击放大 ref: https://juejin.cn/post/6876971705361924109
 extra_css:
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
@@ -189,7 +187,6 @@ extra_css:
   ########
   - https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap # CDN引入字体文件
   # - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap # 上面的不行就用这个
-  # - 0_stylesheets/piczoom.css
   - 0_stylesheets/font.css
   - 0_stylesheets/color.css
   - 0_stylesheets/admonition.css
