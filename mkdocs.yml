@@ -1,0 +1,204 @@
+site_name: Nocon's notes
+# site_url: http://example.com
+
+nav:
+  - 主页: 
+    - index.md
+  - GIS空间分析: 
+    - GIS_SA/index.md
+    - 导论: GIS_SA/1_introduction.md
+    - 空间分析概念框架: GIS_SA/2_concepts.md
+    - 空间统计基础: GIS_SA/3_basis4SpaSta.md
+    - 探索性空间统计分析: GIS_SA/4_ESDA.md
+    - 空间模式分析: GIS_SA/5_SpaPattern.md
+    - 空间相关分析: GIS_SA/6_SpaCorr.md
+    - 地理回归分析: GIS_SA/7_GeoRegression.md
+    - 空间回归分析: GIS_SA/8_SpaRegression.md
+    - 空间聚类分析: GIS_SA/9_SpaCluster.md
+    - 机器学习分类: GIS_SA/10_MLClass.md
+    - 时间序列分析: GIS_SA/11_SpaTempo.md
+    - 时空分析: GIS_SA/12_GeoBigData.md
+    - 地理空间大数据分析: GIS_SA/13_TimeSeries.md
+    - 遥感数据深度学习: GIS_SA/14_DeepLearning.md
+  - 地理空间数据库:
+    - SDB/index.md
+    - 导论: SDB/0_Introduction.md
+    - 地理空间数据库概论: SDB/1_General.md
+    - 关系模型与关系代数: SDB/2_Relational_Algebra.md
+    - 关系数据库标准语言: SDB/3_SQL.md
+    - 几何对象模型与查询: SDB/4_GeomObj.md
+    - 空间扩展ER图: SDB/5_ER.md
+    - 关系数据库设计理论: SDB/6_RDB.md
+    - 空间存储与索引: SDB/7_Spatial_Index.md
+    - 空间查询处理与优化: SDB/8_QueryProcessOptimize.md
+    - 空间网络模型: SDB/9_Spatial_Network.md
+    - 数据库安全性与完整性: SDB/10_DB_Integrity.md
+    - PostgreSQL服务器编程: SDB/11_PostgreSQL.md
+
+
+theme:
+  name: material
+  custom_dir: docs/0_overrides
+  language: zh
+  logo: img/logo.png
+  favicon: img/logo.png
+  features:
+    - navigation.tabs # 一级导航在顶部导航栏
+    - content.code.annotate # 可以在代码块中增添点击展示的注释，参见 https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
+    - navigation.tracking # 启用锚点跟踪后，地址栏中的URL会自动更新为目录中突出显示的活动锚点。
+    - navigation.indexes # 将 index 页面直接附到小节名上
+    - navigation.top # 回到顶部按钮
+    - navigation.instant # 即时加载
+    - navigation.instant.progress  # 进度指示器
+    # - navigation.footer # 页脚 上一页下一页
+    # - navigation.sections # 顶级导航栏在大于1220px的窗口中以组的形式出现, 二级导航是粗体
+    # - navigation.prune # 导航修剪
+    # - navigation.instant.preview # 全局即时预览
+    # - navigation.tabs.sticky # 粘性导航卡，顶部导航栏始终不消失
+    # - navigation.expand # 导航默认展开
+    - toc.follow # toc 跟随
+    # - toc.integrate # 文档 toc 集成到总目录中
+    - search.suggest # 搜索自动填充
+    - search.highlight # 搜索高亮
+    - search.share # 搜索分享
+    # - header.autohide # header自动隐藏
+    - announce.dismiss # mark as read
+    - content.code.annotate 
+    - content.code.select
+    # - content.code.copy # 代码复制, 普通用户不可用
+
+  # shortcuts:  # 键盘快捷键, 好像改不了, 不知道为啥。。。
+  #   help: 72 # h  
+  #   next: 39 # 右箭头
+  #   previous: 37 # 左箭头
+  #   search: 83 # s
+
+
+  # 字体设置
+  font:
+    false
+    # text: Roboto 
+    # code: Roboto Mono
+
+  # 主题颜色
+  palette:  # 调色板
+    # - scheme: EyeProtect
+    # - primary: custom
+    ### Palette toggle for automatic mode
+    # - media: "(prefers-color-scheme)"
+    #   # primary: custom
+
+    #   toggle:
+    #     icon: material/brightness-auto
+    #     name: Switch to EyeProtect mode
+
+    ### Palette toggle for EyeProtect mode
+    - media: "(prefers-color-scheme: eyeprotect)"
+      scheme: EyeProtect
+      primary: custom
+      toggle:
+        icon: material/brightness-5
+        name: Switch to Light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: Light
+      primary: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to Dark mode
+
+    ### Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: Dark
+      primary: custom
+      toggle:
+        icon: material/brightness-3
+        name: Switch to EyeProtect Node
+
+markdown_extensions:
+  - admonition
+  - footnotes # 脚注
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - md_in_html
+  - attr_list  # 有很多功能作用, 其中之一是允许在MarkDown链接/图片后用括号指明任意标签的字段
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins: 
+  - search
+  # - social # 还没配置好
+  # - blog
+  - tags
+  # - glightbox
+  - statistics:
+      pages_placeholder: '\{\{\s*pages\s*\}\}'
+      words_placeholder: '\{\{\s*words\s*\}\}' 
+      codes_placeholder: '\{\{\s*codes\s*\}\}'
+      page_statistics: True
+      # page_check_metadata: comment
+      page_read_time: True
+      # page_template:
+      words_per_minute: 300
+      codelines_per_minute: 80
+  - git-revision-date-localized:
+      fallback_to_build_date: true # mast be true
+      type: datetime
+      # custom_format: '%d. %B %Y'
+      timezone: Asia/Shanghai
+      locale: zh
+      enable_creation_date: true
+      exclude:
+          - index.md
+      enabled: true
+      strict: true
+
+extra:
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXX
+  
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/no-conf
+      name: nocon
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:noconf@outlook.com
+      name: nocon
+
+
+# 图片点击放大 ref: https://juejin.cn/post/6876971705361924109
+extra_css:
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css
+  ########
+  - https://fonts.loli.net/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap # 国内CDN站点
+  # - https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap # 上面的不行就用这个
+  ########
+  - https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap # CDN引入字体文件
+  # - https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap # 上面的不行就用这个
+  # - 0_stylesheets/piczoom.css
+  - 0_stylesheets/font.css
+  - 0_stylesheets/color.css
+  - 0_stylesheets/admonition.css
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css # 数学公式 katex
+extra_javascript:
+  - 0_javascripts/extra.js
+  ### 数学公式
+  - 0_javascripts/katex.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+
+copyright: 本页面所有内容仅供学习使用, 未经允许不得转载！
