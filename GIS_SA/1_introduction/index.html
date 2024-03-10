@@ -1,0 +1,1766 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://no-con.github.io/GIS_SA/1_introduction/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2_concepts/">
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>导论 - Nocon's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../0_stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/font.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/color.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DSCW3D4396"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DSCW3D4396",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DSCW3D4396",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Nocon&#39;s notes" class="md-header__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nocon's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              导论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: eyeprotect)" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="Light" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="Dark" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to EyeProtect Node"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to EyeProtect Node" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  GIS空间分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../SDB/" class="md-tabs__link">
+          
+  
+    
+  
+  地理空间数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nocon&#39;s notes" class="md-nav__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Nocon's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    GIS空间分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            GIS空间分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    导论
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    导论
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 空间分析概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 空间分析概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 著名的空间分析案例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 GIS的早期历史与一些发展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 GIS的现在
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 GIS的未来
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 空间分析概念与方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 空间分析概念与方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 什么是空间分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间分析方法与应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 空间分析的研究内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间分析的目的
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-dikw" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5  DIKW模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ppdac" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PPDAC模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PPDAC模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-problem-framing-the-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Problem: 提出问题（Framing the question）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-plan-formulating-the-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Plan: 制定方法（Formulating the approach）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-data-data-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Data: 数据采集（Data acquisition）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-analysis-analytical-methods-and-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Analysis: 分析方法和工具（Analytical methods and tools）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-conclusions-delivering-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Conclusions: 公布结果（Delivering the results）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 学习参考资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间分析概念框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_basis4SpaSta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间统计基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_ESDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    探索性空间统计分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_SpaPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间模式分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_SpaCorr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间相关分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_GeoRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_SpaRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_SpaCluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间聚类分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_MLClass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_SpaTempo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时间序列分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_GeoBigData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时空分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_TimeSeries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理空间大数据分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_DeepLearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥感数据深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../SDB/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    地理空间数据库
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 空间分析概述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 空间分析概述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 著名的空间分析案例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 GIS的早期历史与一些发展
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 GIS的现在
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-gis" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 GIS的未来
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 空间分析概念与方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 空间分析概念与方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 什么是空间分析
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间分析方法与应用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 空间分析的研究内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间分析的目的
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-dikw" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5  DIKW模型
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ppdac" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. PPDAC模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. PPDAC模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-problem-framing-the-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Problem: 提出问题（Framing the question）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-plan-formulating-the-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Plan: 制定方法（Formulating the approach）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-data-data-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Data: 数据采集（Data acquisition）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-analysis-analytical-methods-and-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Analysis: 分析方法和工具（Analytical methods and tools）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-conclusions-delivering-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5 Conclusions: 公布结果（Delivering the results）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 学习参考资料
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>导论</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 4488 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 15 分钟</p>
+</div>
+<details class="abstract" open="open">
+<summary>Abstract</summary>
+<p>这章内容主要是对空间分析的历史、发展、概念、方法、目的等内容的概述，简单介绍了空间分析中PPDAC的流程。</p>
+<p>这章内容以了解为主，主要掌握空间分析的概念，基本知道PPDAC模型的分析流程即可。</p>
+</details>
+<h2 id="1">1. 空间分析概述</h2>
+<h3 id="11">1.1 著名的空间分析案例</h3>
+<p>1854年伦敦爆发严重霍乱，当时流行的观点是霍乱是通过空气传播的，而John Snow医生研究发现，霍乱是通过饮用水传播的。原来是由于掏粪工人员不足，粪水流进了泰晤士河，很快泰晤士河就变得污秽不堪。研究过程中，John Snow医生统计分析发现，大多数病例的住所都围绕在Broad Street水泵附近，结合其他证据得出饮用水传播的结论，于是移掉了Broad Street水泵的把手，霍乱最终得到控制。</p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="http://k.sina.com.cn/article_6217635532_1729996cc001006caf.html?from=history">抽水马桶意外引发的血案，3万百姓惨死自己大便之下</a></p>
+</details>
+<h3 id="12-gis">1.2 GIS的早期历史与一些发展</h3>
+<ul>
+<li>
+<p>20世纪60年代，随着计算机和计算地理学的出现，地理信息系统(GIS)萌芽。</p>
+</li>
+<li>
+<p>后来，由 Michael Goodchild 领导的国家地理信息和分析中心正式确立了对空间分析和可视化等关键地理信息科学主题的研究。</p>
+</li>
+<li>
+<p>Roger Tomlinson 在发起、规划和开发加拿大地理信息系统方面的开创性工作使得 1963 年出现了世界上首个计算机处理 GIS。  </p>
+<p>Roger Tomlinson提出了GIS这个名字，他被称为“GIS之父”。</p>
+</li>
+<li>
+<p>1969年，ESRI成立。ESRI开发的许多工具和工具流已成为GIS行业标准。</p>
+</li>
+<li>
+<p>80年代，GIS在环境科学、公共卫生、交通规划等领域得到了广泛应用。同时，GIS软件逐渐变得更加成熟和易于使用，推动了GIS技术的普及。</p>
+</li>
+<li>
+<p>进入21世纪，GIS开始与其他信息技术领域如互联网、移动设备等进行集成，推动了GIS技术的应用范围进一步拓展。同时，GIS在应急管理、军事、电商、智能交通等领域得到了广泛应用。</p>
+</li>
+<li>
+<p>近年来，随着开放式GIS平台的出现，GIS技术的开放性和自由度不断提高。</p>
+</li>
+</ul>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线 </a></p>
+</details>
+<h3 id="13-gis">1.3 GIS的现在</h3>
+<ul>
+<li>
+<p>GIS 使人们能够创建自己的数字地图图层，从而帮助解决实际问题。</p>
+</li>
+<li>
+<p>GIS 还发展成为一种数据共享和协作的方式，激发了一个愿景，且该愿景正在迅速成为现实：构建一个几乎涵盖所有主题的连续、重叠和可互操作的世界 GIS 数据库。 </p>
+</li>
+<li>
+<p>当今，数十万个组织每天都在分享他们的工作并创建数十亿张地图，讲述故事并揭示所有事物的模式、趋势和关系。</p>
+</li>
+</ul>
+<p>GIS 及空间分析已被广泛应用于测绘、资源调查、灾害监测、交通运输、水利水电、环境保护、空间规划、智慧城市、精准农业和国防建设等各个领域，并已成为人类生活和社会发展不可或缺的基础设施。</p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线 </a></p>
+</details>
+<h3 id="14-gis">1.4 GIS的未来</h3>
+<ul>
+<li>
+<p>随着向 Web 和云计算的转移，以及通过物联网与实时信息的集成，GIS 已成为与几乎所有人类的努力息息相关的平台，成为地球的神经系统。</p>
+</li>
+<li>
+<p>当我们的世界面临人口增长、自然破坏和污染等问题时，GIS 将在我们如何理解和解决这些问题方面发挥越来越重要的作用，并提供使用通用的制图语言交流解决方案的手段。</p>
+</li>
+</ul>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://www.esri.com/zh-cn/what-is-gis/history-of-gis">GIS 历史 | GIS 早期历史和未来发展的时间线</a></p>
+</details>
+<h2 id="2">2. 空间分析概念与方法</h2>
+<h4 id="21">2.1 什么是空间分析</h4>
+<ul>
+<li>空间分析是对数据的空间信息、属性性息或者二者共同信息的统计描述或说明。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Cite</p>
+<p>Spatial analysis is a statistical description or explanation of spatial information, attribute information or common information of data. (Goodchild, 1987)</p>
+</div>
+<ul>
+<li>空间分析是对于地理空间现象的定量研究，其常规能力是操纵空间数据使之成为不同的形式，并提取其潜在的信息。</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Cite</p>
+<p>Spatial analysis is a quantitative study of geospatial phenomena. Its conventional ability is to manipulate spatial data into different forms and extract its potential information. (Openshaw, 1997)</p>
+</div>
+<ul>
+<li>空间分析是基于地理对象的位置和形态特征的空间数据分析技术，其目的在于提取和传输信息。(郭仁忠院士，1997)</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Cite</p>
+<p>Spatial analysis is a spatial data analysis technology based on the location and morphological characteristics of geographical objects. Its purpose is to extract and transmit information.</p>
+</div>
+<ul>
+<li>空间分析是地理学的精髓，是为解答问题而进行的空间数据分析与挖掘。（刘湘南，2017）</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Cite</p>
+<p>Spatial analysis is the essence/core of geography，it aims to spatial data analysis and data mining to solve problems.</p>
+</div>
+<h4 id="22">2.2 空间分析方法与应用</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Methods</th>
+<th style="text-align: left;">Applications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Probability theory and model 概率论</td>
+<td style="text-align: left;">用于地理现象、地理要素的随机分布研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Hypothesis testing and sampling  <br/>假设检验与抽样</td>
+<td style="text-align: left;">用于地理数据的采集和整理。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Analysis of Correlation 相关分析</td>
+<td style="text-align: left;">分析地理要素之间的相关关系。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Analysis of Variance 方差分析</td>
+<td style="text-align: left;">研究地理数据分布的离散程度。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Analysis of Regression 回归分析</td>
+<td style="text-align: left;">用于拟合地理要素之间具体的数量关系、预测发展趋势。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Spatial Patterns 空间模式分析</td>
+<td style="text-align: left;">用于分析地理分布模式。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Time Series analysis 时间序列分析</td>
+<td style="text-align: left;">用于地理过程时间序列的预测与控制研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Analysis of Principal Components <br/>主成分分析</td>
+<td style="text-align: left;">用于地理数据的降维处理及地理要素的因素分析与综合评价研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Clustering Analysis 聚类分析</td>
+<td style="text-align: left;">用于各种地理要素分类、各种地理区域划分。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Covariance and Coefficient of Variation <br/>协方差与变异函数</td>
+<td style="text-align: left;">用于研究地理要素的空间相关性及空间分布的数量规律。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Kriging Method 克里金法</td>
+<td style="text-align: left;">用于地理要素分布的空间局部估计与局部插值。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Markov Process 马尔可夫过程</td>
+<td style="text-align: left;">用于研究随机地理过程、预测随机地理事件。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Linear\Integer\Dynamic Programming<br/>线性/整数/动态规划 <br/>Spatial Optimization 空间优化</td>
+<td style="text-align: left;">用于研究有关规划与决策问题,用于有关多阶段地理决策问题的求解。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Analytic Hierarchy Process 层次分析法</td>
+<td style="text-align: left;">用于有关多层次、多要素战略决策问题的分析。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Network Analysis 网络分析</td>
+<td style="text-align: left;">用于交通网络、通讯网络、河流水系等地理网络的研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Input-output Analysis 投入产出分析</td>
+<td style="text-align: left;">用于产业部门联系分析、劳动地域构成分析、区域相互作用分析。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Geostatistical Analysis 地统计分析</td>
+<td style="text-align: left;">用于空间分布上既有随机性又有结构性或空间相关和依赖性的地理现象的研究</td>
+</tr>
+<tr>
+<td style="text-align: center;">Fuzzy  Mathematics 模糊数学</td>
+<td style="text-align: left;">用于各种模糊地理现象、地理过程、地理决策和系统评价研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Neural Networks and Artificial Intelligence <br>神经网络和人工智能</td>
+<td style="text-align: left;">用于有关地理模式的识别、地理过程机制的自学习及预测等。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Cellular Automaton 元胞自动机</td>
+<td style="text-align: left;">用于模拟模拟生态、环境、自然灾害等多种高度复杂的地理现象的时空动态</td>
+</tr>
+<tr>
+<td style="text-align: center;">Grey System Theory 灰色系统方法</td>
+<td style="text-align: left;">用于灰色地理系统的分析、建模、控制与决策研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Fractal Theory 分形理论</td>
+<td style="text-align: left;">用于有关地理实体的形态及要素分布形态的自相似机理研究。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Wavelet Analysis 小波分析</td>
+<td style="text-align: left;">用于多层次、多尺度、多分辨率的地理时空过程的时频分析。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Genetic Algorithm 遗传算法</td>
+<td style="text-align: left;">用于复杂的非线性地理问题的计算。</td>
+</tr>
+<tr>
+<td style="text-align: center;">Big Data Analysis 大数据分析</td>
+<td style="text-align: left;">用于智能交通、孪生城市、智慧农业、社区….</td>
+</tr>
+<tr>
+<td style="text-align: center;">….</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="23">2.3 空间分析的研究内容</h4>
+<ul>
+<li>
+<p>空间分析理论</p>
+<p>主要是指空间概念、空间描述方法、空间特征等基本理论问题，同时也包括基于空间思维的解决问题的方法论。</p>
+</li>
+<li>
+<p>空间分析方法</p>
+<p>主要是指在空间分析理论的指导下，针对空间特征、面向空间问题，建立分析模拟模型，开发分析工具。</p>
+</li>
+<li>
+<p>空间分析应用</p>
+<p>主要研究如何应用空间分析的理论和方法解决实际问题，重点是如何将复杂具体的现实问题抽象为空间问题，搭建模型、方法与应用之间的桥梁。</p>
+</li>
+</ul>
+<h4 id="24">2.4 空间分析的目的</h4>
+<ul>
+<li>
+<p>认知(Cognition)</p>
+<p>有效获取空间数据、并对其进行科学的组织描述，利用数据再现事物本身，如绘制<a href="https://learn.arcgis.com/zh-cn/projects/analyze-covid-19-risk-using-arcgis-pro/">风险图</a>。</p>
+</li>
+<li>
+<p>解释(Explanation)</p>
+<p>理解和揭示地理空间数据的背景过程，认识事件的本质规律，如<a href="https://urban.pkusz.edu.cn/info/1007/3136.htm">住房价格中的地理邻居效应</a>。</p>
+</li>
+<li>
+<p>预报(Forecast)</p>
+<p>在认识、掌握事件发生现状与规律的前提下，运用有关预测模型对未来的状况做出预测，如<a href="https://www.dqxxkx.cn/article/2021/1560-8999/1560-8999-23-11-1924.shtml">传染病的爆发</a>。</p>
+</li>
+<li>
+<p>调控和决策(Regulation and Dcision-making)</p>
+<p>对地理空间发生的事件进行调控，如<a href="http://xbna.pku.edu.cn/fileup/0479-8023/HTML/2021-6-1143.html">合理分配资源</a>。</p>
+<p>根据空间分析的结果进行决策，如<a href="https://www.esri.com/zh-cn/industries/transit/business-areas/route-planning-optimization">规划和优化交通路线</a>。 </p>
+</li>
+</ul>
+<h4 id="25-dikw">2.5  DIKW模型</h4>
+<p>DIKW金字塔很好地描述了人类认识世界的规律和层次结构，分别是：</p>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Information用于认知、解释目标</li>
+<li>预报用knowledge</li>
+<li>调控需要用到wisdom</li>
+</ul>
+</div>
+<ul>
+<li>
+<p>数据（Data原始的事实集合）</p>
+</li>
+<li>
+<p>信息（Information可被分析测量的结构化数据）</p>
+</li>
+<li>
+<p>知识（Knowledge需要洞察力和理解力进行学习）</p>
+</li>
+<li>
+<p>智慧（Wisdom推断未来发生的相关性，指导行动）</p>
+</li>
+</ul>
+<p>DIKW金字塔模型表达了数据通过分析、理解逐步升华为信息、知识乃至智慧的过程。</p>
+<p><img alt="" src="../img/DIKW.png" /></p>
+<p>在DIKW模型中，通过数据分析，即在一定思想指导下形成各种数据分析方法与模型，进行“理解”，实现数据-信息-知识-智慧的升华。</p>
+<p>GIS空间分析 重点聚焦在学习<code>数据→信息</code>与<code>信息→知识</code>的一些方法。</p>
+<p><img alt="img DIKW_Understand" src="../img/DIKW_UDS.png" /></p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://www.jianshu.com/p/933d930f4482">DIKW：数据、信息、知识、智慧的金字塔层次体系</a></p>
+</details>
+<h2 id="3-ppdac">3. PPDAC模型</h2>
+<p>由于空间分析具有区别于其他普通分析的特殊性，在空间分析过程中运用PPDAC模型时，更关注的是具有明确空间背景的问题，即关注空间关系和空间依赖性、时空关系、空间分析中不满足经典统计准则的现象、空间过程与格局之间的关系、空间数据源及其质量等相关的问题。</p>
+<div class="admonition tip">
+<p class="admonition-title">空间分析的特殊性</p>
+<p>空间分析具有区别于其他非空间数据分析的特殊性，如</p>
+<ul>
+<li>
+<p>通常一个位置的数据并<strong>不独立于</strong>其他位置的数据，尤其在彼此靠近的地点进行测量分析时，这种关联（空间相关性）是常态。</p>
+</li>
+<li>
+<p>许多问题还必须在<strong>时空背景</strong>下考虑。</p>
+</li>
+<li>
+<p>空间模式<strong>很少</strong>由<strong>单个过程唯一决定</strong>的，因此空间分析通常是进一步研究过程和模型构建的<strong>开始</strong>，而很少是研究的结束。</p>
+</li>
+</ul>
+</div>
+<h4 id="31-problem-framing-the-question">3.1 Problem: 提出问题（Framing the question）</h4>
+<p>确定要研究的问题往往是整个过程的重要组成部分。将问题分解为关键组成部分（components），并将问题简化为关注其基本的、最重要的和相关的子部分，常常是很有效的第一步。</p>
+<div class="admonition question">
+<p class="admonition-title">Problem 阶段可能需要考虑的问题</p>
+<ul>
+<li>空间尺度因素（spatial scale factors）：将在哪个研究区域开展工作，改变这一点对一些或所有数据集有什么影响？相同的比例因素适用于所有感兴趣的数据吗？</li>
+<li>统计尺度因素（statistical scale factors）：要分析和报告的数据在什么级别上进行分组？</li>
+<li>空间布局因素（spatial arrangement factors）：研究区域的空间布局或分区的重新布局是否会对分析产生影响?</li>
+<li>问题制定是否需要在可用的时间、预算和资源范围内提供类型、大小或质量标准的数据？</li>
+<li>所寻求的关于空间分组数据的结论是否意味着分组（例如，在县一级，在农场一级）真正代表了组中的所有组成部分（例如，居住在县内的个人，农场内的田地）？如果是这样的话，分组区域必须完全或基本上是同质的，以避免所谓的生态谬误（ecological fallacy）——在只知道整体群体特征的情况下，将特征归因于群体成员。</li>
+<li>是否根据采样个体的测量特征寻求有关空间分组数据的结论？如果是这样的话，样本必须完全或高度代表群体，以避免所谓的原子论谬误（atomistic fallacy）——基于潜在的不具代表性的成员样本将特征归因于群体的成员。</li>
+</ul>
+</div>
+<h4 id="32-plan-formulating-the-approach">3.2 Plan: 制定方法（Formulating the approach）</h4>
+<p>在就问题定义达成一致后，下一阶段是制定一种方法，尽最大可能解决问题并获得符合预期的答案（结果）。</p>
+<div class="admonition question">
+<p class="admonition-title">Plan 阶段可能需要考虑的因素</p>
+<ul>
+<li>问题和项目的性质——是纯粹的调查，还是正式的研究活动；本质上是<strong>描述性的</strong>（对结构和关系的识别），还是<strong>更关心过程</strong>（在过程中可能需要更清楚地理解原因和影响，特别是如果要开发预测模型和/或预期将规定措施作为输出？）</li>
+<li>是否需要商业成本计算和/或成本效益分析？</li>
+<li>是否需要特定的决策支持工具和程序？</li>
+<li>所涉及的公众参与程度和公众意识（如果有的话）是多少？</li>
+<li>与演习相关的具体作战需求和条件是什么？</li>
+<li>可以在什么时间进行研究，是否有任何关键的（最终或中间）截止日期？</li>
+<li>有哪些资金和其他资源可用？</li>
+<li>该项目在技术上是否可行，存在什么可评估的失败风险，以及问题复杂性如何影响这一风险？</li>
+<li>客户（商业、政府、学术研究）的期望是什么？</li>
+<li>是否有必须使用的规范、标准、质量参数和/或程序（例如，遵守国家规范）？</li>
+<li>该研究与其他关于相同或类似问题的研究有何关联？</li>
+<li>需要哪些数据组件，以及如何获得这些组件（现有来源、收集的数据集）？</li>
+<li>要研究的数据（单位）是从目标人群中选择的，还是样本在某种程度上是不同的，并随后应用于人群（在这种情况下，不仅必须考虑采样误差，还必须考虑所谓的研究误差）？</li>
+</ul>
+</div>
+<p>地理空间分析中，罕见事件、空间异常值、极值、异常群集等异常现象对研究的影响是极其重要的。探索性方法，比如绘制和检查病例以及绘制方框图，有助于确定这些观察结果是否有效和重要，或是否需要从研究集中删除。</p>
+<h4 id="33-data-data-acquisition">3.3 Data: 数据采集（Data acquisition）</h4>
+<p>在实际中，并非所有所需数据集都具有相同的质量、成本、许可安排、可用性、完整性、格式、及时性和细节。在大多数情况下我们都必须做出妥协，因为最重要的准则是满足我们的目的。</p>
+<p>从定义上讲，几乎没有一个数据集是完美的。所有数据集都可能包含误差、缺失值、具有有限分辨率、包括以离散数学形式建模真实世界所导致的失真、包含测量误差和不确定性，并且可能表现出对位置和/或属性数据的有意或设计的调整（例如，出于隐私原因，作为聚合过程的一部分）。空间分析工具可能包含也可能不包含明确处理这些因素中一些更明显因素的设施。</p>
+<h4 id="34-analysis-analytical-methods-and-tools">3.4 Analysis: 分析方法和工具（Analytical methods and tools）</h4>
+<details class="note inline end" open="open">
+<summary>Note</summary>
+<p>空间分析中一个反复出现的主题是<strong>模式（pattern）</strong>的概念。分析的目的通常被描述为<strong>识别和描述空间模式，从而试图理解和建模产生观察到的模式的过程</strong>。</p>
+</details>
+<p>在分析阶段之前就应对方法和工具进行初步选择。简单（Simplicity）和节俭（parsimony），使用最简单、最清晰的工具、模型和可视化形式，以及适合问题和目标应该是关键标准。其他因素包括：适当工具的可用性；时间和成本限制；需要提供有效性和稳健性检查，可以通过对一致性、敏感性和质量进行内部和/或外部检查；符合相关标准；多种技术的使用；以及使用独立的和/或附加的数据集或采样。</p>
+<h4 id="35-conclusions-delivering-the-results">3.5 Conclusions: 公布结果（Delivering the results）</h4>
+<p>PPDAC过程的最后阶段是根据所进行的分析得出结论，并将这些结论传达给其他人。  <br></p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://spatialanalysisonline.com/HTML/index.html?analytical_methodologies.htm">Geospatial Analysis 6th Edition, 2021 update - de Smith, Goodchild, etc</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/625077998">PPDAC模型 - 知乎 </a></p>
+</details>
+<h2 id="4">4. 学习参考资料</h2>
+<ul>
+<li>
+<p>GIS空间分析(科学出版社)， 刘湘南等</p>
+</li>
+<li>
+<p><a href="https://spatialanalysisonline.com/HTML/index.html">Geospatial Analysis 6th Edition</a></p>
+</li>
+<li>
+<p>微信公众号：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODk4NzgyNA==&amp;action=getalbum&amp;album_id=1349424235982290944#wechat_redirect">虾神说D</a> (强烈推荐大家读一读)</p>
+</li>
+<li>
+<p><a href="https://study.sagepub.com/rogerson5e">Statistical Methods for Geography</a></p>
+</li>
+<li>
+<p><a href="http://mooc1.mooc.whu.edu.cn/course/206844583.html">空间数据分析-MOOC</a></p>
+</li>
+</ul>
+
+
+<!-- taken from 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
+
+<hr />
+<div class="md-source-file">
+<small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+    最后更新:
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+        <br />
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+</small>
+</div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面所有内容仅供学习使用, 未经允许不得转载！
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/no-conf" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:noconf@outlook.com" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../0_javascripts/extra.js"></script>
+      
+        <script src="../../0_javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

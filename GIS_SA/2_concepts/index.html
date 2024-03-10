@@ -1,0 +1,1765 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://no-con.github.io/GIS_SA/2_concepts/">
+      
+      
+        <link rel="prev" href="../1_introduction/">
+      
+      
+        <link rel="next" href="../3_basis4SpaSta/">
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>空间分析概念框架 - Nocon's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../0_stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/font.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/color.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DSCW3D4396"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DSCW3D4396",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DSCW3D4396",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Nocon&#39;s notes" class="md-header__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nocon's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              空间分析概念框架
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: eyeprotect)" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="Light" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="Dark" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to EyeProtect Node"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to EyeProtect Node" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  GIS空间分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../SDB/" class="md-tabs__link">
+          
+  
+    
+  
+  地理空间数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nocon&#39;s notes" class="md-nav__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Nocon's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    GIS空间分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            GIS空间分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    空间分析概念框架
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    空间分析概念框架
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Places (地点)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Attributes (属性)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objects (对象)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Maps (地图)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-multiple-properties-of-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Multiple properties of places (地点的多重属性)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6 Fields(场)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.7 Networks (网络)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.8 Density (密度)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-detail-resolution-and-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.9 Detail, resolution, and scale (细节、分辨率和比例尺)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.10 Topology (拓扑)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 地理学定律
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 地理学定律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 地理学第一定律 (空间相关性定律)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 地理学第二定律 (空间异质性定律)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 地理学第三定律
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 空间关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 空间关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 空间关系的内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 距离关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 方向关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 拓扑关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 空间推理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 空间推理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 空间推理方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 空间基础设施
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_basis4SpaSta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间统计基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_ESDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    探索性空间统计分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_SpaPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间模式分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_SpaCorr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间相关分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_GeoRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_SpaRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_SpaCluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间聚类分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_MLClass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_SpaTempo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时间序列分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_GeoBigData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时空分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_TimeSeries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理空间大数据分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_DeepLearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥感数据深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../SDB/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    地理空间数据库
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Places (地点)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Attributes (属性)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Objects (对象)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 Maps (地图)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-multiple-properties-of-places" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5 Multiple properties of places (地点的多重属性)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6 Fields(场)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.7 Networks (网络)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-density" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.8 Density (密度)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-detail-resolution-and-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.9 Detail, resolution, and scale (细节、分辨率和比例尺)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.10 Topology (拓扑)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 地理学定律
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 地理学定律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 地理学第一定律 (空间相关性定律)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 地理学第二定律 (空间异质性定律)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 地理学第三定律
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 空间关系
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 空间关系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 空间关系的内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 距离关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 方向关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 拓扑关系
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 空间推理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 空间推理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 空间推理方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 空间基础设施
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>空间分析概念框架</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2457 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 8 分钟</p>
+</div>
+<details class="abstract" open="open">
+<summary>Abstract</summary>
+<p>介绍了空间分析中的基本概念、地理学定律、空间关系、空间推理等内容。</p>
+<p>地理学第一定律，地理学第二定律，空间异质性，9-IM和DE-9IM, 空间推理方法。</p>
+</details>
+<h2 id="1">1. 基本概念</h2>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>1884年的<a href="https://baike.baidu.com/item/%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%BA%BF/248147#5:~:text=1884%E5%B9%B4%E5%9C%A8%E5%8D%8E%E7%9B%9B%E9%A1%BF%E4%B8%BE%E8%A1%8C%E7%9A%84%E5%9B%BD%E9%99%85%E5%AD%90%E5%8D%88%E7%BA%BF%E4%BC%9A%E8%AE%AE%E5%86%B3%E5%AE%9A%EF%BC%8C%E9%87%87%E7%94%A8%E9%80%9A%E8%BF%87%E8%8B%B1%E5%9B%BD%E4%BC%A6%E6%95%A6%E6%A0%BC%E6%9E%97%E5%B0%BC%E6%B2%BB%EF%BC%88%E6%A0%BC%E6%9E%97%E5%A8%81%E6%B2%BB%EF%BC%89%E7%9A%87%E5%AE%B6%E5%A4%A9%E6%96%87%E5%8F%B0%EF%BC%88%E6%97%A7%E5%9D%80%EF%BC%89%E5%9F%83%E9%87%8C%E4%B8%AD%E6%98%9F%E4%BB%AA%E7%9A%84%E5%AD%90%E5%8D%88%E7%BA%BF%E4%BD%9C%E4%B8%BA%E6%97%B6%E9%97%B4%E5%92%8C%E7%BB%8F%E5%BA%A6%E8%AE%A1%E9%87%8F%E7%9A%84%E6%A0%87%E5%87%86%E5%8F%82%E8%80%83%E5%AD%90%E5%8D%88%E7%BA%BF%EF%BC%8C%E7%A7%B0%E4%B8%BA%E6%9C%AC%E5%88%9D%E5%AD%90%E5%8D%88%E7%BA%BF%E3%80%82">国际子午线会议</a>确定了本初子午线(格林威治天文台)。</p>
+<p>现在的<a href="https://baike.baidu.com/item/WGS-84%E5%9D%90%E6%A0%87%E7%B3%BB/730443">WGS84坐标系统</a>提供了地表的高精度坐标。</p>
+<p>中国目前最新的国家大地坐标系是<a href="https://baike.baidu.com/item/2000%E5%9B%BD%E5%AE%B6%E5%A4%A7%E5%9C%B0%E5%9D%90%E6%A0%87%E7%B3%BB/7262512">CGCS2000</a>。</p>
+</div>
+<h3 id="11-places">1.1 Places (地点)</h3>
+<p>一切空间分析的中心落脚于<code>地点(place)</code>的概念；</p>
+<ul>
+<li>
+<p><code>地点</code>通常都有名字，人们通过名字来区分地点；</p>
+</li>
+<li>
+<p><code>地点</code>有坐标；</p>
+</li>
+</ul>
+<h3 id="12-attributes">1.2 Attributes (属性)</h3>
+<p>一个地点的特征或性质可以称为<code>属性(attribute)</code>。</p>
+<ul>
+<li>在GIS中，属性通常指<code>矢量数据中的单个要素</code>或<code>栅格数据的单个网格</code>在数据表中的记录(Record)。</li>
+<li>
+<p>属性可分为<strong>定性(Qualitative)</strong> 的和 <strong>定量(Quantitative)</strong> 的</p>
+<ul>
+<li>
+<p>定性的：norminal(标称、定类)、ordinal(定序)</p>
+</li>
+<li>
+<p>定量的：iterval(定距)、ratio(定比)、Cyclic(周期性的)</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">对norminal, ordinal, interval, ratio四种属性的理解</p>
+<ul>
+<li>定类变量值只是分类, 如性别变量的男女；</li>
+<li>定序变量值可以排序, 但不能加减, 如有点同意、基本同意、完全同意；</li>
+<li>定距变量值是数字型变量, 变量的值之间可以比较大小, 两个值的差有实际意义, 如摄氏温度；</li>
+<li>定比变量有绝对0点，如质量，高度，开尔文温度。</li>
+</ul>
+<blockquote>
+<p>区分定距和定比：定距变量取值为“0”时，不表示“没有”，仅仅是取值为0。定比变量取值为“0”时，则表示“没有”。</p>
+</blockquote>
+<p>参考：<a href="https://www.psy.gla.ac.uk/~steve/best/ordinal.html">Nominal, ordinal, interval, &amp; ratio data</a></p>
+</div>
+<h3 id="13-objects">1.3 Objects (对象)</h3>
+<p>点(Point), 线(Line), 面(Areas), 体(Volumes)是<code>属性</code>的什么支持，也是GIS研究对象(的抽象)。</p>
+<h3 id="14-maps">1.4 Maps (地图)</h3>
+<p><code>地图(map)</code>是存储和交流空间数据的主要手段。</p>
+<p>地图可分为<code>真实地图</code>和<code>虚拟/数字地图</code>。</p>
+<h3 id="15-multiple-properties-of-places">1.5 Multiple properties of places (地点的多重属性)</h3>
+<p>一个地点可能不止一个对象，即对象可能重叠。比如一条河流可以穿过森林，一条道路可以穿过河流。</p>
+<h3 id="16-fields">1.6 Fields(场)</h3>
+<div class="admonition tip inline end">
+<p class="admonition-title">空间数据模型的概念及类型</p>
+<p>在GIS中与空间信息有关的信息模型有三个，即基于对象（Object）的模型、场（Field）模型以及网络（Network）模型。</p>
+<ul>
+<li>基于对象（要素）的模型强调了离散对象，根据它们的边界线以及组成它们或者与它们相关的其它对象，可以详细地描述离散对象。</li>
+<li>场模型表示了在二维或者三维空间中被看作是连续变化的数据。 有很多类型的数据，有时被看作场，有时被看作对象。</li>
+<li>网络模型表示了特殊对象之间的交互，如水或者交通流。</li>
+</ul>
+<p>参考: <a href="https://www.osgeo.cn/post/3231g#">空间数据模型的概念及类型</a></p>
+</div>
+<ul>
+<li>
+<p>离散对象模型(Discrete-object view) - 矢量数据模型</p>
+<p>采用离散对象来表示地球表面的空间要素。</p>
+</li>
+<li>
+<p>连续场模型(Continuous-field view) - 栅格数据模型</p>
+<p>对于模拟具有一定空间内连续分布特点的现象来说，基于场的观点是合适的。例如，空气中污染物的集中程度、地表的温度、土壤的湿度水平以及空气与水的流动速度和方向。根据应用的不同，场可以表现为二维或三维。一些现象，诸如空气污染物在空间中本质上讲是三维的，但是许多情况下可以由一个二维场来表示。</p>
+</li>
+</ul>
+<h3 id="17-networks">1.7 Networks (网络)</h3>
+<p>线(lines)经常组成空间数据的对象，包括街道、道路、铁路、高速公路；河流、管道；社会学家所研究的更加抽象的人际关系。</p>
+<blockquote>
+<p><strong>网络(networks)</strong> 是嵌入在二维或三维结构中的一维结构。</p>
+</blockquote>
+<h3 id="18-density">1.8 Density (密度)</h3>
+<p><code>密度(density)</code>提供了离散对象和连续场概念之间的有效联系，因为密度表示每单位面积上离散对象的数量，并且本身是一个连续场。  </p>
+<p>数学上，某种物体的密度是通过计算一个区域内这种物体的数量，然后除以该区域的面积大小来计算的。</p>
+<h3 id="19-detail-resolution-and-scale">1.9 Detail, resolution, and scale (细节、分辨率和比例尺)</h3>
+<p>行星表面几乎是无限复杂的，不可能建立一个包含所有<code>细节(detail)</code>的模型，因此需要决定哪些细节可以被包含进来。</p>
+<p>空间<code>分辨率(resolution)</code>是可详细区分最小单元的大小或尺寸。低于该尺寸的细节被认为是研究不需要的或者研究不相关的。</p>
+<p>地图<code>比例尺(scale)</code>表示了地图上的距离与真实世界中对应距离的比值。</p>
+<div class="admonition note">
+<p class="admonition-title">制图综合(Map Generalization)</p>
+<ol>
+<li>简化(simplification)：减少对象中的顶点数。</li>
+<li>预选(Preselection)：选择要包括在地图上的对象。</li>
+<li>平滑(Smooth)：减少锐角，使曲线更平滑。</li>
+<li>聚合(Aggregation)：将聚集在一起的小对象聚合成一个大的复合对象。</li>
+<li>消除(Elimination)：删除不必要的小的对象。</li>
+<li>降维(Collapse)：将详细的对象缩小为点符号，维度降低。</li>
+<li>代表(Typification)：用占据大致相当位置的少量对象替代原本的大量对象。</li>
+<li>夸张(Exaggeration)：放大原本可能被删除的对象。</li>
+<li>增强(Refinement)：添加在视觉上能够使对象更清晰的细节。</li>
+<li>分类与符号化(Classification and symbolization): 将相似的特征组合在一起，并使用不同的符号来表示新的排列</li>
+<li>位移(Conflict resolution/displacement): 解决标注重叠、对象叠置等现象（为了清晰起见）。</li>
+</ol>
+<p>参考: <a href="https://www.osgeo.cn/tutorial/k2045">制图综合</a>, <a href="https://downloads.esri.com/SUPPORT/WHITEPAPERS/AO_/MAPGEN.PDF">Automation of Map Generalization</a></p>
+</div>
+<h3 id="110-topology">1.10 Topology (拓扑)</h3>
+<p>在数学上，经过空间的拉伸、缩放、扭曲后保持不变的性质称为<code>拓扑(Topology)</code>。</p>
+<p>在地理上，拓扑指根据拓扑几何性质组织向量空间数据的方式，包括点、线、面三种要素的空间关系。</p>
+<ul>
+<li>
+<p>拓扑维度: 点(0), 线(1), 面(2), 体(3)</p>
+</li>
+<li>
+<p>领接性</p>
+</li>
+<li>
+<p>连通性</p>
+</li>
+<li>
+<p>包含</p>
+</li>
+</ul>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://www.spatialanalysisonline.com/HTML/place.htm">Conceptual Frameworks for Spatial Analysis-Basic Primitives</a></p>
+</details>
+<h2 id="2">2. 地理学定律</h2>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>地理学第一定律非常重要! 后面学习到的许多方法都体现出这一思想。</p>
+</div>
+<h3 id="21">2.1 地理学第一定律 (空间相关性定律)</h3>
+<p>任何事物都是空间相关的，距离近的事物比距离远的事物的空间相关性更大。简单点说，就是“<strong>越近越相关</strong>”。</p>
+<div class="admonition info">
+<p class="admonition-title">Cite</p>
+<p>Everything is related to everything else but near things are more related than distant things.<br />
+由WaldoTobler提出，又称为Tobler's First Law of Geography(TFL)。</p>
+</div>
+<p>李小文院士针对TFL的局限性，提出了<code>时空邻近度</code>的概念，即“<strong>时空上越近的越相关</strong>”。</p>
+<h3 id="22">2.2 地理学第二定律 (空间异质性定律)</h3>
+<p><strong>空间的隔离，造成了地物之间的差异</strong>，即异质性(Spatial Heterogeneity)。  </p>
+<blockquote>
+<p>空间异质性分为空间局域异质性和空间分层异质性，前者是指该点属性值与周围不同，例如热点或冷点；后者是指多个区域之间互相不同，例如分类和生态分区。</p>
+</blockquote>
+<h3 id="23">2.3 地理学第三定律</h3>
+<p>地理环境越相似，地理特征越相近。</p>
+<h2 id="3">3. 空间关系</h2>
+<h3 id="31">3.1 空间关系的内容</h3>
+<p>空间关系的基础是空间对象的位置和属性的表达以及空间对象复杂空间关系的表达。</p>
+<ul>
+<li>
+<p>空间关系可以由地理对象的几何特征造成，如拓扑关系、距离关系、方位关系等。</p>
+</li>
+<li>
+<p>空间关系也可以由地理对象的几何特征和非几何特征造成，如空间分布现象的相关性、空间自相关、空间依赖性等。</p>
+</li>
+</ul>
+<h3 id="32">3.2 距离关系</h3>
+<ul>
+<li>
+<p>定量的：欧氏距离、曼哈顿距离、闵可夫斯基距离…… </p>
+<p>可参考：<a href="https://www.cnblogs.com/AlvinSui/p/8931074.html">各种距离度量</a></p>
+</li>
+<li>
+<p>定性的：近、远、较近、较远……</p>
+</li>
+</ul>
+<h3 id="33">3.3 方向关系</h3>
+<p>方向: 东、东南、西……</p>
+<p>度量方法: 四方向模型、八方向模型、最小包围盒模型……</p>
+<h3 id="34">3.4 拓扑关系</h3>
+<ul>
+<li>
+<p>四交模型</p>
+</li>
+<li>
+<p>九交模型</p>
+<p>将地理对象分为内部、边界、外部三部分(点只有内部和外部，没有边界)，通过判断两个对象的这三个区域之间是否有交点进而判断几何对象的拓扑关系。</p>
+</li>
+<li>
+<p>维度扩展九交模型</p>
+<p>基于九交模型，不仅判断两对象的三个区域之间是否相交，还判断它们的交集类型是什么，包括空集(-1)，交集为点或多点(0)、线或多线(1)、面或多面(2)。</p>
+<p>根据DE-9IM，可以将空间关系描述为以下8种：相等、相交、相离、相接、穿越、包含、包含于、叠置。 (可参考: <a href="https://portal.ogc.org/files/?artifact_id=25355">OGC SFA Part 1</a> P35-P40)</p>
+</li>
+<li>
+<p>……</p>
+</li>
+</ul>
+<h2 id="4">4. 空间推理</h2>
+<h3 id="41">4.1 概念</h3>
+<p><strong>空间推理</strong>是指利用空间理论和人工智能技术对地理对象进行建模、描述和表征，并据此对这些对象之间的空间关系进行定性或定量的分析和处理。</p>
+<h3 id="42">4.2 空间推理方法</h3>
+<ul>
+<li>
+<p>空间关系推理</p>
+<p>在给定关系模型的基础上，可以根据空间对象的位置推理空间对象的关系。  </p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>给定: 山西在北京的西边, 青海在山西的西边。<br />
+推理: 青海在北京的西边。 </p>
+</details>
+</li>
+<li>
+<p>概率推理</p>
+</li>
+<li>
+<p>贝叶斯推理与空间推理</p>
+<p>一个应用是<code>最大似然估计</code>。</p>
+</li>
+<li>
+<p>案例推理与空间推理</p>
+<p>基于常识的推理。</p>
+</li>
+<li>
+<p>模糊推理与空间推理</p>
+<p>利用事件推理对空间对象进行模糊查询。</p>
+</li>
+<li>
+<p>时空推理</p>
+</li>
+<li>
+<p>……</p>
+</li>
+</ul>
+<h2 id="5">5. 空间基础设施</h2>
+<ul>
+<li>
+<p><a href="https://www.arcgis.com">ArcGIS Online</a></p>
+</li>
+<li>
+<p><a href="https://engine.piesat.cn/">航天宏图PIE Engine</a></p>
+</li>
+<li>
+<p><a href="https://wiki.52north.org/AI_GEOSTATS/WebHome">AI-GEOSTATA</a></p>
+</li>
+<li>
+<p><a href="http://www.statsref.com/">STATSREF</a></p>
+</li>
+<li>
+<p><a href="https://mathworld.wolfram.com/">Mathworld</a></p>
+</li>
+<li>
+<p><a href="https://www.fgdc.gov/nsdi/nsdi.html">Metadata</a></p>
+</li>
+</ul>
+
+
+<!-- taken from 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
+
+<hr />
+<div class="md-source-file">
+<small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+    最后更新:
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+        <br />
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+</small>
+</div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面所有内容仅供学习使用, 未经允许不得转载！
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/no-conf" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:noconf@outlook.com" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../0_javascripts/extra.js"></script>
+      
+        <script src="../../0_javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

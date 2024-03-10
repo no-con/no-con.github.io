@@ -1,0 +1,1552 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://no-con.github.io/SDB/1_General/">
+      
+      
+        <link rel="prev" href="../0_Introduction/">
+      
+      
+        <link rel="next" href="../2_Relational_Algebra/">
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>地理空间数据库概论 - Nocon's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../0_stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/font.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/color.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DSCW3D4396"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DSCW3D4396",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DSCW3D4396",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Nocon&#39;s notes" class="md-header__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nocon's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              地理空间数据库概论
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: eyeprotect)" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="Light" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="Dark" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to EyeProtect Node"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to EyeProtect Node" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GIS_SA/" class="md-tabs__link">
+          
+  
+    
+  
+  GIS空间分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  地理空间数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nocon&#39;s notes" class="md-nav__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Nocon's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../GIS_SA/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    GIS空间分析
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    地理空间数据库
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            地理空间数据库
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_Introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    地理空间数据库概论
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    地理空间数据库概论
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 关系数据库基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 关系数据库基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 数据模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 三级模式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 空间数据库基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空间数据库基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 空间数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间数据的特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 空间数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间数据库系统
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 空间数据管理技术的产生与发展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 空间数据管理技术的产生与发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 文件系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 文件与关系数据库混合系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 空间数据引擎
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 对象关系型数据库管理系统
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 空间数据库标准
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Relational_Algebra/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关系模型与关系代数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_SQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关系数据库标准语言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_GeomObj/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    几何对象模型与查询
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_ER/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间扩展ER图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_RDB/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关系数据库设计理论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Spatial_Index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间存储与索引
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_QueryProcessOptimize/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间查询处理与优化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_Spatial_Network/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间网络模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_DB_Integrity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据库安全性与完整性
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_PostgreSQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL服务器编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 关系数据库基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 关系数据库基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 数据模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 三级模式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 空间数据库基本概念
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空间数据库基本概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 空间数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间数据的特征
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 空间数据库
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间数据库系统
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 空间数据管理技术的产生与发展
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 空间数据管理技术的产生与发展">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 文件系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 文件与关系数据库混合系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 空间数据引擎
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 对象关系型数据库管理系统
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 空间数据库标准
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>地理空间数据库概论</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 2947 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 10 分钟</p>
+</div>
+<h2 id="1">1 关系数据库基本概念</h2>
+<h3 id="11">1.1 数据模型</h3>
+<p><strong>数据模型</strong>是用来描述数据、组织数据和对数据进行操作的模型。</p>
+<ul>
+<li>
+<p><strong>逻辑数据模型(logical model)</strong> 直接面向数据库的逻辑结构,常有一组严格定义的、无二义性的语法和语义的数据库语言, 用于定义、操纵数据库中的数据。</p>
+<blockquote>
+<p>逻辑数据模型与DBMS有关，DBMS以所支持的逻辑数据模型来分类。<br />
+用概念数据模型表示的数据必须转化为逻辑数据模型表示的数据，才能在DBMS中实现。<br />
+逻辑数据模型既要面向用户, 也要面向实现。</p>
+</blockquote>
+<div class="admonition tip">
+<p class="admonition-title">逻辑数据模型的类型</p>
+<ul>
+<li>层次模型(Hierarchical Model)</li>
+<li>网状模型(Network Model)</li>
+<li>关系模型(Relational Model)</li>
+<li>面向对象模型(Object Oriented Model)</li>
+<li>对象关系模型(Object Relational Model)</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>物理数据模型(physical model)</strong> 是对数据最低层的抽象, 它描述数据在磁盘或磁带上的存储方式和存取方法, 面向计算机系统。</p>
+<blockquote>
+<p>每种逻辑数据模型在实现时，都有其对应的物理数据模型。<br />
+物理数据模型的实现不但与DBMS有关，还与操作系统和硬件有关。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>数据模型的内容</strong>:  </p>
+<ul>
+<li>数据结构 <code>静态特性</code></li>
+<li>数据操纵 <code>动态特效</code></li>
+<li>
+<p>完整性约束 <code>完整性约束条件</code></p>
+<div class="admonition example">
+<p class="admonition-title">层次模型分析</p>
+<ul>
+<li><strong>数据结构–树</strong><br />
+  有且只有一个结点没有父结点，这个结点称为根结点<br />
+  根以外的其它结点有且只有一个父结点</li>
+<li><strong>数据操作</strong><br />
+  查询、插入、删除、更新</li>
+<li><strong>完整性约束</strong><br />
+  除根结点外，无父结点的结点无法插入<br />
+  删除父结点时，同时也删除其所有子结  </li>
+</ul>
+<hr />
+<ul>
+<li>优点：<br />
+  层次数据模型简单，对具有一对多的层次关系的部门描述自然、直观，容易理解;<br />
+  性能优于关系模型，不低于网状模型;<br />
+  层次数据模型提供了良好的完整性支持;  </li>
+<li>缺点：<br />
+  多对多联系表示不自然;<br />
+  对插入和删除操作的限制多;<br />
+  查询子结点必须通过父结点;<br />
+  层次命令趋于程序化</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">网状模型分析</p>
+<ul>
+<li><strong>数据结构–图</strong><br />
+  允许多个结点没有父结点<br />
+  允许结点有多个父结点<br />
+  允许两个结点之间有多种联系(复合联系)</li>
+<li><strong>数据操作</strong><br />
+  查询、插入、删除、更新</li>
+<li><strong>完整性约束</strong>    </li>
+</ul>
+<hr />
+<ul>
+<li>优点：<br />
+  能够更为直接地描述现实世界，如一个结点可以有多个父结点;<br />
+  具有良好的性能，存取效率较高;  </li>
+<li>缺点：<br />
+  结构比较复杂，而且随着应用环境的扩大，数据库的结构变得越来越复杂，不利于最终用户掌握;<br />
+  DDL (Data Definition Language)、DML (Data Manipulation Language)语言复杂，用户不容易使用;  </li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">关系模型的主要优点</p>
+<ul>
+<li><strong>简单</strong>，一个数据库由多个关系组成，每一个关系就是一个规范化了的二维表，关系模型中的许多概念与二维表是一一对应的，普通用户容易理解。  </li>
+<li><strong>易访问</strong>，可以使用高级的数据查询语言构造出复杂的查询，对数据库中的数据进行访问点  </li>
+</ul>
+</div>
+</li>
+</ul>
+<div class="admonition note inline end">
+<p class="admonition-title">模式与实例</p>
+<p>模式相对稳定, 反映数据结构及联系;<br />
+实例相对变动, 反映数据库某一时刻的状态。</p>
+</div>
+<h3 id="12">1.2 三级模式</h3>
+<p><strong>模式(schema)</strong>定义或描述一个数据集合。</p>
+<p><strong>三级模式</strong>:</p>
+<ul>
+<li>
+<p><strong>模式</strong><br />
+  用逻辑数据模型对数据库中全部数据的逻辑结构和特性的描述; <br />
+  是数据库所有用户的公共数据视图。</p>
+<blockquote>
+<p>一个数据库(的关系)只有一个模式。    </p>
+</blockquote>
+</li>
+<li>
+<p><strong>外模式(子模式|用户模式)</strong><br />
+  对用户所用到的那部分数据的描述;   </p>
+<blockquote>
+<p>一个数据库(的关系)可以有多个外模式;<br />
+外模式是模式的一部分或是从模式推导而来的。</p>
+</blockquote>
+</li>
+<li>
+<p><strong>内模式(存储模式)</strong><br />
+  用物理数据模型对数据的描述; <strong>数据物理结构和存储方式</strong>的描述, 是数据在数据库内部的表示方式。</p>
+<blockquote>
+<p>一个数据库(的关系)只有一个内模式;<br />
+内模式定义与修改是DBA(DatabaseAdministrators)的责任。</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>模式映像</strong>:</p>
+<ul>
+<li><strong>外模式/模式映像</strong><br />
+  每个外模式对应一个该映象; <br />
+  映象定义通常包含在各自<code>外模式</code>的描述中.  <blockquote>
+<p>用途: 保证数据(与程序)的<strong>逻辑独立性</strong>.<br />
+当模式改变时，数据库管理员修改有关的外模式／模式映象，使外模式保持不变; 应用程序是依据数据的外模式编写的，从而应用程序不必修改，保证了数据与程序的逻辑独立性。  </p>
+</blockquote>
+</li>
+<li><strong>模式/内模式映象</strong> <br />
+  定义数据的逻辑结构与存储结构间对应关系;<br />
+  映象定义通常包含在<code>模式</code>描述中.<blockquote>
+<p>用途: 保证数据(与程序)的<strong>物理独立性</strong>.<br />
+当数据库的存储结构改变了(例如，选用了另一种存储结构)，数据库管理员修改模式／内模式映象，使模式保持不变; 应用程序不受影响，保证了数据与程序的物理独立性。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2">2 空间数据库基本概念</h2>
+<h3 id="21">2.1 空间数据</h3>
+<p><strong>空间数据</strong>是以地球表面空间位置为参照的自然、社会和人文经济景观数据。广义上包括文字、数字、图形、影像、声音、图像等多种表现形式。分为<strong>矢量数据</strong>和<strong>栅格数据</strong>。</p>
+<p><strong>矢量数据</strong>：一种用点、线、面等基本空间要素来表示人们赖以生存的自然世界的数据。<br />
+<strong>空间实体</strong>：不可再分的最小单元现象；是对存在于这个自然世界中地理实体的抽象；包括包括点、线、多边形等基本类型。</p>
+<details class="example" open="open">
+<summary>空间实体举例</summary>
+<ul>
+<li>
+<p>一根电线杆 → 点   </p>
+<blockquote>
+<p>所处的位置信息、电线杆高度及其他相关信息  </p>
+</blockquote>
+</li>
+<li>
+<p>一条道路 → 线  </p>
+<blockquote>
+<p>道路长度、宽度、起点、终点及道路等级等相关信息  </p>
+</blockquote>
+</li>
+<li>
+<p>一个湖泊 → 多边形  </p>
+<blockquote>
+<p>湖泊的周长、面积和水质等信息</p>
+</blockquote>
+</li>
+</ul>
+</details>
+<p><strong>栅格数据</strong>：把地理空间中的事物和现象作为连续的变量或体看待。  </p>
+<blockquote>
+<p>将地面划分为均匀的网格，每个网格作为一个像元，像元的位置由所在列和行号确定，像元所含有的代码表示其属性类型或仅是与其属性记录相联系的指针。</p>
+</blockquote>
+<h3 id="22">2.2 空间数据的特征</h3>
+<ul>
+<li><strong>空间特征</strong><br />
+  空间对象都有空间坐标,即空间对象隐含了<code>空间分布特征</code>;<br />
+  除了属性索引外，还需要建立<code>空间索引</code>。</li>
+<li><strong>非结构化特征</strong><br />
+  不方便用数据库二维逻辑表来表现的数据为非结构化数据, 空间数据是一种<code>非结构化数据</code>; <br />
+  空间实体是不定长、非原子甚至嵌套的。 </li>
+<li><strong>空间关系特征</strong><br />
+  空间数据包括空间坐标和拓扑关系。    </li>
+<li><strong>时态特征</strong><br />
+  反映地理实体的状态和演变过程的重要组成部分。<blockquote>
+<p>现有的空间数据库基本不具有管理空间数据的时间动态性，只是描述数据的<code>瞬时状态</code>。</p>
+</blockquote>
+</li>
+<li><strong>多尺度特征</strong><br />
+<code>空间多尺度</code>指根据地学过程或地理地球系统中规模的大小,可分为不同的层次; <br />
+<code>时间多尺度</code>指地学过程或地理特征具有一定的自然节律性,其时间周期长短不一。</li>
+</ul>
+<h3 id="23">2.3 空间数据库</h3>
+<p><strong>空间数据库</strong>：在地球表面某一范围内与空间地理相关、反映某一主题信息的数据集合。</p>
+<blockquote>
+<p>空间数据库是以<strong>空间目标</strong>作为存储对象的专业数据库</p>
+</blockquote>
+<p>要求: 按一定的<code>数据模型</code>组织、描述和存储，具有较小的<code>冗余度</code>、较高的<code>数据独立性</code>和<code>易扩展性</code>，并可为各种用户<code>共享</code>。 </p>
+<p><strong>三大要素</strong>: 空间数据类型、空间分析和空间索引。</p>
+<p><strong>三层架构</strong>：Spatial Application &lt;&gt; Spatial DB &lt;&gt; DBMS</p>
+<p><strong>特点</strong>:  </p>
+<ul>
+<li>数据量大  </li>
+<li>空间数据与属性数据的集合  </li>
+<li>应用广泛  </li>
+</ul>
+<h3 id="24">2.4 空间数据库系统</h3>
+<p>空间数据库管理系统(Spatial Database Management System,SDBMS): 由空间数据库及其管理软件、应用软件组成, 是存储介质、处理对象和管理系统的集合体。现有的SDBMS有: </p>
+<ul>
+<li><a href="https://www.oracle.com/database/spatial/">Oracle Spatial</a></li>
+<li><a href="https://postgis.net/">PostgreSQL PostGIS</a></li>
+<li><a href="https://www.ibm.com/docs/en/db2/11.1?topic=data-db2-spatial-extender">DB2 Spatial Extender</a></li>
+</ul>
+<p>功能:  </p>
+<ul>
+<li>空间数据定义与操纵(SDDL,SDML)  </li>
+<li>S.D的组织、存储和管理(存取效率)  </li>
+<li>后台的事务管理和运行管理(DBA)  </li>
+<li>数据库的建立与维护</li>
+</ul>
+<p>组成:   </p>
+<ul>
+<li>SDB  </li>
+<li>空间数据库管理系统  </li>
+<li>数据库管理员  </li>
+<li>用户和应用程序 </li>
+</ul>
+<h2 id="3">3 空间数据管理技术的产生与发展</h2>
+<p><img alt="sdb_his" src="../img/SDB_His.png" /></p>
+<h3 id="31">3.1 文件系统</h3>
+<p>加拿大政府从20世纪60年代中期开始，历经10年时间，研发了世界上第一个地理信息系统——加拿大地理信息系统(CGIS)，这是第一代空间应用系统。</p>
+<h3 id="32">3.2 文件与关系数据库混合系统</h3>
+<p>第二代空间应用系统——混合管理系统。</p>
+<ul>
+<li>文件系统管理几何图形数据   </li>
+<li>关系数据库管理属性数据  </li>
+<li>联系通过目标标识或内部连接码进行(对象唯一标识符OID)  </li>
+</ul>
+<h3 id="33">3.3 空间数据引擎</h3>
+<p>第三代空间应用系统——空间数据引擎</p>
+<ul>
+<li>图形坐标数据作为一个二进制数据类型，由数据库管理系统进行存储;</li>
+<li>SDE提供一组空间数据的操作函数，完成空间数据的转换，以及数据的索引调度和空间数据的存储管理</li>
+</ul>
+<h3 id="34">3.4 对象关系型数据库管理系统</h3>
+<p>第四代空间应用系统——对象关系型数据库管理系统 (Object-relational database management system, ORDBMS)</p>
+<ul>
+<li>支持SQL，具有良好的通用性;  </li>
+<li>具有面向对象特性，支持复杂对象及其行为。  </li>
+<li>能够直接存储和管理非结构化的空间数据;   </li>
+<li>对各种空间对象, 操作函数及其索引预先定义, 形成不同空间数据类型, 支持空间数据存储管理分析</li>
+</ul>
+<h2 id="4">4 空间数据库标准</h2>
+<ul>
+<li>开放地理空间信息协会(Open Geospatial Consortium, OGC)的<strong>Simple Feature Access SQL (SFA SQL)</strong><br />
+  第一部分(<a href="https://www.ogc.org/standard/sfa/">Part1 Common Architecture</a>)定义几何对象的通用架构，描述了通用的简单要素地理集合对象模型，及集合对象的不同表达方式和空间参考系统的表达方式，具有平台独立性。<br />
+  第二部分(<a href="https://www.ogc.org/standard/sfs/">Part2: SQL Option, SFA SQL</a>)定义了第一部分定义的简单要素模型在数据库中的实现，给出了内模式下几何类型(geometry type)的定义及相关实现。 </li>
+<li>国际标准化组织/国际电工委员会第一联合技术委员会/数据管理和交换分技术委员会(ISO/IEC JTC1 SC32)的<strong>SQL Multimedia Part3: Spatial, SQL/MM</strong><br />
+<a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:13249:-3:ed-5:v1:en">SQL/MM</a>第三部分空间定义了矢量数据存储与检索的相关标准，解释了基于这些数据类型如何使用存储、获取和处理空间数据。</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">SFA SQL与SQL/MM对比</p>
+<p>SFA SQL在<code>标记文本类型、空间数据存储</code>实现上比SQL/MM定义的更宽泛；<br />
+SQL/MM涉及了SFA SQL尚未涉及的<code>拓扑数据结构、网络模型</code>等方面的内容。</p>
+<hr />
+<p><strong>PostGIS更符合SFA SQL标准</strong><br />
+<strong>Oracle Spatial更兼容SQL/MM标准</strong>  </p>
+</div>
+
+
+<!-- taken from 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
+
+<hr />
+<div class="md-source-file">
+<small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+    最后更新:
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+        <br />
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+</small>
+</div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面所有内容仅供学习使用, 未经允许不得转载！
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/no-conf" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:noconf@outlook.com" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../0_javascripts/extra.js"></script>
+      
+        <script src="../../0_javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

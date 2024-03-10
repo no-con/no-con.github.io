@@ -1,0 +1,1615 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://no-con.github.io/GIS_SA/6_SpaCorr/">
+      
+      
+        <link rel="prev" href="../5_SpaPattern/">
+      
+      
+        <link rel="next" href="../7_GeoRegression/">
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
+    
+    
+      
+        <title>空间相关分析 - Nocon's notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../0_stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap">
+    
+      <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC&display=swap">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/font.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/color.css">
+    
+      <link rel="stylesheet" href="../../0_stylesheets/admonition.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-DSCW3D4396"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-DSCW3D4396",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-DSCW3D4396",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Nocon&#39;s notes" class="md-header__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nocon's notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              空间相关分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: eyeprotect)" data-md-color-scheme="EyeProtect" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-2.69L23.31 12 20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="Light" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="Dark" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to EyeProtect Node"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to EyeProtect Node" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.04 7 9.54 0 4.5-2.94 8.27-7 9.54.95.3 1.95.46 3 .46a10 10 0 0 0 10-10A10 10 0 0 0 9 2Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+    
+  
+  主页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+    
+  
+  GIS空间分析
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../SDB/" class="md-tabs__link">
+          
+  
+    
+  
+  地理空间数据库
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nocon&#39;s notes" class="md-nav__button md-logo" aria-label="Nocon's notes" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    Nocon's notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../.." class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    主页
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    GIS空间分析
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            GIS空间分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    导论
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间分析概念框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_basis4SpaSta/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间统计基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_ESDA/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    探索性空间统计分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_SpaPattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间模式分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    空间相关分析
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    空间相关分析
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 传统的相关分析方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 传统的相关分析方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 皮尔逊相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 斯皮尔曼等级相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 偏相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 多重相关系数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 空间自相关分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空间自相关分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 空间自相关的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间权重矩阵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 全局自相关指数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-lisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间关联的局部指标(LISA)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_GeoRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_SpaRegression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间回归分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_SpaCluster/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    空间聚类分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_MLClass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    机器学习分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_SpaTempo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时间序列分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_GeoBigData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    时空分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_TimeSeries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    地理空间大数据分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_DeepLearning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    遥感数据深度学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../../SDB/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    地理空间数据库
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 传统的相关分析方法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 传统的相关分析方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 皮尔逊相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 斯皮尔曼等级相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 偏相关系数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4 多重相关系数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 空间自相关分析
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 空间自相关分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 空间自相关的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 空间权重矩阵
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 全局自相关指数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-lisa" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 空间关联的局部指标(LISA)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>空间相关分析</h1>
+
+<div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 5008 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 17 分钟</p>
+</div>
+<details class="abstract" open="open">
+<summary>Abstract</summary>
+<p>这一章介绍了传统的相关分析方法，包括皮尔逊相关系数、斯皮尔曼等级相关系数、偏相关系数和多重相关系数，进而介绍了空间自相关分析的相关概念以及全局与局部自相关的评价指标。</p>
+<p>需要重点掌握莫兰指数的计算原理，需要知道空间自相关分析有哪些方法。</p>
+</details>
+<h2 id="1">1 传统的相关分析方法</h2>
+<h3 id="11">1.1 皮尔逊相关系数</h3>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>Person's 相关系数就是我们高中所学的<code>相关系数</code>，又称积差相关系数。</p>
+</div>
+<p>地理相关类型:</p>
+<ul>
+<li>完全相关  </li>
+<li>不相关</li>
+<li>统计相关</li>
+</ul>
+<p>皮尔逊相关系数：
+$$
+    r = \frac{\sum_{i=1}^{n}(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum_{i=1}^{n}(x_i-\bar x)^2} \sqrt{\sum_{i=1}^{n}(x_i-\bar x)^2}} 
+$$
+$$
+\bar x = \frac{1}{n}\sum_{i=1}^{n}x_i,   \bar y = \frac{1}{n} \sum_{i=1}^{n}y_i
+$$</p>
+<p>协方差:
+$$
+Cov[X, Y] = E[(X-\mu_X)(Y-\mu_Y)] = E[XY] - E[X]E[Y]
+$$
+样本协方差:
+$$
+Cov[X, Y] = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+$$
+协方差的大小与测量单位有关，协方差标准化的结果就是皮尔逊相关系数：
+$$
+\rho = \frac{E(X-\mu_X)(Y-\mu_Y)}{\sigma_X \sigma_Y}
+$$
+样本相关系数:
+$$
+r = \frac{\sum_{i=1}^{n} (x_i - \bar x)(y_i - \bar y)}{(n-1)S_X S_Y}
+$$
+用z分数表示样本皮尔逊相关系数:
+$$
+r = \frac{\sum_{i=1}^{n}z_X z_Y}{n-1}
+$$
+相关系数r的t检验：如果零假设(r=0)成立，下式符合t分布，自由度为n-2。
+$$
+t = \frac{r\sqrt{n-2}}{\sqrt{1-r^2}}
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">皮尔逊相关系数的分析</p>
+<p>皮尔逊相关系数衡量了两个变量之间的线性相关强度。两变量相关系数为0时，并不意味着二者没有关系，它们可能存在着强烈的非线性关系。</p>
+<p>两变量之间存在强线性相关性，并不意味着两者具有因果关系。</p>
+<p>相关系数受样本量的影响，大样本量更容易拒绝 $\rho = 0$ 的假设。</p>
+</div>
+<h3 id="12">1.2 斯皮尔曼等级相关系数</h3>
+<div class="admonition note inline end">
+<p class="admonition-title">理解等级相关系数</p>
+<p>斯皮尔曼等级相关系数是皮尔逊相关系数的一种特殊情况，其被定义成<strong>等级</strong>变量之间的皮尔逊相关系数。由于没有具体的变量值，我们只知道变量之间的等级次序，因此我们把变量的排序次序当作其变量值，进而带入皮尔逊相关系数进行计算。</p>
+</div>
+<p>在只有排序数据可用(变量的具体指未知)或零假设所需的正态性条件不满足的情况下，可以使用<strong>斯皮尔曼等级相关系数</strong> (Spearman's rank correlation coefficient)。</p>
+<p>等级相关系数反映的是两个随机变量的的变化趋势方向和强度之间的关联，是将两个随机变量的样本值按数据的大小顺序排列位次，以各要素样本值的位次代替实际数据而求得的一种统计量。</p>
+<p>不难得知，斯皮尔曼相关系数的适用范围更加广泛，但精度比皮尔逊相关系数低。一般在变量具体值已知的情况下，应当使用皮尔逊相关系数。而当数据呈现明显的非正态分布(如线性分布)，或者至少一方数据为非数值类型(ordinal类型)，或者数据值有明显的异常值(等级相关系数对异常值不敏感)时，可以考虑使用斯皮尔曼等级相关系数。</p>
+<p>斯皮尔曼等级相关系数公式:
+$$
+r_s = 1 - \frac{6\sum_{i=1}^{n}d_i^2}{n^3-n}
+$$
+其中 $d_i$ 表示对应变量的次序值的差值。</p>
+<div class="admonition tip">
+<p class="admonition-title">斯皮尔曼等级相关系数的分析</p>
+<p>考虑两个随机变量X和Y:</p>
+<ul>
+<li>如果秩相关系数为正，则Y 随着X的增加而增加；  </li>
+<li>如果秩相关系数为负，则Y随着X的增加而减小；  </li>
+<li>如果秩相关系数为0，则表示随着Y的增减变化跟X的增减变化无关；  </li>
+<li>当Y和X越来越接近严格单调的函数关系时，秩相关系数在数值上就越来越大。当秩相关系数为1或者-1时，就表明Y随着X的增加而严格单调增加或单调减小。</li>
+</ul>
+</div>
+<p>需要注意的是，对变量进行排序时，当两个(或更多变量)相同时，它们的次序值是通过对它们位置进行平均而得到的。比如，一组变量为 1, 3, 3, 4, 7, 将它们从小到大进行排序，3对应的次序应该是(2+3)/2 = 2.5;</p>
+<p>大样本量下的斯皮尔曼相关系数统计量的假设检验: $r_s\sqrt{n-1} \sim N(0, 1)$</p>
+<div class="admonition note">
+<p class="admonition-title">空间分析中的显著性检验具有特殊性</p>
+<p>事实上，空间依赖性对相关系系数的显著性检验是(包括前面的皮尔逊相关系数)有影响的。  </p>
+<p>我们在进行显著性检验时，需要观测数据之间是相互独立的，但是这对于空间数据来说几乎是不可能成立的，因为在空间上，越近的数据往往表现出更强的相关性(TFL)，即获得的数据之间往往是相关的。</p>
+<p>因此，我们在进行空间分析的过程中，需要注意空间依赖性对统计结果的影响。</p>
+</div>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://blog.csdn.net/chenxy_bwave/article/details/121427036">斯皮尔曼相关(Spearman correlation)系数概述及其计算例</a></p>
+</details>
+<h3 id="13">1.3 偏相关系数</h3>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>当想知道两个变量之间是否或在多大程度上存在数值关系，但存在另一个变量这两个变量相关时，使用皮尔逊相关系数将给出误导性的结果。偏相关系数就是控制其他变量后的结果。</p>
+</div>
+<p>在<strong>多要素</strong>所构成的系统中，当研究某一个要素对另一个要素的影响或相关程度时，把其他要素的影响视作常数（保持不变），即暂时不考虑其他要素影响，单独研究两个要素之间的相互关系的密切程度，所得数值结果为<strong>偏相关系数</strong>，即偏相关系数是用来衡量去除其他混淆变量影响后的两个随机变量的相关度。因此，偏相关系数才是真正反映两个变量相关关系的统计量。</p>
+<p>在多元相关分析中，简单相关系数可能不能够真实的反映出变量X和Y之间的相关性，因为变量之间的关系很复杂，它们可能受到不止一个变量的影响。这个时候偏相关系数是一个更好的选择。</p>
+<p><strong>偏相关系数的计算</strong>:</p>
+<ul>
+<li>
+<p>一阶偏相关系数。在3个变量中，任意两个变量的偏相关系数是在排除其余一个变量影响后计算得到的，称为一阶偏相关系数，公式为:
+$$
+r_{ij·h} = \frac {r_{ij} - r_{ih} r_{jh}}{\sqrt{(1-r_{ih}^2)(1-r_{jh}^2)}} 
+$$
+其中，$r_{ij·h}$ 表示变量$x_i$ 与 $x_j$ 的偏相关系数， $r_{ij}$ 是变量 $x_i$ 与 $x_j$ 的皮尔逊相关系数，$r_{ih}$ 是变量 $x_i$ 与 $x_h$ 的皮尔逊相关系数，$r_{jh}$ 是变量 $x_j$ 与 $x_h$ 的皮尔逊相关系数。</p>
+</li>
+<li>
+<p>二阶偏相关系数。在4个变量中，任意两个变量的偏相关系数是在排除其他两个变量影响后计算得到的，称为二阶偏相关系数。二阶偏相关系数由一阶偏相关系数求得，公式为:
+$$
+r_{ij·hm} = \frac {r_{ij·h} - r_{im·h} r_{jm·h}}{\sqrt{(1-r_{im·h}^2)(1-r_{jm·h}^2)}} 
+$$
+其中，i、j、m、h分别取1、2、3、4的组合。</p>
+</li>
+<li>
+<p>高阶偏相关系数。一般地，假设有k(k&gt;2)个变量 $x_1, x_2, …, x_k$，则任意两个变量 $x_i$ 和 $x_j$的g(g $\leq$ k-2)阶样本偏相关系数公式为：
+$$
+r_{ij·l_1l_2…l_g} = \frac {r_{ij·l_1l_2…l_{g-1}} - r_{il_g·l_1l_2…l_{g-1}} r_{jl_g·l_1l_2…l_{g-1}}}{\sqrt{(1-r_{il_g·l_1l_2…l_{g-1}}^2)(1-r_{jl_g·l_1l_2…l_{g-1}}^2)}} 
+$$
+显然，g阶偏相关系数由g-1阶偏相关系数求得。</p>
+</li>
+</ul>
+<p><strong>偏相关系数的t检验</strong>:
+$$
+t = \frac{r_{12·34…k}}{\sqrt{1-r_{12·34…k}^2}} \sqrt{n-k} = \frac{r_{12·34…k}}{\sqrt{1-r_{12·34…k}^2}} \sqrt{n-g-2}
+$$
+其中，n为观测样本数，k为总变量个数，r为对应的偏相关系数，g为偏相关系数的阶数(g=k-2)。这里的零假设是: 两变量的偏相关系数为0。</p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://baike.baidu.com/item/%E5%81%8F%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0/709144">偏相关系数-百度百科</a><br />
+<a href="https://blog.csdn.net/zhaozhn5/article/details/78390971">偏相关系数计算及假设检验</a><br />
+<a href="https://encyclopediaofmath.org/index.php?title=Partial_correlation_coefficient">Partial correlation coefficient - Encyclopedia of Mathematics</a></p>
+</details>
+<h3 id="14">1.4 多重相关系数</h3>
+<p>多重相关系数，亦称复相关系数，指一个随机变量与某一组随机变量间线性相依性的度量，反映一的是个因变量与一组自变量(两个或两个以上)之间相关程度。</p>
+<p>计算公式为:
+$$
+R_{y·12…k} = \sqrt{1-(1-r_{y1}^2)(1-r_{y2·1}^2)…(1-r_{yk·12...(k-1)}^2)}
+$$</p>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>R-square的修正方法有很多种，这里介绍的是Mordecai Ezekiel提出的调整方法。</p>
+</div>
+<p>理论上自变量X越多，残差平方和只会越小，可以新增的一个X变量，即使对解释目标毫无贡献，就使其系数变成0即可，因此残差平方和最差就是打平，不会有反增的情况，在残差平方和越小的情况，当然只会使R-square变得越高。因此R平方不是一个客观的指标，在此把自变量的数量也考虑进来，调整R平方可视为R-square的无偏估计。
+$$
+R_{adj} = 1 - \frac{RSS/df_{res}}{TSS/df_{tot}} = 1 - \frac{(1-R^2)*(n-1)}{n-k-1}
+$$
+其中，$df_{res}$ 表示残差自由度，$df_{tot}$表示样本自由度，n是样本个数，k是变量个数。</p>
+<div class="admonition tip">
+<p class="admonition-title">回归模型中几个平方和的含义</p>
+<p>TSS(Total Sum of Squares)是执行回归分析前，响应变量固有的方差，即实际值与平均值之差的平方和：
+$$
+TSS = \sum_{i=1}^n (y_i - \bar y)^2
+$$</p>
+<p>RSS(Residual Sum of Squares)是残差平方和，这是回归模型<strong>不可解释</strong>的误差：
+$$
+RSS = \sum_{i=1}^n (y_i - \hat y_i)^2
+$$</p>
+<p>SSR(Sum of Squares about Regression)回归平方和，这是回归模型<strong>可解释</strong>的误差：
+$$
+SSR = \sum_{i=1}^n (\hat y_i - \bar y)^2
+$$</p>
+<p>三个变量之间有关系: TSS = SSR + RSS，有：
+$$
+R^2 = SSR/TSS = \frac{TSS-RSS}{TSS} = 1 - \frac{RSS}{TSS}
+$$</p>
+</div>
+<p>模型显著性水平的F检验:
+$$
+F = \frac{SSR/(k-1)}{RSS/(n-k-1)}
+$$
+其中，k表示回归模型变量个数，n表示样本数。F 值越大，模型整体显著性水平越高，它是所估计回归的总显著性的一个度量，也是调整R-square的一个显著性检验。</p>
+<h2 id="2">2 空间自相关分析</h2>
+<h3 id="21">2.1 空间自相关的概念</h3>
+<div class="admonition note inline end">
+<p class="admonition-title">Note</p>
+<p>地理学第一定律("越近越相关")是空间依赖性和空间自相关概念的基础。</p>
+</div>
+<p><strong>空间自相关</strong>是利用空间统计方法进行的空间要素与其周围要素的相关性研究，进而分析这些空间单元的分布特征。</p>
+<blockquote>
+<p>空间相关分析是指利用应用相关分析的方法对空间分布的数据进行研究。</p>
+</blockquote>
+<ul>
+<li>空间自相关程度高，说明相似的空间要素聚集在一起；</li>
+<li>空间自相关程度低，说明相似的空间要素比较分散。</li>
+</ul>
+<h3 id="22">2.2 空间权重矩阵</h3>
+<p><strong>空间权重矩阵</strong>是数据集中要素之间空间关系的表示，是对数据集中空间要素之间关系的一种量化(数学表示)。</p>
+<p>空间权重矩阵的构造常常基于两个特征：连续性(continuity)和距离(distance); 也可以通过面积和可达性等特征构造。在ArcGIS Pro中，空间权重矩阵可以通过不同的空间关系概念化方法构造。</p>
+<p><strong>空间关系概念化</strong>(Conceptualization of Spatial Relationships)是由Esri提出的一个概念，可以理解为：空间关系的形象化描述信息。通俗的说，就是在进行分析之前，需要对你的空间关系，进一个定义。比如，我们约定在某要素10公里内的要素视为其邻近要素，这种约定就是<strong>概念化</strong>。  </p>
+<blockquote>
+<p>空间关系概念化类型包括：  </p>
+<ul>
+<li>距离：反距离、反距离平方、固定距离、距离阈值；  </li>
+<li>面邻接：邻接边拐角、邻接边、邻近角；  </li>
+<li>其它：k邻近要素、时空窗等。</li>
+</ul>
+</blockquote>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzA4ODk4NzgyNA==&amp;mid=2649736770&amp;idx=1&amp;sn=e54a4267f01cae39befec3c5edc0191f&amp;chksm=883aa79dbf4d2e8b4fcff3d8823de4b25161983edf116b2575944c2ca563b68f8e08b3772246&amp;scene=178&amp;cur_album_id=1349424235982290944#rd">空间关系概念化综述-虾神说D</a></p>
+</details>
+<h3 id="23">2.3 全局自相关指数</h3>
+<ul>
+<li>
+<p>(全局)莫兰指数 (Global Moran's I)  </p>
+<p>虽然莫兰提出莫兰指数的时候，还没人提出地理学第一定律，但是莫兰开创性地在空间相关性的研究中，加入了空间相邻的参数，莫兰指数的原理就是：属性(变量值)与空间关系(空间权重矩阵定义)的乘积，得到最终的空间上的相关性。公式如下：
+$$
+I = \frac{n}{\sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}} × \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}w_{ij}(x_i-\bar x)(x_j - \bar x)}{\sum_{i=1}^{n}(x_i-\bar x)^2}
+$$
+其中，$x_i$ 和 $x_j$分别是位置i和j(空间数据)对应变量的属性值，$w_{ij}$ 是位置i和j的空间权重，n为总样本数。</p>
+<div class="admonition tip">
+<p class="admonition-title">莫兰指数分析</p>
+<p>从这个算法可以看到，两个值同时大于或者小于均值，就能得到正值，而被均值正好切开的两个值，就会得到负值——与参与计算的数值与均值偏离越大，得到的结果的绝对值就越大，所以空间上有关系的，而且有彼此接近的数值，表达成了聚集分布，而反之亦然。</p>
+<p>高值周边聚集高值或者低值周边聚集低值，都计算为正——表示为聚集，而高低值相互交错，那么就会计算为负，表示为离散。如果有正有负，相互抵消为0，那么就表达为随机。</p>
+<p>公式中的分子部分，是通过方差进行归一化，因此最终该指数的值将落在 -1.0 到 +1.0 的区间内。</p>
+</div>
+<p><strong>莫兰指数的显著性检验</strong>(零假设为空间要素服从正态分布(随机分布))：
+$$
+Z(I) = \frac{I - E[I]}{\sqrt{Var[I]}}
+$$
+其中
+$$
+E[I] = \frac{-1}{n-1} 
+$$</p>
+<p>$$
+Var[I] = E[I^2] - E[I]^2 = \frac{n^2(n-1)S_1 - n(n-1)S_2 + 2(n-2)S_0^2}{(n+1)(n-1)^2S_0}
+$$
+其中
+$$
+S_0 = \sum_i^n\sum_{j\neq i}^n w_{ij}
+$$
+$$
+S_1 = 0.5 \sum_i^n\sum_{j\neq i}^n (w_{ij} + w_{ji})^2
+$$
+$$
+S_2 = \sum_k^n(\sum_{j}^n w_{kj} + \sum_i^n w_{ik})^2
+$$</p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/spatial-statistics/h-how-spatial-autocorrelation-moran-s-i-spatial-st.htm">空间自相关 (Global Moran's I) 的工作原理-ArcGIS Pro</a><br />
+<a href="https://mp.weixin.qq.com/s?__biz=MzA4ODk4NzgyNA==&amp;mid=2649736471&amp;idx=1&amp;sn=a215a5d480080fb4c44dfd80ba5dcb17&amp;    chksm=883aa4c8bf4d2ddea5128b5289ded18eb7d895f591ec80e94b6312a5d20509230cbdf453363c&amp;cur_album_id=1349424235982290944&amp;scene=189#wechat_redirect">莫兰指数之计算详解-虾神说D</a><br />
+<a href="https://blog.csdn.net/shine4869/article/details/106149299">全局莫兰指数的理解与计算</a></p>
+</details>
+</li>
+<li>
+<p>General G</p>
+<p>莫兰指数只关心是不是聚集，而不关系到底是什么聚类，如果想知道到底是哪一类数据发生了聚集，需要进行“高/低值聚类”分析。General G算法关注的是高低值之间的聚集关系，它的公式很简单：
+$$
+G = \frac{\sum_{i=1}^n \sum_{j=1, j\neq i}^n w_{ij}x_i x_j}{\sum_{i=1}^n \sum_{j=1, j\neq i}^n x_i x_j}
+$$
+计算z值:
+$$
+z_G = \frac{G - E[G]}{\sqrt{V[G]}}
+$$
+其中
+$$
+E[G] = \frac{\sum_{i=1}^n \sum_{j=1, j\neq i}^n w_{ij}}{n(n-1)}
+$$
+$$
+Var[G] = E[G^2] - E[G]^2
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">General G指数的分析</p>
+<p>如果G &gt; E[G], z值为正数，当z值显著时，存在高高聚类；<br />
+如果G &lt; E[G], z值为负数，当z值显著时，存在低低聚类； <br />
+如果G 和 E[G]接近(z值不显著)，随机分布。</p>
+<hr />
+<p>需要注意的是，General G方法，对平均数非常敏感，很有可能出现其计算出来的平均数与整份数据基本上没有关系。General G方法是推论统计，主要用于通过局部数据对整体数据的特征进行推理；但如果用于计算的数据遍布各种极值，计算出来的平均数就完全不能代表真实的数据情况。所以，在利用General G的时候，最好先进行直方图探索，数据分布越接近正态分布，那么使用General G的效果就越好，极值越多，效果就越不明显。</p>
+</div>
+<p>当存在完全均匀分布的值并且要查找高值的异常空间峰值时，首选<strong>高/低聚类 (Getis-Ord General G)</strong> 工具。但是，当高值和低值同时聚类时，它们倾向于彼此相互抵消。如果在高值和低值同时聚类时测量空间聚类，则使用<strong>空间自相关</strong>工具。</p>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/spatial-statistics/h-how-high-low-clustering-getis-ord-general-g-spat.htm">高/低聚类(Getis-Ord General G) 的工作原理-ArcGIS Pro</a><br />
+<a href="https://mp.weixin.qq.com/s?__biz=MzA4ODk4NzgyNA==&amp;mid=2649743228&amp;idx=1&amp;sn=d8c9967c40257750644983573ff1cded&amp;chksm=883abea3bf4d37b5e4a272842817fedb95d0feb025e0f131229d8c0946d268c023373b876c1d&amp;cur_album_id=1349424235982290944&amp;scene=189#wechat_redirect">高低值聚类：Getis-Ord General G（上）-虾神说D</a><br />
+<a href="https://mp.weixin.qq.com/s?__biz=MzA4ODk4NzgyNA==&amp;mid=2649743815&amp;idx=1&amp;sn=6d590cb9c96776ffeb10ffe0ba92560e&amp;chksm=883a8018bf4d090e06a96d9d71f437ba0ec5f5baa010c6568a37279f2c3d82926e12d704ac09&amp;scene=178&amp;cur_album_id=1349424235982290944#rd">高低值聚类：Getis-Ord General G（下）-虾神说D</a></p>
+</details>
+</li>
+</ul>
+<h3 id="24-lisa">2.4 空间关联的局部指标(LISA)</h3>
+<ul>
+<li>
+<p>局部莫兰指数(Local Moran's I)</p>
+<p>给定一组加权要素，局部莫兰指数用于识别具有统计显著性的热点、冷点和空间异常值。聚类和异常值分析会对每个要素进行如下计算：
+$$
+I_i = \frac{x_i - \bar x}{S_i^2} \sum_{j=1, j\neq i}^n w_{ij}(x_j-\bar x)
+$$
+其中，$x_i$ 是要素i的属性，$\bar x$ 是对应属性的平均值，$w_{ij}$是要素i和j之间的空间权重，且：
+$$
+S_i^2 = \frac{\sum_{j=1, j\neq i}^n(x_i-\bar x)^2}{n-1}
+$$
+其中，n等于总要素数目。</p>
+<p>计算 $z_{I_i}$ 得分的计算方法是:
+$$
+z_{I_i} = \frac{I_i - E[I_i]}{\sqrt{V[I_i]}}
+$$
+其中
+$$
+E[I_i] = -\frac{\sum_{j=1, j\neq i}^n w_{ij}}{n-1}
+$$
+$$
+V[I_i] = E[I_i^2] - E[I_i]^2
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">局部莫兰指数的分析</p>
+<p>在p值足够小的情况下： </p>
+<ul>
+<li>I(这里以及下面所说的I表示的是某个要素的计算结果$I_i$)为正值时，表示要素具有包含同样高或同样低的属性值的邻近要素，该要素是聚类(HH聚类或LL聚类)的一部分。  </li>
+<li>I为负值时，表示要素具有包含不同值的邻近要素，该要素是异常值(由低值围绕的高值(HL)或者由高值围绕的低值(LH))。</li>
+</ul>
+</div>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/spatial-statistics/h-how-cluster-and-outlier-analysis-anselin-local-m.htm">聚类和异常值分析 (Anselin Local Moran's I)的工作原理-ArcGIS Pro</a>  </p>
+</details>
+</li>
+<li>
+<p>Local  $G_i$ 和 $G_i^*$</p>
+<p>$$
+G_i = \frac{\sum_{j=1, j\neq i}^n w_{ij}x_j}{\sum_{j=1}^n x_j}
+$$
+$$
+G_{i}^{*} = \frac{\sum_{j=1}^n w_{ij}x_j}{\sum_{j=1}^n x_j}
+$$
+其中
+$$
+E[G_i] = \frac{\sum_{j=1, j\neq i}^n w_{ij}}{n-1}
+$$
+$$
+E[G_i^*] = \frac{\sum_{j=1}^n w_{ij}}{n-1}
+$$
+计算z值：
+$$
+z(G_i) = \frac{G_i - E[G_i]} {\sqrt{Var(G_i)}}
+$$
+$$
+z(G_i^*) = \frac{G_{i}^{*} - E(G_i^*)}{\sqrt{Var(G_i^*)}}
+$$</p>
+<div class="admonition tip">
+<p class="admonition-title">Local  $G_i$ 和 $G_i^*$的分析</p>
+<p>对于$z(G_i)$或者$z(G_i^*)$:</p>
+<ul>
+<li>大于0，高高聚类；  </li>
+<li>小于0， 低低聚类；  </li>
+<li>约为0，随机分布。</li>
+</ul>
+</div>
+</li>
+<li>
+<p>热点分析(Getis Ord $G_i^*$)</p>
+<p>Getis和Ord对 $G_i^*$ 进行了改进，Getis Ord 局部统计可以表示为：
+$$
+Getis \ Ord \ G_i^* = \frac{\sum_{j=1}^n w_{ij}x_j - \bar x \sum_{j=1}^n w_{ij}}{S\sqrt{\frac{n\sum_{j=1}^nw_{ij}^2 - (\sum_{j=1}^n w_{ij}^2)}{n-1}}}
+$$
+其中
+$$
+\bar x = \frac{\sum_{j=1}^n x_j}{n}
+$$
+$$
+S = \sqrt{\frac{\sum_{j=1}^n x_j^2}{n} - (\bar x)^2}
+$$</p>
+<p>$Getis \ Ord \ G_i^*$ 就是z得分，无需做进一步的计算。</p>
+<div class="admonition tip">
+<p class="admonition-title">$Getis \ Ord \ G_i^*$ 的分析</p>
+<p>当z得分($Getis \ Ord \ G_i^*$)具有显著统计学意义时:</p>
+<ul>
+<li>z为正时，得分越高，高值（热点）的聚类就越紧密。</li>
+<li>z为负时，得分越低，低值（冷点）的聚类就越紧密。</li>
+</ul>
+</div>
+<details class="quote" open="open">
+<summary>Reference</summary>
+<p><a href="https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/spatial-statistics/h-how-hot-spot-analysis-getis-ord-gi-spatial-stati.htm">热点分析 (Getis-Ord Gi*) 的工作原理-ArcGIS Pro</a></p>
+</details>
+</li>
+</ul>
+
+
+<!-- taken from 
+https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-file.html -->
+
+<hr />
+<div class="md-source-file">
+<small>
+
+    <!-- mkdocs-git-revision-date-localized-plugin -->
+    
+    最后更新:
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+        <br />
+        创建日期:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年3月10日 19:34:25</span>
+    
+
+    <!-- mkdocs-git-revision-date-plugin -->
+    
+</small>
+</div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      本页面所有内容仅供学习使用, 未经允许不得转载！
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/no-conf" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:noconf@outlook.com" target="_blank" rel="noopener" title="nocon" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../0_javascripts/extra.js"></script>
+      
+        <script src="../../0_javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
