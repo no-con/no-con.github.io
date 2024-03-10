@@ -1,5 +1,7 @@
 site_name: Nocon's notes
-site_url: https://no-con.github.io/
+site_url: https://no-con.github.io
+repo_name: Nocon/Nocon's notes
+repo_url: https://github.com/no-con/no-con.github.io
 
 nav:
   - 主页: 
@@ -51,7 +53,8 @@ theme:
     - navigation.instant # 即时加载
     - navigation.instant.progress  # 进度指示器
     - navigation.sections # 顶级导航栏在大于1220px的窗口中以组的形式出现, 二级导航是粗体
-    # - navigation.footer # 页脚 上一页下一页
+    # - navigation.header
+    - navigation.footer # 页脚 上一页下一页
     - navigation.prune # 导航修剪
     # - navigation.instant.preview # 全局即时预览
     # - navigation.tabs.sticky # 粘性导航卡，顶部导航栏始终不消失
@@ -137,9 +140,9 @@ markdown_extensions:
 
 plugins: 
   - search # 当没有其他插件时，search插件默认打开
-  # - social # 还没配置好
-  # - blog
-  - tags
+  # - social # 没配置好
+  - blog # 博客，https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/
+  - tags # 标签，https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
   # - glightbox
   - statistics:
       pages_placeholder: '\{\{\s*pages\s*\}\}'
@@ -171,10 +174,10 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/no-conf
-      name: nocon
+      name: nocon's github
     - icon: fontawesome/solid/paper-plane
       link: mailto:noconf@outlook.com
-      name: nocon
+      name: nocon's e-mail
   
   # homepage: https://no-con.github.io
 
