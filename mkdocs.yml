@@ -137,13 +137,15 @@ markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+  - toc:
+      permalink: true 
 
 plugins: 
   - search # 当没有其他插件时，search插件默认打开
   # - social # 没配置好
   - blog # 博客，https://squidfunk.github.io/mkdocs-material/setup/setting-up-a-blog/
   - tags # 标签，https://squidfunk.github.io/mkdocs-material/setup/setting-up-tags/
-  # - glightbox
+  - glightbox
   - statistics:
       pages_placeholder: '\{\{\s*pages\s*\}\}'
       words_placeholder: '\{\{\s*words\s*\}\}' 
