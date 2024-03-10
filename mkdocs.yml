@@ -1,5 +1,5 @@
 site_name: Nocon's notes
-site_url: http://example.com
+site_url: https://no-con.github.io/
 
 nav:
   - 主页: 
@@ -43,19 +43,19 @@ theme:
   logo: img/logo.png
   favicon: img/logo.png
   features:
-    - navigation.tabs # 一级导航在顶部导航栏
+    - navigation.tabs # 一级导航在顶部导航栏，关闭后顶部导航栏将合并到左侧导航栏
     - content.code.annotate # 可以在代码块中增添点击展示的注释，参见 https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#adding-annotations
     - navigation.tracking # 启用锚点跟踪后，地址栏中的URL会自动更新为目录中突出显示的活动锚点。
     - navigation.indexes # 将 index 页面直接附到小节名上
     - navigation.top # 回到顶部按钮
     - navigation.instant # 即时加载
     - navigation.instant.progress  # 进度指示器
+    - navigation.sections # 顶级导航栏在大于1220px的窗口中以组的形式出现, 二级导航是粗体
     # - navigation.footer # 页脚 上一页下一页
-    # - navigation.sections # 顶级导航栏在大于1220px的窗口中以组的形式出现, 二级导航是粗体
-    # - navigation.prune # 导航修剪
+    - navigation.prune # 导航修剪
     # - navigation.instant.preview # 全局即时预览
     # - navigation.tabs.sticky # 粘性导航卡，顶部导航栏始终不消失
-    # - navigation.expand # 导航默认展开
+    # - navigation.expand # 左侧导航栏默认全部展开
     - toc.follow # toc 跟随
     # - toc.integrate # 文档 toc 集成到总目录中
     - search.suggest # 搜索自动填充
@@ -136,11 +136,11 @@ markdown_extensions:
       custom_checkbox: true
 
 plugins: 
-  - search
+  - search # 当没有其他插件时，search插件默认打开
   # - social # 还没配置好
   # - blog
   - tags
-  - glightbox
+  # - glightbox
   - statistics:
       pages_placeholder: '\{\{\s*pages\s*\}\}'
       words_placeholder: '\{\{\s*words\s*\}\}' 
@@ -164,9 +164,9 @@ plugins:
       strict: true
 
 extra:
-  # analytics:
-  #   provider: google
-  #   property: G-XXXXXXXX
+  analytics:
+    provider: google
+    property: G-DSCW3D4396
   
   social:
     - icon: fontawesome/brands/github
@@ -175,8 +175,12 @@ extra:
     - icon: fontawesome/solid/paper-plane
       link: mailto:noconf@outlook.com
       name: nocon
+  
+  # homepage: https://no-con.github.io
 
 extra_css:
+  - 0_stylesheets/extra.css
+  ########
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-lite-webfont@1.1.0/style.css
   # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.0.0/style.css
