@@ -11,7 +11,7 @@ nav:
     - 导论: GIS_SA/1_introduction.md
     - 空间分析概念框架: GIS_SA/2_concepts.md
     - 空间统计基础: GIS_SA/3_basis4SpaSta.md
-    - 探索性空间统计分析: GIS_SA/4_ESDA.md
+    - 探索性空间数据分析: GIS_SA/4_ESDA.md
     - 空间模式分析: GIS_SA/5_SpaPattern.md
     - 空间相关分析: GIS_SA/6_SpaCorr.md
     - 地理回归分析: GIS_SA/7_GeoRegression.md

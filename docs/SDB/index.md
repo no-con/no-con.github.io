@@ -15,6 +15,6 @@
     - [ ] [空间存储与索引](7_Spatial_Index.md)
     - [ ] [空间查询处理与优化](8_QueryProcessOptimize.md)
     - [ ] [空间网络模型](9_Spatial_Network.md)
-    - [ ] [数据库安全性与完整](10_DB_Integrity.md)
-    - [ ] [PostgreSQL服务器编](11_PostgreSQL.md)
+    - [ ] [数据库安全性与完整性](10_DB_Integrity.md)
+    - [ ] [PostgreSQL服务器编程](11_PostgreSQL.md)
 
