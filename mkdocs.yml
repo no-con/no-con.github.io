@@ -16,7 +16,7 @@ nav:
     - 探索性空间数据分析: GIS_SA/4_ESDA.md
     - 空间模式分析: GIS_SA/5_SpaPattern.md
     - 空间相关分析: GIS_SA/6_SpaCorr.md
-    - 地理回归分析: GIS_SA/7_GeoRegression.md
+    - 传统回归分析: GIS_SA/7_Regression.md
     - 空间回归分析: GIS_SA/8_SpaRegression.md
     - 空间聚类分析: GIS_SA/9_SpaCluster.md
     - 机器学习分类: GIS_SA/10_MLClass.md

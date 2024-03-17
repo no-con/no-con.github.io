@@ -11,7 +11,7 @@ GIS空间分析 课程内容整理
     - [x] [探索性空间数据分析](4_ESDA.md)
     - [x] [空间模式分析](5_SpaPattern.md)
     - [x] [空间相关分析](6_SpaCorr.md)
-    - [ ] [地理回归分析](7_GeoRegression.md)
+    - [x] [传统回归分析](7_GeoRegression.md)
     - [ ] [空间回归分析](8_SpaRegression.md)
     - [ ] [空间聚类分析](9_SpaCluster.md)
     - [ ] [机器学习分类](10_MLClass.md)
