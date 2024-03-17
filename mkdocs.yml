@@ -3,6 +3,8 @@ site_url: https://no-con.github.io
 repo_name: Nocon/Nocon's notes
 repo_url: https://github.com/no-con/no-con.github.io
 
+# dev_addr: '127.0.0.1:7000'
+
 nav:
   - 主页: 
     - index.md
@@ -18,9 +20,9 @@ nav:
     - 空间回归分析: GIS_SA/8_SpaRegression.md
     - 空间聚类分析: GIS_SA/9_SpaCluster.md
     - 机器学习分类: GIS_SA/10_MLClass.md
-    - 时间序列分析: GIS_SA/11_SpaTempo.md
-    - 时空分析: GIS_SA/12_GeoBigData.md
-    - 地理空间大数据分析: GIS_SA/13_TimeSeries.md
+    - 时间序列分析: GIS_SA/11_TimeSeries.md
+    - 时空分析: GIS_SA/12_SpaTempo.md
+    - 地理空间大数据分析: GIS_SA/13_GeoBigData.md
     - 遥感数据深度学习: GIS_SA/14_DeepLearning.md
   - 地理空间数据库:
     - SDB/index.md
