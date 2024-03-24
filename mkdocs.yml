@@ -3,7 +3,7 @@ site_url: https://no-con.github.io
 repo_name: Nocon/Nocon's notes
 repo_url: https://github.com/no-con/no-con.github.io
 
-# dev_addr: '127.0.0.1:7000'
+# dev_addr: '127.0.0.1:8000'
 
 nav:
   - 主页: 
@@ -17,7 +17,7 @@ nav:
     - 空间模式分析: GIS_SA/5_SpaPattern.md
     - 空间相关分析: GIS_SA/6_SpaCorr.md
     - 传统回归分析: GIS_SA/7_Regression.md
-    - 空间回归分析: GIS_SA/8_SpaRegression.md
+    - 地理加权回归: GIS_SA/8_GWR.md
     - 空间聚类分析: GIS_SA/9_SpaCluster.md
     - 机器学习分类: GIS_SA/10_MLClass.md
     - 时间序列分析: GIS_SA/11_TimeSeries.md
@@ -202,6 +202,9 @@ extra_css:
   - 0_stylesheets/color.css
   - 0_stylesheets/admonition.css
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css # 数学公式 katex
+  ### 图片
+  - 0_stylesheets/image.css
+
 extra_javascript:
   - 0_javascripts/extra.js
   ### 数学公式

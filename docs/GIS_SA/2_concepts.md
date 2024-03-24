@@ -42,7 +42,7 @@
     
     > 区分定距和定比：定距变量取值为“0”时，不表示“没有”，仅仅是取值为0。定比变量取值为“0”时，则表示“没有”。
     
-    参考：[Nominal, ordinal, interval, & ratio data](https://www.psy.gla.ac.uk/~steve/best/ordinal.html)
+    参考：[Nominal, ordinal, interval & ratio data](https://www.psy.gla.ac.uk/~steve/best/ordinal.html)
 
 ### 1.3 Objects (对象)
 

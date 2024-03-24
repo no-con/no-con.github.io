@@ -70,27 +70,27 @@ GIS 及空间分析已被广泛应用于测绘、资源调查、灾害监测、�
 
 * 空间分析是对数据的空间信息、属性性息或者二者共同信息的统计描述或说明。
 
-!!! Info "Cite"
-
-    Spatial analysis is a statistical description or explanation of spatial information, attribute information or common information of data. (Goodchild, 1987)
+    !!! Info "Cite"
+    
+        Spatial analysis is a statistical description or explanation of spatial information, attribute information or common information of data. (Goodchild, 1987)
 
 * 空间分析是对于地理空间现象的定量研究，其常规能力是操纵空间数据使之成为不同的形式，并提取其潜在的信息。
 
-!!! Info "Cite"
-
-    Spatial analysis is a quantitative study of geospatial phenomena. Its conventional ability is to manipulate spatial data into different forms and extract its potential information. (Openshaw, 1997)
+    !!! Info "Cite"
+    
+        Spatial analysis is a quantitative study of geospatial phenomena. Its conventional ability is to manipulate spatial data into different forms and extract its potential information. (Openshaw, 1997)
 
 * 空间分析是基于地理对象的位置和形态特征的空间数据分析技术，其目的在于提取和传输信息。(郭仁忠院士，1997)
 
-!!! Info "Cite"
-
-    Spatial analysis is a spatial data analysis technology based on the location and morphological characteristics of geographical objects. Its purpose is to extract and transmit information.
+    !!! Info "Cite"
+    
+        Spatial analysis is a spatial data analysis technology based on the location and morphological characteristics of geographical objects. Its purpose is to extract and transmit information.
 
 * 空间分析是地理学的精髓，是为解答问题而进行的空间数据分析与挖掘。（刘湘南，2017）
 
-!!! Info "Cite"
-
-    Spatial analysis is the essence/core of geography，it aims to spatial data analysis and data mining to solve problems.
+    !!! Info "Cite"
+    
+        Spatial analysis is the essence/core of geography，it aims to spatial data analysis and data mining to solve problems.
 
 #### 2.2 空间分析方法与应用
 
