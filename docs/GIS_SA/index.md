@@ -14,7 +14,7 @@ GIS空间分析 课程内容整理
     - [x] [传统回归分析](7_GeoRegression.md)
     - [x] [地理加权回归](8_GWR.md)
     - [x] [空间聚类分析](9_SpaCluster.md)
-    - [ ] [机器学习分类](10_MLClass.md)
+    - [x] [机器学习分类](10_MLClass.md)
     - [ ] [时间序列分析](11_SpaTempo.md)
     - [ ] [时空分析](12_GeoBigData.md)
     - [ ] [地理空间大数据分析](13_TimeSeries.md)
