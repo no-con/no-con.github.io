@@ -20,7 +20,7 @@ GIS空间分析 课程内容整理
    - [x] [地理加权回归](https://no-con.github.io/GIS_SA/8_GWR/)  
    - [x] [空间聚类分析](https://no-con.github.io/GIS_SA/9_SpaCluster/)  
    - [x] [机器学习分类](https://no-con.github.io/GIS_SA/10_MLClass/)  
-   - [x] [时间序列分析](https://no-con.github.io/GIS_SA/11_TimeSeries/  
+   - [x] [时间序列分析](https://no-con.github.io/GIS_SA/11_TimeSeries/)  
    - [ ] [时空分析](https://no-con.github.io/GIS_SA/12_SpaTempo/)  
    - [ ] [地理空间大数据分析](https://no-con.github.io/GIS_SA/13_GeoBigData/)  
    - [ ] [遥感数据深度学习](https://no-con.github.io/GIS_SA/14_DeepLearning/)  
