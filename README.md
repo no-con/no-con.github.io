@@ -12,6 +12,7 @@ GIS空间分析 课程内容整理
 ---
 
 !!! note "完成进度"
+
     - [x] [导论](https://no-con.github.io/GIS_SA/1_introduction/)  
     - [x] [空间分析概念框架](https://no-con.github.io/GIS_SA/2_concepts/)  
     - [x] [空间统计基础](https://no-con.github.io/GIS_SA/3_basis4SpaSta/)  
@@ -34,6 +35,7 @@ GIS空间分析 课程内容整理
 ---
 
 !!! note "完成进度"
+
     - [x] [导论](https://no-con.github.io/SDB/0_Introduction/)   
     - [x] [地理空间数据库概论](https://no-con.github.io/SDB/1_General/)  
     - [ ] [关系模型与关系代数](https://no-con.github.io/SDB/2_Relational_Algebra/)  
