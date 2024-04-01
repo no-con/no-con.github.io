@@ -25,6 +25,8 @@
 > > > 深度学习（Deep Learning）
 > > > 
 > > > > 神经网络 （Neural Network）
+> > > > 
+> > > > > 卷积神经网络(Convolutional Neural Networks)
 
 ### 1.2 机器学习主要内容
 

@@ -251,7 +251,7 @@
     
     ???+ Quote "Reference"
 
-         [创建时空立方体的工作原理-趋势分析](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/space-time-pattern-mining/learnmorecreatecube.htm)
+         [创建时空立方体的工作原理 - ArcGIS Pro](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/space-time-pattern-mining/learnmorecreatecube.htm)
         
         [新兴时空热点分析工作原理 - ArcGIS Pro](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/space-time-pattern-mining/learnmoreemerging.htm)
 

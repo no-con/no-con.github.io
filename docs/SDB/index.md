@@ -1,3 +1,10 @@
+---
+statistics: True
+hide:
+  - footer
+comments: False
+---
+
 # 地理空间数据库
 
 地理空间数据库 课程内容整理
