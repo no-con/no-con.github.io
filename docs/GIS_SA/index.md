@@ -16,6 +16,6 @@ GIS空间分析 课程内容整理
     - [x] [空间聚类分析](9_SpaCluster.md)
     - [x] [机器学习分类](10_MLClass.md)
     - [x] [时间序列分析](11_TimeSeries.md)
-    - [ ] [时空分析](12_SpaTempo.md)
+    - [x] [时空分析](12_SpaTempo.md)
     - [ ] [地理空间大数据分析](13_GeoBigData.md)
     - [ ] [遥感数据深度学习](14_DeepLearning.md)

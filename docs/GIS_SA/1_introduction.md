@@ -268,7 +268,7 @@ PPDAC过程的最后阶段是根据所进行的分析得出结论，并将这些
 
 * [Geospatial Analysis 6th Edition](https://spatialanalysisonline.com/HTML/index.html)
 
-* 微信公众号：[虾神说D](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODk4NzgyNA==&action=getalbum&album_id=1349424235982290944#wechat_redirect) (强烈推荐大家读一读)
+* 微信公众号：[虾神说D](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4ODk4NzgyNA==&action=getalbum&album_id=1349424235982290944#wechat_redirect) (强烈推荐)
 
 * [Statistical Methods for Geography](https://study.sagepub.com/rogerson5e)
 

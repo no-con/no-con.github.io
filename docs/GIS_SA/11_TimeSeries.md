@@ -266,14 +266,14 @@ $$
 
 **应用**
 
-1. 气候变化
+* 气候变化
 
-    ![iclimateChange](img/climateChange.jpg){.img}
+![iclimateChange](img/climateChange.jpg){.img}
 
-2. 全球$CO_2$排放
+* 全球$CO_2$排放
 
-    ![carbon](img/carbon.png){.img}
+![carbon](img/carbon.png){.img}
 
 ### 3.3 COVID-19
 
-![covid-19](img/covid-19.png){.img}
+  ![covid-19](img/covid-19.png){.img}
