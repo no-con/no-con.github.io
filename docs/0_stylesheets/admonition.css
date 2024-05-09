@@ -1,8 +1,0 @@
-/* 两个同行的admonitions会对不齐，除非上面也是一个admonition */
-
-.md-typeset .admonition,
-.md-typeset details {
-  border-width: 0;
-  border-left-width: 2.5px;
-  border-top-width: 1.5px;
-}

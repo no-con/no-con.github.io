@@ -100,6 +100,13 @@
 
 **信息熵(Information Entropy)**
 
+!!! note inline end 
+    
+    在信息熵中，定义 $0 \ log0 = 0$。  
+
+    熵的最大值发生在所有可能取值的概率相等的情况下，因为在等概时，无法对任何一个特定的取值做出更准确的预测，系统的不确定性最大。
+
+
 信息熵表示了数据中的不确定性、信息量水平。熵越大，数据的不确定性越高，数据越复杂。
 
 假设数据集 S 有k个类别，第i个类别的占比为$p_i$，则数据集 S 的信息熵为：
@@ -155,8 +162,8 @@ $$
     C4.5算法流程与ID3相类似，只不过将信息增益改为**信息增益比**，以解决ID3算法倾向于选择取值较多的属性的问题，并且它可以处理连续型属性(连续型属性离散化处理)。
   
     $$
-    Gain\_ratio(S, A) = \frac{IG(S, A)}{H_A(S)} \\\
-    H_A(S) = -\sum_{i=1}^n \frac{|D_i|}{|D|} log_2 \frac{|D_i|}{|D|}
+    GainRatio (S, A) = \frac{IG(S, A)}{H_A(S)} \\\
+    H_A(S) = -\sum_{i=1}^n \frac{|S_i|}{|S|} log_2 \frac{|S_i|}{|S|}
     $$
 
 * **C5.0**
@@ -175,15 +182,15 @@ $$
     CART算法建立起的是二叉树，根据某一属性A是否可以取值a，把样本分为了两部分 (属性A可以有大于2个属性取值)。在属性A条件下，样本的基尼系数定义为：
   
     $$
-    GiniIndex(D|A=a) = \frac{D_1}{D}Gini(D_1) + \frac{D_2}{D}Gini(D_2)
+    GiniIndex(S|A=a) = \frac{S_1}{S}Gini(S_1) + \frac{S_2}{S}Gini(S_2)
     $$
   
     选择具有最小的GiniIndex的属性及其属性值作为划分节点，即：
     $$
-    \mathop{min}\limits_{A\in AllAttrs} (\mathop{min}\limits_{a\in A} (GiniIndex(D|A=a)))
+    \mathop{min}\limits_{A\in AllAttrs} (\mathop{min}\limits_{a\in A} (GiniIndex(S|A=a)))
     $$
   
-    相比ID3和C4.5，CART应用要多一些，既可以用于分类也可以用于回归。
+    相比ID3和C4.5，CART应用要多一些，既可以用于分类也可以用于回归，上面介绍的是分类算法。
 
 ???+ quote "Reference"
 
