@@ -2,7 +2,7 @@
     
     介绍了聚类分析和聚类的相似性度量方法，重点介绍了几种空间聚类算法。
 
-    熟知k-means算法、AGNES算法、modified AGNES算法的原理，能够基于相异度矩阵使用modified AGNES算法进行聚类。
+    熟知k-means算法、AGNES算法、modified AGNES算法的原理，能够基于相异度矩阵使用AGNES和modified AGNES算法进行聚类。
     
 
 ## 1. 聚类分析
