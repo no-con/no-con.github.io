@@ -143,7 +143,7 @@
 
         ???+ quote "Referece"
             
-            [计算动态统计数据](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/geoanalytics-desktop/calculate-motion-statistics.htm)        
+            [查找位置工具集](https://pro.arcgis.com/zh-cn/pro-app/latest/tool-reference/geoanalytics-desktop/an-overview-of-the-find-locations-toolset.htm)   
 
     4. 管理数据工具
         
@@ -178,6 +178,10 @@
         * 描述数据集
 
             将要素汇总到所计算的字段统计信息、样本要素和范围边界中。
+
+        * 连接要素
+
+            可根据空间、时态和属性关系或这些关系的某种组合将一个图层的属性连接到另一个图层。空间连接根据要素的空间位置对输入要素（目标图层与连接图层参数值）中的要素（行）进行匹配。 时态连接根据要素的时态关系对输入要素中的要素（行）进行匹配。 属性连接根据字段值匹配要素。可以根据空间关系、时间关系、属性关系或上述三者的组合来连接要素。
 
         * 重新构建轨迹
 
