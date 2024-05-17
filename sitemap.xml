@@ -2,152 +2,152 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://no-con.github.io/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/10_MLClass/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/11_TimeSeries/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/12_SpaTempo/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/13_GeoBigData/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/14_DeepLearning/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/1_introduction/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/2_concepts/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/3_basis4SpaSta/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/4_ESDA/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/5_SpaPattern/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/6_SpaCorr/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/7_Regression/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/8_GWR/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/GIS_SA/9_SpaCluster/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/0_Introduction/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/10_DB_Integrity/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/11_PostgreSQL/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/1_General/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/2_Relational_Algebra/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/3_SQL/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/4_GeomObj/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/5_ER/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/6_RDB/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/7_Spatial_Index/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/8_QueryProcessOptimize/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/SDB/9_Spatial_Network/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://no-con.github.io/blog/</loc>
-         <lastmod>2024-05-15</lastmod>
+         <lastmod>2024-05-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
