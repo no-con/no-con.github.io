@@ -48,7 +48,7 @@
 
 4. 激活函数(Activation Function)——实现非线性映射
    
-    * 阶跃函数
+   * 阶跃函数
      
      $$
      h(x) =
@@ -60,13 +60,13 @@
 \end{cases}
      $$
    
-    * <p id="sigmoid">Sigmod函数</p>
+   * <p id="sigmoid">Sigmod函数</p>
      
      $$
      h(x) = \frac{1}{1+e^{-x}}
      $$
    
-    * ReLU函数
+   * ReLU函数
      
      $$
      h(x) =
@@ -102,13 +102,13 @@
    
     损失函数（loss function）又称为代价函数（cost function），用来计算模型预测值与真实值之间的误差。即损失函数量化了当前神经网络的效果有多好。
    
-    * 均方误差（Mean Square Error）
+   * 均方误差（Mean Square Error）
      
      $$
      E = \frac{1}{2} \sum_k(y_k - t_k)^2
      $$
-    
-    * 交叉熵误差（Cross Entropy Error）
+   
+   * 交叉熵误差（Cross Entropy Error）
      
      $$
      E(y_i, \hat y_i) = -y_i \ log \ \hat y_i
@@ -145,7 +145,7 @@
 2. LeNet
    
     !!! note inline end "LeNet"
-        
+   
         LeNet 是一系列网络的合称，包括 Lenet1 - Lenet5，由Yann Lecun等人在论文 [*Gradient-Based Learning Applied to Document Recognitio*](https://ieeexplore.ieee.org/document/726791) 中被提出，是卷积神经网络的 "Hello World"。
    
     LeNet是最早提出的CNN，也是所有CNN模型的基础架构。
@@ -168,21 +168,21 @@
    
    * 步长
      
-    !!! note inline end "卷积结果的分辨率"    
-            
+     !!! note inline end "卷积结果的分辨率"    
+     
         假设被卷积图像大小为 $𝑤×𝑤$、卷积核大小为 $𝐹×𝐹$ 、上下左右四个边缘填充像素行/列数为 $P=⌈𝐹/2⌉$ 、步长为 $𝑆$，则被卷积结果的分辨率是 $\frac{(𝑊−𝐹+2𝑃)}{𝑆}+1 $。 
      
-    在进行卷积操作时，通常希望被卷积所得的图像分辨率与卷积前的图像分辨率相比逐渐减少，即图像被约减。  
-
-    步长方法通过改变卷积核在被卷积图像中移动步长的大小来跳过一些像素，进行卷积滤波。当stride = 1时，卷积核滑动跳过1个像素，这是最基本的单步滑动，也是标准的卷积模式。
+     在进行卷积操作时，通常希望被卷积所得的图像分辨率与卷积前的图像分辨率相比逐渐减少，即图像被约减。  
+     
+     步长方法通过改变卷积核在被卷积图像中移动步长的大小来跳过一些像素，进行卷积滤波。当stride = 1时，卷积核滑动跳过1个像素，这是最基本的单步滑动，也是标准的卷积模式。
    
    * 池化
      
-    1. 最大池化（max pooling）：从输入特征图的某个区域子块中选择值最大的像素点作为最大池化结果。
+     1. 最大池化（max pooling）：从输入特征图的某个区域子块中选择值最大的像素点作为最大池化结果。
      
-    2. 平均池化（average pooling）：计算区域子块所包含所有像素点的均值，将均值作为平均池化结果。
+     2. 平均池化（average pooling）：计算区域子块所包含所有像素点的均值，将均值作为平均池化结果。
      
-    3. k-max池化（k-max pooling）：对输入特征图区域子块中的像素点取前k个最大值。如从包含4个取值的每一列中选取前2个最大值就得到了2-max池化结果。
+     3. k-max池化（k-max pooling）：对输入特征图区域子块中的像素点取前k个最大值。如从包含4个取值的每一列中选取前2个最大值就得到了2-max池化结果。
         
         ![pooling](img/pooling.png)
 
@@ -196,11 +196,11 @@ LeNet, AlexNet, VGG, U-Net, ResNet, DeepLabV3+, …
   
     ![AlexNet](img/AlexNet.png)
   
-    <center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center>
+  <center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center>
   
     ![AlexNet](img/AlexNet_combine.png)
   
-    <center>输入图像实际大小应该为227 × 227</center>
+  <center>输入图像实际大小应该为227 × 227</center>
   
     ???+ Quote "Refrence"
   
@@ -290,7 +290,24 @@ LeNet, AlexNet, VGG, U-Net, ResNet, DeepLabV3+, …
 
 * F1 score是精准率和召回率的加权平均：$F_1 = 2 * \frac{Precision * Rcall}{Precision + Recall}$ 
 
-* Kappa系数：$Kappa = \frac{2(TP \cdot TN - FN \cdot FP)}{(TP+FP)(FP+TN) + (TP+FN)(FN+TN)}$
+* Kappa系数：$Kappa = \frac{p_o - p_e}{1-p_e} = \frac{2(TP \cdot TN - FN \cdot FP)}{(TP+FP)(FP+TN) + (TP+FN)(FN+TN)}$
+  
+    其中:
+  
+    $p_o$: 观察一致性概率（observed agreement probability），是指两个评定者在同一项任务上给出相同评定的实际比例。这是基于实际的评定结果计算出来的，反映了评定者之间的一致性程度。
+  
+    $$
+    p_o = \frac{TP + TN}{TP + FP + FN + TN}
+    $$
+  
+    $p_e$: 期望一致性概率（expected agreement probability），是指在没有任何真实一致性，仅由评定者的随机选择或系统性偏向导致的一致性比例。这是基于评定者各自的评定结果计算出来的，如果评定者的选择是完全随机的，那么$p_e$​将是他们偶然达成一致的概率。
+  
+    $$
+    p_e = \frac{(TP + FP)(TP + FN) + (TN + FN)(TN + FP)}{(TP + FP + FN + TN)^2}
+    $$
+  
+  
+  
 
 ### 2.4 使用训练好的模型
 
