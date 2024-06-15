@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../img/logo.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
     
     
       
@@ -218,7 +218,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             正在初始化搜索引擎
@@ -1200,7 +1200,7 @@
   <h1>遥感数据深度学习</h1>
 
 <div style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3263 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 11 分钟</p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10h-2a8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8V2m6.78 1a.69.69 0 0 0-.48.2l-1.22 1.21 2.5 2.5L20.8 5.7c.26-.26.26-.7 0-.95L19.25 3.2c-.13-.13-.3-.2-.47-.2m-2.41 2.12L9 12.5V15h2.5l7.37-7.38-2.5-2.5Z"/></svg></span> 约 3462 个字 <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> 预计阅读时间 12 分钟</p>
 </div>
 <details class="abstract" open="open">
 <summary>Abstract</summary>
@@ -1243,9 +1243,9 @@
 </li>
 <li>
 <p>激活函数(Activation Function)——实现非线性映射</p>
-<ul>
-<li>阶跃函数</li>
-</ul>
+</li>
+<li>
+<p>阶跃函数</p>
 <p>$$
  h(x) =
 \begin{cases}
@@ -1255,15 +1255,15 @@
 \end{aligned}
 \end{cases}
  $$</p>
-<ul>
-<li><p id="sigmoid">Sigmod函数</p></li>
-</ul>
+</li>
+<li>
+<p><p id="sigmoid">Sigmod函数</p></p>
 <p>$$
  h(x) = \frac{1}{1+e^{-x}}
  $$</p>
-<ul>
-<li>ReLU函数</li>
-</ul>
+</li>
+<li>
+<p>ReLU函数</p>
 <p>$$
  h(x) =
 \begin{cases}
@@ -1291,15 +1291,15 @@
 <li>
 <p>损失函数（Loss Function）</p>
 <p>损失函数（loss function）又称为代价函数（cost function），用来计算模型预测值与真实值之间的误差。即损失函数量化了当前神经网络的效果有多好。</p>
-<ul>
-<li>均方误差（Mean Square Error）</li>
-</ul>
+</li>
+<li>
+<p>均方误差（Mean Square Error）</p>
 <p>$$
  E = \frac{1}{2} \sum_k(y_k - t_k)^2
  $$</p>
-<ul>
-<li>交叉熵误差（Cross Entropy Error）</li>
-</ul>
+</li>
+<li>
+<p>交叉熵误差（Cross Entropy Error）</p>
 <p>$$
  E(y_i, \hat y_i) = -y_i \ log \ \hat y_i
  $$</p>
@@ -1353,10 +1353,9 @@
 </li>
 <li>
 <p>步长</p>
-<div class="admonition note inline end">
-<p class="admonition-title">卷积结果的分辨率</p>
-<p>假设被卷积图像大小为 $𝑤×𝑤$、卷积核大小为 $𝐹×𝐹$ 、上下左右四个边缘填充像素行/列数为 $P=⌈𝐹/2⌉$ 、步长为 $𝑆$，则被卷积结果的分辨率是 $\frac{(𝑊−𝐹+2𝑃)}{𝑆}+1 $。 </p>
-</div>
+<p>!!! note inline end "卷积结果的分辨率"    </p>
+<div class="language-text highlight"><pre><span></span><code>假设被卷积图像大小为 $𝑤×𝑤$、卷积核大小为 $𝐹×𝐹$ 、上下左右四个边缘填充像素行/列数为 $P=⌈𝐹/2⌉$ 、步长为 $𝑆$，则被卷积结果的分辨率是 $\frac{(𝑊−𝐹+2𝑃)}{𝑆}+1 $。
+</code></pre></div>
 <p>在进行卷积操作时，通常希望被卷积所得的图像分辨率与卷积前的图像分辨率相比逐渐减少，即图像被约减。  </p>
 <p>步长方法通过改变卷积核在被卷积图像中移动步长的大小来跳过一些像素，进行卷积滤波。当stride = 1时，卷积核滑动跳过1个像素，这是最基本的单步滑动，也是标准的卷积模式。</p>
 </li>
@@ -1383,14 +1382,17 @@
 <p><a href="https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">AlexNet</a></p>
 <p>AlexNet输入为RGB三通道的224 × 224 × 3（或227 × 227 × 3 ）大小的图像。AlexNet整体的网络结构包括：1个输入层（input layer）、5个卷积层（C1、C2、C3、C4、C5）、2个全连接层（FC6、FC7）和1个输出层（output layer）。其中，每个卷积层都包含卷积核、偏置项、ReLU激活函数和局部响应归一化（LRN）模块。第1、2、5个卷积层后面都跟着一个最大池化层，后三个层为全连接层。最终输出层为softmax，将网络输出转化为概率值，用于预测图像的类别。</p>
 <p><a class="glightbox" href="../img/AlexNet.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="AlexNet" src="../img/AlexNet.png" /></a></p>
-<p><center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center></p>
-<p><a class="glightbox" href="../img/AlexNet_combine.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="AlexNet" src="../img/AlexNet_combine.png" /></a></p>
-<p><center>输入图像实际大小应该为227 × 227</center></p>
-<details class="quote" open="open">
-<summary>Refrence</summary>
-<p><a href="https://zhuanlan.zhihu.com/p/467017218">手撕 CNN 经典网络之 AlexNet（理论篇）</a></p>
-</details>
 </li>
+</ul>
+<p><center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center></p>
+<div class="language-text highlight"><pre><span></span><code>![AlexNet](img/AlexNet_combine.png)
+</code></pre></div>
+<p><center>输入图像实际大小应该为227 × 227</center></p>
+<div class="language-text highlight"><pre><span></span><code>???+ Quote &quot;Refrence&quot;
+
+    [手撕 CNN 经典网络之 AlexNet（理论篇）](https://zhuanlan.zhihu.com/p/467017218)
+</code></pre></div>
+<ul>
 <li>
 <p><a href="https://arxiv.org/abs/1409.1556">VGG(Visual Geometry Group)</a></p>
 <p>相较于AlexNet，使用的都是小卷积核。VGG没有采用AlexNet中比较大的卷积核尺寸（如7x7），而是通过降低卷积核的大小（3x3），增加卷积子层数来达到同样的性能。这样做既减少了参数量，又防止了较大的stride(小卷积核选择的stride也小)导致细节信息的丢失。</p>
@@ -1488,7 +1490,16 @@
 <p>F1 score是精准率和召回率的加权平均：$F_1 = 2 * \frac{Precision * Rcall}{Precision + Recall}$ </p>
 </li>
 <li>
-<p>Kappa系数：$Kappa = \frac{2(TP \cdot TN - FN \cdot FP)}{(TP+FP)(FP+TN) + (TP+FN)(FN+TN)}$</p>
+<p>Kappa系数：$Kappa = \frac{p_o - p_e}{1-p_e} = \frac{2(TP \cdot TN - FN \cdot FP)}{(TP+FP)(FP+TN) + (TP+FN)(FN+TN)}$</p>
+<p>其中:</p>
+<p>$p_o$: 观察一致性概率（observed agreement probability），是指两个评定者在同一项任务上给出相同评定的实际比例。这是基于实际的评定结果计算出来的，反映了评定者之间的一致性程度。</p>
+<p>$$
+p_o = \frac{TP + TN}{TP + FP + FN + TN}
+$$</p>
+<p>$p_e$: 期望一致性概率（expected agreement probability），是指在没有任何真实一致性，仅由评定者的随机选择或系统性偏向导致的一致性比例。这是基于评定者各自的评定结果计算出来的，如果评定者的选择是完全随机的，那么$p_e$​将是他们偶然达成一致的概率。</p>
+<p>$$
+p_e = \frac{(TP + FP)(TP + FN) + (TN + FN)(TN + FP)}{(TP + FP + FN + TN)^2}
+$$</p>
 </li>
 </ul>
 <h3 id="24">2.4 使用训练好的模型<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
@@ -1507,7 +1518,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
     最后更新:
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月9日 15:08:30</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年6月16日 00:16:43</span>
     
         <br />
         创建日期:
@@ -1633,7 +1644,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
       
         <script src="../../0_javascripts/extra.js"></script>
       
