@@ -32,7 +32,7 @@
 
 * 度量(Measurements): 物理距离、长度、面积等
 
-* 领近(Proximal): 是否在某一距离范围内
+* 邻近(Proximal): 是否在某一距离范围内
 
 * 拓扑(Topological): 空间相等、包含、穿越、相接、相交等
 
