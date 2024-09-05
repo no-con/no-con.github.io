@@ -208,7 +208,7 @@ $$
 
 * 概率近似正确 (Probably Approximately Correct, PAC)学习
   
-    最基本的计算学习理论——以较大的概率学得误差满足预设上限的模型，PAC 学习给出了一个抽象地**刻画机器学习能力**的框架。
+    最基本的计算学习理论——以较大的概率学的误差满足预设上限的模型，PAC 学习给出了一个抽象地**刻画机器学习能力**的框架。
 
 * <p id="bagging">Bagging(Bootstrap aggregating)</p>
   
