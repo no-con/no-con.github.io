@@ -24,4 +24,4 @@ comments: True
 
 ---
 
-![youth](C:\Users\XS\AppData\Roaming\marktext\images\9ab51e3117b256f728d8fe59e50dba2fd4b70e34.jpg){width: 800px}
+![sail](img/sail.jpg){width: 800px}
