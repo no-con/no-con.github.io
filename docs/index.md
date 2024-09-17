@@ -13,7 +13,7 @@ comments: True
     其实一直没有养成做笔记的习惯，但是始终觉得能做好一份笔记是十分有益的事情。
 
     暂时先把之前上过的一些课程总结一下，也当作是一个复习了。
-
+    
     希望能把做笔记和总结的习惯坚持下来，慢慢加油吧！
 
 !!! Info inline end "站点统计"
@@ -24,4 +24,4 @@ comments: True
 
 ---
 
-![youth](img/youth.png){width: 800px}
+![youth](C:\Users\XS\AppData\Roaming\marktext\images\9ab51e3117b256f728d8fe59e50dba2fd4b70e34.jpg){width: 800px}
