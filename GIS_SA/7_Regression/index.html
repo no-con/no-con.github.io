@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../img/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1352,7 +1352,7 @@ $$
 y = \alpha + \beta x + \varepsilon
 $$
 其中 $\alpha$ 和 $\beta$ 分别为真实回归曲线的截距和斜率，$\varepsilon$ 是随机误差。  </p>
-<p>但是，由于我们往往能得到的只是总体的一部分样本，因此我们计算出来的回归直线只是基于该样本数据的最佳拟合曲线（best-fitting line），由于样本的选择具有不确定性，它与真实拟合曲线可能具有较大的偏差。</p>
+<p>但是，由于我们能得到的往往只是总体的一部分样本，因此我们计算出来的回归直线只是基于该样本数据的最佳拟合直线（best-fitting line）。由于样本的选择具有不确定性，它与真实拟合曲线可能具有较大的偏差。</p>
 <h3 id="23">2.3 普通最小二乘法<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <p>回归分析的目的实际是使得残差平方和最小化，即使 $\sum (y_i - \hat y_i)^2$ 最小，求解该问题的方法为普通最小二乘法（Ordinary Least Squares, OLS）。</p>
 <p>残差平方和表示为：
@@ -1389,11 +1389,13 @@ $$</p>
 <p>决定系数范围为[0,1], 决定系数越大，自变量对因变量的解释程度越高，自变量引起的变动占总变动的百分比高。观察点在回归直线附近越密集。</p>
 </li>
 <li>
-<p>$r^2$ 的显著性检验（F检验）：
-$$
-F = \frac {SSR/k}{RSS/(n-k-1)} = \frac{SSR}{RSS/(n-2)} = \frac{r^2(n-2)}{1-r^2}
-$$</p>
+<p>$r^2$ 的显著性检验（F检验）：</p>
 </li>
+</ul>
+<p>$$
+  F = \frac {SSR/k}{RSS/(n-k-1)} = \frac{SSR}{RSS/(n-2)} = \frac{r^2(n-2)}{1-r^2}
+  $$</p>
+<ul>
 <li>
 <p>估计标准误差（standard error of estimate）是残差平方和的均方根：
     $$
@@ -1411,31 +1413,34 @@ $$</p>
 <h3 id="25-betat">2.5 回归系数$\beta$的t检验<a class="headerlink" href="#25-betat" title="Permanent link">&para;</a></h3>
 <p>零假设$H_0: \beta = 0$</p>
 <p>$$
- t = \frac{b-\beta}{s_b} = \frac {b} {s_b}
-$$
-其中$s_b$是斜率的标准差
+t = \frac{b-\beta}{s_b} = \frac {b} {s_b}
+$$</p>
+<p>其中$s_b$是斜率的标准差
 $$
 s_b = \sqrt{\frac{S_e^2}{(n-1)S_x^2}}
 $$</p>
 <h3 id="26">2.6 置信区间的计算<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p>如果数据中包含的是单个观测值：
-$$
-\hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
-$$
-    其中：</p>
-<p>$t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值； </p>
-<p>$S$ 为<a href="#24">估计标准误差</a>；  </p>
-<p>$X_i^*$ 为用于预测Y时的特特定观测值X；  </p>
-<p>$X_i$ 为样本观测值。 </p>
-</li>
-<li>
-<p>如果数据集中还包含来自其它数据集算得的平均值，那么将给出比上面的区间稍窄的结果：
+<li>如果数据中包含的是单个观测值：</li>
+</ul>
+<p>$$
+  \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
+  $$</p>
+<div class="language-text highlight"><pre><span></span><code>其中：
+
+$t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值；
+
+$S$ 为[估计标准误差](#24)；
+
+$X_i^\*$ 为用于预测Y时的特特定观测值X；
+
+$X_i$ 为样本观测值。
+</code></pre></div>
+<ul>
+<li>如果数据集中还包含来自其它数据集算得的平均值，那么将给出比上面的区间稍窄的结果：
     $$
     \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} } 
-    $$</p>
-</li>
+    $$</li>
 </ul>
 <h3 id="27">2.7 二元线性回归分析步骤<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1520,7 +1525,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
     最后更新:
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月9日 15:08:30</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月27日 17:47:39</span>
     
         <br />
         创建日期:
@@ -1643,10 +1648,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
         <script src="../../0_javascripts/extra.js"></script>
       

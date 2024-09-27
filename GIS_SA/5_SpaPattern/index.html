@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../img/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -1226,14 +1226,22 @@
 </ul>
 </div>
 <ul>
-<li>样方法的特点:  <ul>
-<li>简单  </li>
-<li>样方分析的一个重要议题是样方大小的确定：  <blockquote>
+<li>
+<p>样方法的特点:  </p>
+<ul>
+<li>
+<p>简单  </p>
+</li>
+<li>
+<p>样方分析的一个重要议题是样方大小的确定：  </p>
+</li>
+</ul>
+<blockquote>
 <p>单元格太小，将有太多空单元格，最小的空间尺度之外的尺度上可能存在的聚类将被忽略。<br />
 单元格太大，单元格内的的空间模式可能被忽略。  </p>
 </blockquote>
-</li>
-<li>在某些空间尺度上可能找到空间模式，但在其他空间尺度上却找不到，因此样方的大小十分重要。(有建议平均每个样方2个点的，也有建议平均每个样方1.6个点的)  </li>
+<ul>
+<li>在某些空间尺度上可能找到空间模式，但在其他空间尺度上却找不到，因此样方的大小十分重要。(有建议平均每个样方2个点的，也有建议平均每个样方1.6个点的) </li>
 </ul>
 </li>
 <li>
@@ -1243,7 +1251,7 @@
     $$
     s^2 = \frac{\sum_{i=0}^{m}(x_i-\bar x)^2}{m-1}
     $$
-   最后计算方差均值比 VMR = $ {\bar x}/{s^2} $  <br />
+    最后计算方差均值比 VMR = $ {\bar x}/{s^2} $  <br />
 <strong>VMR结果分析</strong>： </p>
 <ul>
 <li>如果VMR &lt; 1，则点数的方差小于平均值。在比率趋近于零的极端情况下，每个单元格之间的点数变化很小。这种情况下点是离散分布的。</li>
@@ -1260,12 +1268,12 @@
 </blockquote>
 </li>
 <li>
-<p>包含VMR的$\chi^{2}$<strong>检验</strong>：<br />
-    $$
-    \chi^2 = \frac{(m-1)s^2}{\bar x} = (m-1)VMR
-    $$
-    如果 $\chi^2&lt;\chi_L^2$ 或者 $\chi^2&gt;\chi_H^2$, 拒绝零假设，说明研究对象的空间模式不是随机的。<br />
-    当自由度较大时(大于30), 可以将$\chi^{2}$分布近似为正态分布处理。</p>
+<p>包含VMR的$\chi^{2}$<strong>检验</strong>：  </p>
+<p>$$
+\chi^2 = \frac{(m-1)s^2}{\bar x} = (m-1)VMR
+$$</p>
+<p>如果 $\chi^2&lt;\chi_L^2$ 或者 $\chi^2&gt;\chi_H^2$, 拒绝零假设，说明研究对象的空间模式不是随机的。<br />
+当自由度较大时(大于30), 可以将$\chi^{2}$分布近似为正态分布处理。</p>
 </li>
 <li>
 <p>正态分布中的P值(P-value)与z分数(z-score):<br />
@@ -1298,7 +1306,7 @@
 <div class="admonition tip">
 <p class="admonition-title">四种空间尺度类型</p>
 <ol>
-<li>制图尺度或者地图尺度(carlographic or map scale)<br />
+<li>制图尺度或者地图尺度(cartographic or map scale)<br />
    通常就是指地图制图时候的比例尺。</li>
 <li>测量尺度或者分辨率（measurement scale or resolution）<br />
   指的是空间数据集中最小的可区分部分，比如遥感影像中的像素大小。</li>
@@ -1358,7 +1366,7 @@ $$
 <p><strong>平均最近邻分析</strong>是比较<code>样本</code>中每个点与最近邻要素之间的<strong>观测平均距离</strong>和<code>随机分布</code>中每个点与的最近邻要素之间的<strong>预期平均距离</strong>(零假设)的方法。</p>
 <p>计算公式:<br />
 $$ 
-R = \frac{R_0}{R_e} = \frac{\bar x}{1/(2{\sqrt\lambda})} = \frac{\bar x}{1/(2{\sqrt {n/A}})} = 2\bar x \sqrt{n/A}
+R = \frac{R_o}{R_e} = \frac{\bar x}{1/(2{\sqrt\lambda})} = \frac{\bar x}{1/(2{\sqrt {n/A}})} = 2\bar x \sqrt{n/A}
 $$
 其中$R_0$ 和$R_e$ 分别是观测值与期望值；$\bar x$ 是所有点到最近点距离的平均值；$\lambda$ 为点密度；$A$ 为研究区域面积。</p>
 <div class="admonition tip">
@@ -1415,7 +1423,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
     最后更新:
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年5月9日 15:08:30</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月27日 17:47:39</span>
     
         <br />
         创建日期:
@@ -1538,10 +1546,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
       
         <script src="../../0_javascripts/extra.js"></script>
       
