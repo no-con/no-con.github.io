@@ -48,45 +48,45 @@
 
 4. 激活函数(Activation Function)——实现非线性映射
    
-   * 阶跃函数
+    * 阶跃函数
+        
+        $$
+        h(x) =
+        \begin{cases}
+        \begin{aligned}
+        &0(x\le 0)  \\\
+        &1(x>0)
+        \end{aligned}
+        \end{cases}
+        $$
+    
+    * <p id="sigmoid">Sigmod函数</p>
+        
+        $$
+        h(x) = \frac{1}{1+e^{-x}}
+        $$
+    
+    * ReLU函数
+        
+    $$
+    h(x) =
+    \begin{cases}
+    \begin{aligned}
+    &0(x\le 0)  \\\
+    &x(x>0)
+    \end{aligned}
+    \end{cases}
+    $$
      
-     $$
-     h(x) =
-\begin{cases}
-\begin{aligned}
-&0(x\le 0)  \\\
-&1(x>0)
-\end{aligned}
-\end{cases}
-     $$
-   
-   * <p id="sigmoid">Sigmod函数</p>
+    以下是一些激活函数（摘自[维基百科](https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0)）
      
-     $$
-     h(x) = \frac{1}{1+e^{-x}}
-     $$
-   
-   * ReLU函数
+    ![activate](img/sing_activation_func.jpeg)
      
-     $$
-     h(x) =
-\begin{cases}
-\begin{aligned}
-&0(x\le 0)  \\\
-&x(x>0)
-\end{aligned}
-\end{cases}
-     $$
+    <center>单变量输入激活函数</center>
      
-     以下是一些激活函数（摘自[维基百科](https://zh.wikipedia.org/wiki/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0)）
+    ![mul_activate](img/mul_activation_func.png)
      
-     ![activate](img/sing_activation_func.jpeg)
-     
-     <center>单变量输入激活函数</center>
-     
-     ![mul_activate](img/mul_activation_func.png)
-     
-     <center>多变量输入激活函数</center>
+    <center>多变量输入激活函数</center>
 
 ### 1.3 神经网络的参数优化
 
@@ -102,21 +102,21 @@
    
     损失函数（loss function）又称为代价函数（cost function），用来计算模型预测值与真实值之间的误差。即损失函数量化了当前神经网络的效果有多好。
    
-   * 均方误差（Mean Square Error）
-     
-     $$
-     E = \frac{1}{2} \sum_k(y_k - t_k)^2
-     $$
-   
-   * 交叉熵误差（Cross Entropy Error）
-     
-     $$
-     E(y_i, \hat y_i) = -y_i \ log \ \hat y_i
-     $$
-     
-     $$
-     E = -\sum_i y_i \ log \ \hat y_i
-     $$
+    * 均方误差（Mean Square Error）
+        
+        $$
+        E = \frac{1}{2} \sum_k(y_k - t_k)^2
+        $$
+    
+    * 交叉熵误差（Cross Entropy Error）
+        
+        $$
+        E(y_i, \hat y_i) = -y_i \ log \ \hat y_i
+        $$
+        
+        $$
+        E = -\sum_i y_i \ log \ \hat y_i
+        $$
 
 3. 梯度下降
    
@@ -130,7 +130,7 @@
    
     ![back_propagation](img/back_propagation.png){.img}   
    
-   <center>链式求导与模型参数更新</center>
+    <center>链式求导与模型参数更新</center>
 
 ???+ quote "Reference"
 
@@ -160,29 +160,29 @@
    
     ![convolution](img/convolution.png)
    
-   <center>卷积运算的例子</center>
+    <center>卷积运算的例子</center>
    
-   * 填充
+    * 填充
+        
+        位于被卷积图像边缘位置的像素点无法形成一个以其为中心、与卷积核大小一致的图像子块区域，因此无法对边缘位置的像素点进行卷积滤波。为了使边缘位置的图像像素点也参与卷积滤波，填充技术被提出。该方法在边缘像素点周围填充“0”（即0填充）或者其它值，使得可以以边缘像素点为中心形成与卷积核同样大小的图像子块区域。
+    
+    * 步长
+        
+        !!! note inline end "卷积结果的分辨率"    
+
+            假设被卷积图像大小为 $𝑤×𝑤$、卷积核大小为 $𝐹×𝐹$ 、上下左右四个边缘填充像素行/列数为 $P=⌈𝐹/2⌉$ 、步长为 $𝑆$，则被卷积结果的分辨率是 $\frac{(𝑊−𝐹+2𝑃)}{𝑆}+1 $。 
      
-       位于被卷积图像边缘位置的像素点无法形成一个以其为中心、与卷积核大小一致的图像子块区域，因此无法对边缘位置的像素点进行卷积滤波。为了使边缘位置的图像像素点也参与卷积滤波，填充技术被提出。该方法在边缘像素点周围填充“0”（即0填充）或者其它值，使得可以以边缘像素点为中心形成与卷积核同样大小的图像子块区域。
+        在进行卷积操作时，通常希望被卷积所得的图像分辨率与卷积前的图像分辨率相比逐渐减少，即图像被约减。  
+     
+        步长方法通过改变卷积核在被卷积图像中移动步长的大小来跳过一些像素，进行卷积滤波。当stride = 1时，卷积核滑动跳过1个像素，这是最基本的单步滑动，也是标准的卷积模式。
    
-   * 步长
-     
-     !!! note inline end "卷积结果的分辨率"    
-     
-        假设被卷积图像大小为 $𝑤×𝑤$、卷积核大小为 $𝐹×𝐹$ 、上下左右四个边缘填充像素行/列数为 $P=⌈𝐹/2⌉$ 、步长为 $𝑆$，则被卷积结果的分辨率是 $\frac{(𝑊−𝐹+2𝑃)}{𝑆}+1 $。 
-     
-     在进行卷积操作时，通常希望被卷积所得的图像分辨率与卷积前的图像分辨率相比逐渐减少，即图像被约减。  
-     
-     步长方法通过改变卷积核在被卷积图像中移动步长的大小来跳过一些像素，进行卷积滤波。当stride = 1时，卷积核滑动跳过1个像素，这是最基本的单步滑动，也是标准的卷积模式。
-   
-   * 池化
-     
-     1. 最大池化（max pooling）：从输入特征图的某个区域子块中选择值最大的像素点作为最大池化结果。
-     
-     2. 平均池化（average pooling）：计算区域子块所包含所有像素点的均值，将均值作为平均池化结果。
-     
-     3. k-max池化（k-max pooling）：对输入特征图区域子块中的像素点取前k个最大值。如从包含4个取值的每一列中选取前2个最大值就得到了2-max池化结果。
+    * 池化
+        
+        1. 最大池化（max pooling）：从输入特征图的某个区域子块中选择值最大的像素点作为最大池化结果。
+        
+        2. 平均池化（average pooling）：计算区域子块所包含所有像素点的均值，将均值作为平均池化结果。
+        
+        3. k-max池化（k-max pooling）：对输入特征图区域子块中的像素点取前k个最大值。如从包含4个取值的每一列中选取前2个最大值就得到了2-max池化结果。
         
         ![pooling](img/pooling.png)
 
@@ -196,11 +196,11 @@ LeNet, AlexNet, VGG, U-Net, ResNet, DeepLabV3+, …
   
     ![AlexNet](img/AlexNet.png)
   
-  <center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center>
+    <center>作者为提高效率使用了两块GPU运行，上部分和下部分是对称的</center>
   
     ![AlexNet](img/AlexNet_combine.png)
   
-  <center>输入图像实际大小应该为227 × 227</center>
+    <center>输入图像实际大小应该为227 × 227</center>
   
     ???+ Quote "Refrence"
   
