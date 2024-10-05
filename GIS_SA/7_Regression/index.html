@@ -8,8 +8,6 @@
       
       
       
-        <link rel="canonical" href="https://no-con.github.io/GIS_SA/7_Regression/">
-      
       
         <link rel="prev" href="../6_SpaCorr/">
       
@@ -18,7 +16,7 @@
       
       
       <link rel="icon" href="../../img/logo.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
@@ -1421,26 +1419,23 @@ s_b = \sqrt{\frac{S_e^2}{(n-1)S_x^2}}
 $$</p>
 <h3 id="26">2.6 置信区间的计算<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <ul>
-<li>如果数据中包含的是单个观测值：</li>
-</ul>
+<li>
+<p>如果数据中包含的是单个观测值：</p>
 <p>$$
-  \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
-  $$</p>
-<div class="language-text highlight"><pre><span></span><code>其中：
-
-$t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值；
-
-$S$ 为[估计标准误差](#24)；
-
-$X_i^\*$ 为用于预测Y时的特特定观测值X；
-
-$X_i$ 为样本观测值。
-</code></pre></div>
-<ul>
-<li>如果数据集中还包含来自其它数据集算得的平均值，那么将给出比上面的区间稍窄的结果：
+\hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
+$$</p>
+<p>其中：</p>
+<p>$t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值； </p>
+<p>$S$ 为<a href="#24">估计标准误差</a>；  </p>
+<p>$X_i^*$ 为用于预测Y时的特特定观测值X；  </p>
+<p>$X_i$ 为样本观测值。 </p>
+</li>
+<li>
+<p>如果数据集中还包含来自其它数据集算得的平均值，那么将给出比上面的区间稍窄的结果：
     $$
-    \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} } 
-    $$</li>
+    \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} }
+    $$</p>
+</li>
 </ul>
 <h3 id="27">2.7 二元线性回归分析步骤<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
 <ol>
@@ -1525,7 +1520,7 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
     <!-- mkdocs-git-revision-date-localized-plugin -->
     
     最后更新:
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年9月27日 17:47:39</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">2024年10月5日 22:26:53</span>
     
         <br />
         创建日期:
@@ -1648,10 +1643,10 @@ https://github.com/squidfunk/mkdocs-material/blob/master/src/partials/source-fil
       <div class="md-progress" data-md-component="progress" role="progressbar"></div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.annotate", "navigation.tracking", "navigation.indexes", "navigation.top", "navigation.instant", "navigation.instant.progress", "navigation.sections", "navigation.footer", "navigation.prune", "toc.follow", "search.suggest", "search.highlight", "search.share", "announce.dismiss", "content.code.annotate", "content.code.select", "content.code.copy"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
       
         <script src="../../0_javascripts/extra.js"></script>
       

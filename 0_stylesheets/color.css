@@ -18,42 +18,43 @@
     
     /* --md-default-fg-color:hsla(var(--md-hue), 15%, 30%, 1);  */
     --md-default-fg-color: #388ba9ce;       /* 默认普通字体颜色, 可通过--md-typeset-color修改; 如果S和L值都设为0，搜索框文字颜色一直为白 */
-    --md-default-fg-color--light:hsla(var(--md-hue), 3%, 50%, 1); /* 字体-light 如代码注释、目录已读内容、代码运算符默认为此颜色 */
-    --md-default-fg-color--lighter:hsla(var(--md-hue),3%,70%, 1);
-    --md-default-fg-color--lightest:hsla(var(--md-hue),3%,90%, 1); 
+    --md-default-fg-color--light:hsla(var(--md-hue), 3%, 30%, 1); /* 字体-light 如代码注释、目录已读内容、代码运算符默认为此颜色 */
+    --md-default-fg-color--lighter:hsla(var(--md-hue),3%, 70%, 1);
+    --md-default-fg-color--lightest:hsla(var(--md-hue),3%,95%, 1); 
 
-    --md-default-bg-color: hsla(var(--md-hue), 25%, 95%, 1); /* 主界面背景色*/
+    --md-default-bg-color: hsla(var(--md-hue), 20%, 95%, 1); /* 主界面背景色*/
     /* --md-default-bg-color: #ffc9660e;   */
     --md-default-bg-color--light:hsla(var(--md-hue),15%,21%, 0.54);
     --md-default-bg-color--lighter:hsla(var(--md-hue),15%,21%, 0.26);
     --md-default-bg-color--lightest:hsla(var(--md-hue),15%,21%, 0.07);
 
-    --md-code-fg-color:hsla(var(--md-hue), 1, 1, 1); /* 代码体字体颜色 */
-    --md-code-bg-color:hsla(var(--md-hue), 30%, 88%, 1); /* 代码体背景色 */
-    --md-code-hl-color:#4287ff26; 
-    --md-code-hl-number-color:rgb(156, 79, 7); /* 代码-数字 */
-    --md-code-hl-special-color:#f06090; /* 代码-特殊字符, 如头文件包含 */
-    --md-code-hl-function-color:#a81bc1; /* 代码-函数名 */
-    --md-code-hl-constant-color:#6a52e3; /* 代码-常量 */
-    --md-code-hl-keyword-color:#2a74ff;  /* 代码-关键字 */
-    --md-code-hl-string-color:#00999c;   /* 代码-字符串 */
+    --md-code-bg-color:hsla(var(--md-hue), 8%, 90%, 1); /* 代码体背景色 */
+    /* --md-code-bg-color:rgb(120, 120, 120); 代码体背景色 */
+    --md-code-fg-color:#0008ff;
+    --md-code-hl-color:#0066ff; 
+    --md-code-hl-number-color:rgb(173, 104, 0); /* 代码-数字 */
+    --md-code-hl-special-color:#b60000; /* 代码-特殊字符, 如头文件包含 */
+    --md-code-hl-function-color:#1588db; /* 代码-函数名 */
+    --md-code-hl-constant-color:#855722; /* 代码-常量 */
+    --md-code-hl-keyword-color:#ea0979;  /* 代码-关键字 */
+    --md-code-hl-string-color:#006142;   /* 代码-字符串 */
     /* --md-code-hl-name-color: var(--md-code-fg-color);  */
-    --md-code-hl-name-color: #093a49;  /* 代码-变量名 */
+    --md-code-hl-name-color: #0025cd;  /* 代码-变量名 */
     /* --md-code-hl-operator-color:var(--md-default-fg-color--light);  */
-    --md-code-hl-operator-color: #3e3e3e; /* 代码-运算符 */
+    --md-code-hl-operator-color: #3a3a3a; /* 代码-运算符 */
     /* --md-code-hl-punctuation-color:var(--md-default-fg-color--light); */
-    --md-code-hl-punctuation-color: #094459;  /* 代码-标点符 */
+    --md-code-hl-punctuation-color: #858585;  /* 代码-标点符 */
     /* --md-code-hl-comment-color:var(--md-default-fg-color--light); */
-    --md-code-hl-comment-color: #07ac59;  /* 代码-注释 */
+    --md-code-hl-comment-color: #00a62f;  /* 代码-注释 */
     --md-code-hl-generic-color:var(--md-default-fg-color--light);
     /* --md-code-hl-variable-color:var(--md-default-fg-color--light);  */
-    --md-code-hl-variable-color: #535353;  /* 变量 */
+    --md-code-hl-variable-color: #050303;  /* 变量 */
     
     /* --md-typeset-color:var(--md-default-fg-color); */
     --md-typeset-color: #000000; /* 普通字体颜色 */
     --md-typeset-a-color:var(--md-primary-fg-color); /* 当前页面-目录高亮 */
     /* --md-typeset-a-color: #4004c2; */
-    --md-typeset-mark-color:#24c8ff68; /* 标记颜色，如搜索高亮 */
+    --md-typeset-mark-color:#fff198b1; /* 标记颜色，如搜索高亮 */
 
     /* --md-typeset-kbd-color: hsla(var(--md-hue),15%,50%, 0.9); */
     --md-typeset-kbd-color: #3c7aff;
@@ -76,6 +77,7 @@
     --md-footer-bg-color: #166094; /* 页脚导航栏颜色 */
     /* --md-footer-bg-color--dark: hsla(var(--md-hue),15%, 30%,0.8); */
     --md-footer-bg-color--dark: #166094; /* 页脚背景色 */
+
 
     /* 阴影 */
     /* --md-shadow-z1:0 0.2rem 0.5rem rgba(218, 177, 156, 0.79),0 0 0.05rem #0000001a; */

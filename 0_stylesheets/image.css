@@ -5,4 +5,32 @@
     min-width: 400px;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 5px;
+}
+
+.img50 {
+    width: 50%;
+    height: 80%;
+    object-fit: cover;
+    min-width: 400px;
+    margin-left: 25%;
+    margin-top: 5px;
+}
+
+.img60 {
+    width: 60%;
+    height: 80%;
+    object-fit: cover;
+    min-width: 400px;
+    margin-left: 20%;
+    margin-top: 5px;
+}
+
+.img70 {
+    width: 70%;
+    height: 80%;
+    object-fit: cover;
+    min-width: 400px;
+    margin-left: 15%;
+    margin-top: 5x;
 }
