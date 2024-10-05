@@ -35,7 +35,7 @@ GIS空间分析 课程内容整理
 
    - [x] [导论](https://no-con.github.io/SDB/0_Introduction/)   
    - [x] [地理空间数据库概论](https://no-con.github.io/SDB/1_General/)  
-   - [ ] [关系模型与关系代数](https://no-con.github.io/SDB/2_Relational_Algebra/)  
+   - [x] [关系模型与关系代数](https://no-con.github.io/SDB/2_Relational_Algebra/)  
    - [ ] [关系数据库标准语言](https://no-con.github.io/SDB/3_SQL/)   
    - [ ] [几何对象模型与查询](https://no-con.github.io/SDB/4_GeomObj/)  
    - [ ] [空间扩展ER图](https://no-con.github.io/SDB/5_ER/)  
