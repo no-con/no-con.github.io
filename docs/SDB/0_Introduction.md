@@ -26,7 +26,7 @@
 
 从空间数据到文件结构逐层抽象。
 
-![spatial-data](img/SpatialData.png)
+![spatial-data](img/SpatialData.png){.img}
 
 ## 3 空间分析
 
@@ -58,5 +58,4 @@
 * [Stanford Online Course-Introduction to Databases](https://online.stanford.edu/courses/soe-ydatabases-databases)
 
 * [Minnesota Course-Spatial Data Science](https://www.spatial.cs.umn.edu/Courses/Fall22/5715/)
-
 

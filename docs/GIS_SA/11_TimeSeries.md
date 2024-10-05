@@ -17,17 +17,16 @@ $$
 Y_t = f(T_t, S_t, C_t, I_t)
 $$
 
-
-* $T_t$：长期趋势（Trend），指在较长时期内的变动
-    
-    线性趋势（Linear Trend）      
-    非线性趋势（Non-linear Trend）
-
 !!! note inline end "区分Cyclical和Seasonal"
 
     如果波动不是固定周期的，那么称其为周期性的（Cyclic）；
 
     如果波动周期基本不变且与日历日期有关联，那么称其为季节性的（Seasonal）.
+
+* $T_t$：长期趋势（Trend），指在较长时期内的变动
+    
+    1. 线性趋势（Linear Trend）      
+    2. 非线性趋势（Non-linear Trend）
 
 * $S_t$：季节变动（Seasonal），由季节性因素引起的周期性变动
 

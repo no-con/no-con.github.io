@@ -14,7 +14,7 @@ comments: False
 !!! note "完成进度"
     - [x] [导论](0_Introduction.md) 
     - [x] [地理空间数据库概论](1_General.md)
-    - [ ] [关系模型与关系代数](2_Relational_Algebra.md)
+    - [x] [关系模型与关系代数](2_Relational_Algebra.md)
     - [ ] [关系数据库标准语言](3_SQL.md)
     - [ ] [几何对象模型与查询](4_GeomObj.md)
     - [ ] [空间扩展ER图](5_ER.md)

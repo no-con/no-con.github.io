@@ -136,24 +136,24 @@ $$
 ### 2.6 置信区间的计算
 
 * 如果数据中包含的是单个观测值：
-  
-  $$
-  \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
-  $$
-  
+    
+	$$
+	\hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} + 1} 
+	$$
+    
     其中：
-  
-    $t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值； 
-  
-    $S$ 为[估计标准误差](#24)；  
-  
-    $X_i^\*$ 为用于预测Y时的特特定观测值X；  
-  
-    $X_i$ 为样本观测值。 
+	
+	$t_{\alpha, df}$ 表示显著性水平为$\alpha$、自由度为df时的两个尾部t值； 
+    
+	$S$ 为[估计标准误差](#24)；  
+      
+	$X_i^\*$ 为用于预测Y时的特特定观测值X；  
+      
+	$X_i$ 为样本观测值。 
 
 * 如果数据集中还包含来自其它数据集算得的平均值，那么将给出比上面的区间稍窄的结果：
     $$
-    \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} } 
+    \hat y \pm t_{\alpha, df} * S * \sqrt{\frac{1}{n} + \frac{(x_i^* - \bar x)^2}{\sum (x_i - \bar x)^2} }
     $$
 
 ### 2.7 二元线性回归分析步骤

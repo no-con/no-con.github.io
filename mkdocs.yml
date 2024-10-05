@@ -1,5 +1,5 @@
 site_name: Nocon's notes
-site_url: https://no-con.github.io
+# site_url: https://no-con.github.io
 repo_name: Nocon/Nocon's notes
 repo_url: https://github.com/no-con/no-con.github.io
 
@@ -70,7 +70,7 @@ theme:
     - announce.dismiss # mark as read
     - content.code.annotate 
     - content.code.select
-    # - content.code.copy # 代码复制, 普通用户不可用
+    - content.code.copy # 代码复制, 普通用户不可用 -> 20241005可用
 
   # shortcuts:  # 键盘快捷键, 好像改不了, 不知道为啥。。。
   #   help: 72 # h  
