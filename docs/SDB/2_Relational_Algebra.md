@@ -244,25 +244,25 @@ $$
 
 ### 2.2 传统的集合运算
 
-**并**
+#### **并**
 
 ![union](./img/2_Relational_Algebra/ra-set-union.png){.img70}
 
-**交**
+#### **交**
 
 ![intersection](./img/2_Relational_Algebra/ra-set-intersection.png){.img70}
 
-**差**
+#### **差**
 
 ![minus](./img/2_Relational_Algebra/ra-set-minus.png){.img70}
 
-**广义笛卡尔积**
+#### **广义笛卡尔积**
 
 ![cartesian](./img/2_Relational_Algebra/ra-set-cartesian.png){.img70}
 
 ### 2.3 专门的关系运算
 
-**选择**
+#### **选择**
 
 选择针对单个关系中的数据进行操作，属于一元运算符，是指**从关系中选择若干行**。
 
@@ -272,7 +272,7 @@ $$
     查询表达式中的下标“Sage>19”给出的是选择条件，只有符合该条件的元组才可以被返回到结果中。
     ![select](./img/2_Relational_Algebra/ra-rl-select.png){.img60}
 
-**投影**
+#### **投影**
 
 投影操作($\pi$)是指**从关系中选择若干列**。
 
@@ -283,7 +283,7 @@ $$
     
     ![proj](./img/2_Relational_Algebra/ra-rl-proj.png){.img60}
 
-**连接**
+#### **连接**
 
 `Theta-Join`是最有用的操作之一。
 
@@ -327,8 +327,7 @@ $$
 
 
 
-
-**除**
+#### **除**
 
 除运算可以这样来理解：假设有两个关系A和B，其中A只有两个属性X和Y，B只有一个属性Y(和关系A中的Y属性具有相同的域)，对于A中的每一个x(属性X的取值)所对应的y(属性Y的取值)集合，看它是否包含B中所有的y值，如果包含，则x属于A÷B的结果集。
 
